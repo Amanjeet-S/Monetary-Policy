@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     names = set(filter(None, subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode().split("\0")))
+    if not names:
+        raise SystemExit("No tracked files found; repository validation requires a populated index.")
     targets = names | {parent.as_posix() for name in names for parent in Path(name).parents}
     failures = []
     links_checked = 0
@@ -32,18 +34,24 @@ def main() -> None:
                     or destination.relative_to(ROOT).as_posix() not in targets):
                 failures.append(f"{name}: missing or external local target {target}")
 
-    snapshot = ROOT / "data/raw/2026-09-15"
-    manifest = json.loads((snapshot / "manifest.json").read_text())
-    for entry in manifest["sources"]:
-        if hashlib.sha256((snapshot / entry["file"]).read_bytes()).hexdigest() != entry["sha256"]:
-            failures.append(f"Germany source checksum differs: {entry['file']}")
+    manifests = sorted((ROOT / "data/raw").glob("*/manifest.json"))
+    if not manifests:
+        raise SystemExit("No retained source manifests found.")
+    source_hashes = 0
+    for manifest_path in manifests:
+        snapshot = manifest_path.parent
+        manifest = json.loads(manifest_path.read_text())
+        for entry in manifest["sources"]:
+            source_hashes += 1
+            if hashlib.sha256((snapshot / entry["file"]).read_bytes()).hexdigest() != entry["sha256"]:
+                failures.append(f"Source checksum differs: {snapshot.name}/{entry['file']}")
     migration = json.loads((ROOT / "migration.json").read_text())
     for entry in migration["raw_files"]:
         if hashlib.sha256((ROOT / entry["destination_path"]).read_bytes()).hexdigest() != entry["sha256"]:
             failures.append(f"Migrated snapshot checksum differs: {entry['destination_path']}")
     if failures:
         raise SystemExit("\n".join(failures))
-    print(f"Verified {links_checked} case-sensitive tracked Markdown targets, five source hashes and the migrated snapshot.")
+    print(f"Verified {links_checked} case-sensitive tracked Markdown targets, {source_hashes} source hashes across {len(manifests)} vintages, and the migrated snapshot.")
 
 
 if __name__ == "__main__":

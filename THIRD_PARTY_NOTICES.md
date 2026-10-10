@@ -2,9 +2,9 @@
 
 ## 1. Retained datasets
 
-The unchanged German production and HICP files are sourced from Eurostat, accessed 15 September 2026. Reuse follows the [Eurostat copyright notice](https://ec.europa.eu/eurostat/help/copyright-notice), including source acknowledgement and applicable exceptions. Identify transformations explicitly; Eurostat is not responsible for subsequent calculations or interpretation.
+The unchanged German production and HICP files are sourced from Eurostat, retrieved on 15 September and 10 October 2026. Reuse follows the [Eurostat copyright notice](https://ec.europa.eu/eurostat/help/copyright-notice), including source acknowledgement and applicable exceptions. Identify transformations explicitly; Eurostat is not responsible for subsequent calculations or interpretation.
 
-The unchanged ECB shock CSV files come from [Marek Jarociński's update repository](https://github.com/marekjarocinski/jkshocks_update_ecb) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Cite Jarociński and Karadi (2020), *American Economic Journal: Macroeconomics*, 12(2), 1–43, [DOI 10.1257/mac.20180090](https://doi.org/10.1257/mac.20180090). Exact source hashes and attribution are in the [snapshot manifest](data/raw/2026-09-15/manifest.json).
+The unchanged ECB shock CSV files come from [Marek Jarociński's update repository](https://github.com/marekjarocinski/jkshocks_update_ecb) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Cite Jarociński and Karadi (2020), *American Economic Journal: Macroeconomics*, 12(2), 1–43, [DOI 10.1257/mac.20180090](https://doi.org/10.1257/mac.20180090). Exact source hashes and attribution are in the [September manifest](data/raw/2026-09-15/manifest.json) and [October manifest](data/raw/2026-10-10/manifest.json). The October CSVs are pinned to author revision `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`.
 
 ## 2. Software and original material
 

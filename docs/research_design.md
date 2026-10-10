@@ -1,35 +1,48 @@
 # Research design
 
-## 1. Design stage
+## 1. Economic question and contribution
 
-I have not locked the specification or inspected main estimates. I will record and commit the primary specification before fitting the main model. This document preserves the feasibility-stage question and unresolved methodological choices; it is not a preregistration of a completed design.
+I ask whether the apparent relative response of German consumer-goods production to an ECB rate surprise changes when policy and information components are estimated separately. Sectoral durability heterogeneity is established in Peersman and Smets (2005), Dedola and Lippi (2005), Durante, Ferrando and Vermeulen (2022) and Choi, Willems and Yoo (2024). The particularly close, unpublished Flaccadoro and Ropele (2026) also uses consumer-goods production, information-adjusted shocks and local projections. The [source register](sources.md) distinguishes their outcomes, classifications and consulted versions. A German label or a newer vintage is insufficient for originality; the intended contribution is a matched economic reassessment of information adjustment with a transparent decomposition and joint uncertainty.
 
-## 2. Question and measurement
+The design is not locked and no main response estimates have been inspected. Twelve months remains the proposed primary horizon. I will record the outcome transformation, controls, lag order, sample, shock scale, inference and limited robustness set before estimation.
 
-I ask how unexpected ECB monetary tightening changes German durable consumer-goods production relative to non-durable consumer-goods production. Eurostat's `MIG_DCOG` and `MIG_NDCOG` identify consumer-goods production groups, rather than household consumption or the broader US manufacturing categories. The [source register](sources.md) and [data audit](data_audit.md) record the classifications, index units, seasonal adjustment and retrieval vintage.
+## 2. Measurement and identification
 
-My primary estimand will be the difference between the two production responses at one declared horizon. Twelve months is a candidate, subject to the methodological review. A limited response path will provide context. I will choose the horizon, output transformation, sample rules, lags and controls before the main estimation, with an explicit account of the economic and statistical rationale. I will show the derivation of the response contrast and the uncertainty calculation, including the assumptions and intermediate steps needed to assess them.
+The official consumer-durable production grouping excludes motor-vehicle manufacturing, which belongs to capital goods. It also differs from household purchases and coarse two-digit industry groupings. The [data audit](data_audit.md) records classifications, vintages, exclusions and shock construction. Production can respond through exports, inventories and financing as well as domestic demand.
 
-## 3. Identification and shock construction
+The proposed monetary-policy and information measures are the supplied median-rotation contributions, in common annualised percentage-point units. Their sum reconstructs the near-term rate factor. The update differs from the original Jarociński and Karadi (2020) implementation, and its sign restrictions do not establish exogeneity by themselves. A causal interpretation requires usable announcement-window identification and conditional orthogonality to other production determinants. Bauer and Swanson (2023a) provides a published challenge to interpreting co-movement as proof of private information. I will include both contemporaneous components, justify predetermined controls and state the dependence of inference on the adopted shock construction.
 
-I plan to use the author-maintained update of the decomposition of [Jarociński and Karadi (2020)](https://doi.org/10.1257/mac.20180090), distinguishing monetary-policy shocks from central-bank information shocks. The [source register](sources.md) records that the publisher's abstract and update documentation were consulted, while a full-text methods review remains outstanding. I will review the sign restrictions, event windows, normalisation, aggregation and the distinction between the supplied decompositions before choosing a primary measure. Published identification methods require assumptions; their use does not automatically establish exogeneity in this application.
+## 3. Matched estimands
 
-The feasibility audit recorded 315 dated observations in the inspected raw EA-MPD workbook and 312 rows in the derived event file. I will reconcile those observations against the source documentation and construction code, retaining any exclusion reasons. The raw workbook was inspected previously and is not included in this snapshot. The panel's derived event counts describe only the retained event file and cannot resolve this discrepancy. Missing events must not silently become zero shocks; no-event months, measured zero surprises and missing observations have different meanings.
+For positive production indices $D$ and $N$, my candidate cumulative outcome is
 
-## 4. Estimation and inference
+$$
+Y_{t,h}=100\{\log(D_{t+h}/N_{t+h})-\log(D_{t-1}/N_{t-1})\}.\tag{1}
+$$
 
-I plan to use local projections following [Jordà (2005)](https://doi.org/10.1257/0002828053828518). The [source register](sources.md) records consultation of publisher metadata and the abstract only; full-text review of the method and inference remains outstanding. I will derive a parsimonious specification for this application, justify the outcome transformation using time-series properties, state the shock scale, and document the predetermined control set.
+It measures a difference in cumulative percentage log changes; constant index rebasing cancels. On identical observations and controls $Z$, I compare a projection on policy contribution $m$ and information contribution $c$ with one on their recomposed sum $r=m+c$. The policy coefficient is $\beta_{m,h}$, the information coefficient $\beta_{c,h}$, and the undivided-surprise coefficient $\gamma_h$. The information-adjustment gap is $\delta_h=\gamma_h-\beta_{m,h}$; all response coefficients are percentage log-change points per common declared shock unit. It is a different estimand from the policy response itself.
 
-I will estimate the response difference directly or use a joint procedure preserving covariance between the two series. One significant response and one insignificant response do not establish a significant difference. The inference procedure must address persistent outcomes, serial dependence and overlapping horizons. I will distinguish uncertainty at the primary horizon from simultaneous inference across a response path, and discuss the uncertainty attached to estimated and identified shocks.
+Established partial-regression algebra, reviewed in Ding (2021), gives the exact sample identity
 
-## 5. Robustness and interpretation
+$$
+\widehat\delta_h=\widehat w_{c,h}(\widehat\beta_{c,h}-\widehat\beta_{m,h}),
+\qquad
+\widehat w_{c,h}=\frac{r'M_Zc}{r'M_Zr},\quad
+M_Z=I-Z(Z'Z)^{-1}Z'.\tag{2}
+$$
 
-I will prespecify a small set of checks for lag length, shock decomposition, influential events and crisis-period sensitivity. I will report the observations retained at each horizon and explain losses from transformations, controls and exclusions. A fixed-composition euro-area comparison remains optional and requires an additional metadata review. Common ECB shocks would not provide independent replications across countries.
+This requires common rows, controls and scaling. The control matrix includes an intercept and has full column rank; the residualised two-component design has full rank, positive residual degrees of freedom and nonzero residualised rate variation. The weights need not lie between zero and one. Source-sample orthogonality does not survive automatically after monthly aggregation, control residualisation or horizon trimming. The identity is established projection mathematics, not a new theorem; its economic use is to distinguish component-response differences from the mixture of policy and information news.
 
-I will interpret potential export, inventory and supply mechanisms without claiming to identify them separately. Imprecise, contrary and sensitive results belong in the evidence. I will establish the contribution of this empirical contrast against the closest published research on monetary transmission and durable/non-durable production, then develop an original economic argument supported by the checked evidence. Neither sophisticated implementation nor a familiar result establishes theoretical novelty.
+## 4. Inference and verification
 
-## 6. Specification record and completion
+For population projection coefficients, the estimated mixture weight varies with the sample. I will preserve the joint scores, actual residuals and cross-model score covariance of both regressions, including the covariance between $\widehat\beta_{m,h}$ and $\widehat\delta_h$. Multiplying the component-difference standard error by a fixed sample weight generally omits weight variation under alternatives; if the population weight is zero but the component responses differ, weight variation leads the gap's uncertainty. Product-Wald inference can become nonregular when both the population weight $w_{c,h}$ and component-response difference $\theta_h=\beta_{c,h}-\beta_{m,h}$ vanish; a prespecified projection of a valid joint region for $(w_{c,h},\theta_h)$ is a conservative alternative. Full derivations and boundary cases belong in the paper's appendix.
 
-Before estimation, I will add a dated specification record containing the primary horizon, shock field and scale, outcome formula, sample dates, missing-data and exclusion rules, regressors, lag order, inference method and limited robustness set. I will identify the commit that freezes this record and explain subsequent departures.
+The covariance procedure requires appropriate moment, dependence and rank conditions. Lagged growth controls do not automatically inherit Montiel Olea and Plagborg-Møller's (2021) lag-augmentation theorem; the procedure must reflect the consulted 2026 author corrigendum. HAC bandwidth, finite-sample conventions and calendar alignment require explicit choices. A primary-horizon interval is pointwise; intervals along a response path require separate labelling or valid joint inference. The supplied factor and rotation are not an IV first stage, and ordinary regression uncertainty does not incorporate their construction or identification uncertainty.
 
-Completion requires an auditable estimation sample, a literature-grounded specification, independently checked estimates and uncertainty calculations, reproducible tables and figures, and a paper with explicit limitations. The current notebook and panel establish source access and data alignment only. The [research plan](research_plan.md) sets out the remaining research stages and presentation requirements.
+Python will implement the analysis, with selected coefficients and uncertainty independently checked in R on the same sample. I will retain influence, sample-loss and supported-domain checks, plus a small declared sensitivity set. Refining the study must improve its economic evidence, rather than select a desired significance result.
+
+## 5. Paper and completion
+
+The English paper will address this core monetary-economics question in at most twenty pages, including appendices and bibliographical references. The main text will present the essential setup, key propositions, empirical findings and economic intuition. Long derivations, proofs and specification deviations will be in appendices; footnotes will carry relevant asides. Equations will be numbered. Keywords below the abstract will span the full text line; proposed JEL codes are C22, E32 and E52, following the [AEA classification](https://www.aeaweb.org/econlit/jelCodes.php?view=econlit).
+
+I will use British English, first person singular for my choices and interpretations, numbered sections, author–date citations and an alphabetised bibliography. Every colour figure or table must support and be discussed in the argument. Completion requires a literature-grounded contribution, a recorded primary specification, verified estimates, reproducible evidence and a visually checked LaTeX/PDF pair. Analytical reasoning, articulation, organisation and visual presentation must remain clear without sacrificing necessary detail.

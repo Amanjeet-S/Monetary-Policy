@@ -1,23 +1,25 @@
-# Initial data audit
+# Data and shock-source audit
 
-## 1. Retained source coverage
+## 1. Current and retained vintages
 
-Snapshot date: 15 September 2026. The files are public downloads, preserved unchanged with source URLs and SHA-256 checksums in the [manifest](../data/raw/2026-09-15/manifest.json).
+The [10 October 2026 snapshot](../data/raw/2026-10-10/manifest.json) is the active source vintage. The [15 September snapshot](../data/raw/2026-09-15/manifest.json) remains unchanged. Both preserve downloaded bytes, attribution, units and SHA-256 hashes.
 
-| Series | First observation | Last observation | Rows |
+| Series | First | Last | Current rows |
 | --- | --- | --- | ---: |
-| German durable consumer-goods production | 1991-01 | 2026-07 | 427 |
-| German non-durable consumer-goods production | 1991-01 | 2026-07 | 427 |
-| German all-items HICP | 1996-01 | 2025-12 | 360 |
-| ECB shocks, monthly | 1999-01 | 2025-10 | 322 |
-| ECB shocks, events | 1999-01-07 | 2025-10-30 | 312 |
+| Durable consumer-goods production | 1991-01 | 2026-08 | 428 |
+| Non-durable consumer-goods production | 1991-01 | 2026-08 | 428 |
+| Historical all-items HICP | 1996-01 | 2025-12 | 360 |
+| Monthly policy/information contributions | 1999-01 | 2025-10 | 322 |
+| Event contributions | 1999-01-07 | 2025-10-30 | 312 |
 
-The three German index series have no missing observations inside these reported intervals. The monthly shock file has no duplicate year-month keys or blank numeric fields. The production and monthly shock series overlap for 322 months before lags, controls, exclusions and response-horizon losses.
+The production update adds August 2026 and revises July non-durable production from 92.3 to 91.4; the remaining overlapping observations are unchanged. The historical HICP request is unchanged. Eurostat now supplies a successor classification, whose use must be explicitly decided before specification locking. The available shock vintage is unchanged. Common input coverage remains 322 months before lag and response-horizon losses.
 
-Production uses seasonally and calendar adjusted volume indices, 2021=100. HICP uses the historical all-items classification and 2015=100. Source flags and observation dates remain in the original JSON. This is a current retrieval of historical observations, not an as-published historical vintage.
+Production is seasonally and calendar adjusted, 2021=100. Historical HICP is unadjusted, 2015=100. These are retrieved historical observations, rather than reconstructed real-time vintages. Under [Regulation 2020/1197, Annex II.A](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32020R1197), consumer durables comprise NACE Rev. 2 groups 26.4, 26.7, 27.5, 30.9, division 31, and groups 32.1 and 32.2. Division 29 motor vehicles is capital goods. [Eurostat's transition record](https://ec.europa.eu/eurostat/web/short-term-business-statistics/legislation) retains Rev. 2 through 2027. The two indices therefore cannot be equated with household durable/non-durable expenditure.
 
-## 2. Limitations still to resolve
+## 2. Reconciled construction
 
-I will reconcile event exclusions and aggregation against the author's code and raw EA-MPD data. The inspected raw workbook had 315 dated rows per event-window sheet; the derived CSV contains 312 events. I will review shock normalisation, sign restrictions and decomposition before choosing the primary measure. Transformations, lags, controls and the primary horizon must be specified before estimation. I will review revisions and seasonal-adjustment conventions before interpreting historical comparisons, and evaluate influence and statistical precision. Row counts do not establish adequate power.
+I checked the source update at commit `f7ffc821b0ade71dd38539e4044e25368dfb4dc1` against the raw EA-MPD workbook. Its 315 dated observations become exactly 312 after the implementation's explicit exclusions: 13 September 2001, 17 September 2001 and 8 October 2008, labelled joint Fed–ECB announcements in the source code. All six monthly fields reproduce event sums within recorded floating-point tolerances. Independent uncentred PCA and median-rotation calculations reproduce all supplied rounded factors and components.
 
-The separate raw ECB workbook is linked from the [source register](sources.md) and is not redistributed here. The audit script and notebook reproduce coverage from the included German index and derived shock files without relying on that workbook.
+The 322 months contain 277 months with retained events and 45 without. Six event factors are observed zeros; these can have offsetting nonzero median components and are distinct from empty-event months. No retained rate/equity inputs are missing after the exclusions. The update uses four OIS maturities and scales the factor to one-year OIS-surprise variation before division by 100. A 0.01 movement is one basis point in that normalised factor, not necessarily a one-basis-point policy-rate change.
+
+The [review metadata](../data/metadata/shock_source_review_2026-10-10.json) records exact URLs, hashes, exclusions and source rights. The optional audit reproduces these checks from externally retained source files. Agreement establishes construction and coverage; identifying assumptions and the economic response still require separate analysis.

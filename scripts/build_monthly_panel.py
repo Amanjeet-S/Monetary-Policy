@@ -122,8 +122,8 @@ def build_panel() -> dict:
             "meaning": (
                 "Count of rows in the retained derived event file. Zero within its monthly span "
                 "means no retained rows for that month; it does not establish that no ECB event "
-                "occurred. Counts outside that span are blank. The recorded 315 versus 312 "
-                "raw-to-derived event discrepancy remains unresolved."
+                "occurred. Counts outside that span are blank. Three documented joint-announcement "
+                "exclusions reconcile the 315 raw observations with these 312 retained events."
             ),
         },
         "alignment_conventions": {
@@ -136,7 +136,7 @@ def build_panel() -> dict:
             "No estimation, log transformation, renormalisation or fabricated shocks has been performed.",
             "Complete source coverage does not establish exogeneity, statistical power or a final estimation sample.",
             "Source observations are a retained retrieval of historical values, not an as-published historical vintage.",
-            "Event exclusions, identification assumptions, shock choice, transformations, controls and inference remain unresolved.",
+            "Source exclusions are reconciled; identifying assumptions, primary shock choice, transformations, controls and inference remain to be specified.",
         ],
     }
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)

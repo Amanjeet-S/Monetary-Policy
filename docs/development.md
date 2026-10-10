@@ -1,20 +1,10 @@
-# Reproduction and development
+# Reproduction
 
-## 1. Source audit and monthly alignment
+## 1. Retained-data checks
 
-The initial scripts use the standard library and support Python 3.11 or later. From the repository root:
+Use Python 3.11 or later and the commands in the [README](../README.md). They verify documentation links and both source vintages, report active coverage, and create `data/processed/monthly_panel.csv` and `reports/panel_build.json`. The panel has no imputation, outcome transformation or estimation. Generated files remain outside Git.
 
-```sh
-python3 scripts/check_repository.py
-python3 scripts/audit_germany_data.py
-python3 scripts/build_monthly_panel.py
-```
-
-The first command checks tracked Markdown links and retained source hashes. The second reports source coverage. The third repeats the source audit and creates `data/processed/monthly_panel.csv` and `reports/panel_build.json`. Generated files remain outside version control and can be recreated from the fixed snapshot. These commands require no provider credentials or new data download.
-
-## 2. Notebook environment
-
-The migrated dependency locks support the initial notebook and preserve the declared environment from the source repository. They are not a completed estimation environment. For the notebook, use Python 3.11 or 3.13:
+## 2. Declared notebook environment
 
 ```sh
 python3.11 -m venv .venv
@@ -23,14 +13,14 @@ python -m pip install -r requirements.lock -r requirements-notebooks.lock
 python scripts/execute_notebooks.py
 ```
 
-On Windows, activate with `.venv\Scripts\Activate.ps1`. The notebook runner executes the coverage notebook in a fresh kernel and leaves the saved file unchanged unless `--write` is supplied. The GitHub workflow runs the documentation checks, data audit, panel construction and notebook execution on Python 3.11 and 3.13.
+On Windows, activate with `.venv\Scripts\Activate.ps1`. Notebook execution uses a fresh kernel and preserves the saved file unless `--write` is supplied. The GitHub workflow runs the retained-data checks and notebook on Python 3.11 and 3.13.
 
-## 3. Changes and interpretation
+## 3. Optional source reconstruction
 
-I retain source files unchanged and record any new downloads in a separate dated directory with their own metadata and hashes. New data must come from free sources or existing authorised institutional access at no additional cost. I record unsuccessful checks and material limitations alongside successful results.
+Download the eight unchanged files listed in the [review metadata](../data/metadata/shock_source_review_2026-10-10.json) to their stated relative paths under a directory outside the repository. Then run:
 
-The initial monthly panel has no outcome transformation, renormalisation, imputation or estimation. Available index dates define its calendar; blank cells preserve unavailable inputs. `derived_event_count` counts rows in the retained derived event file within its coverage window, including months with zero such rows. It does not identify omitted ECB events or establish complete event coverage. The [research design](research_design.md) must be resolved before treating the panel as an estimation sample.
+```sh
+python scripts/reconcile_shock_sources.py --evidence /absolute/path/to/source-files
+```
 
-## 4. Analysis and paper verification
-
-The completed analysis will include an independently implemented check in R of selected Python coefficients and uncertainty calculations, using the same sample and conventions. I will retain meaningful numerical, supported-domain and failure checks, and distinguish their implementation coverage from evidence for causal identification. Paper tables and figures must be generated from the retained analysis. The final notebook, LaTeX source and visually checked PDF must agree with the reported findings and with the documented reproduction route.
+The full reconstruction uses the declared NumPy dependency; `--skip-construction` permits standard-library coverage and aggregation checks. The metadata pins hashes and the author revision. The ECB workbook URL is mutable, so a later download may fail the recorded hash check. These external files and copyrighted paper texts are not redistributed here. The completed analysis will add the R comparison and commands regenerating its tables, figures and LaTeX/PDF.

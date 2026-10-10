@@ -10,7 +10,7 @@ import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT = ROOT / "data/raw/2026-09-15"
+SNAPSHOT = ROOT / "data/raw/2026-10-10"
 
 
 def months_between(first: str, last: str) -> list[str]:

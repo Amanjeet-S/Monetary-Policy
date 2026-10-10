@@ -1,0 +1,50 @@
+{
+  "migration_date": "2026-10-10",
+  "source_repository": "https://github.com/Amanjeet-S/Quantitative-Finance",
+  "source_commit": "281e007cb89673fa49270bd5c92a636080a369c3",
+  "source_worktree_clean": true,
+  "destination_repository": "https://github.com/Amanjeet-S/Monetary-Policy",
+  "visibility": "private",
+  "raw_files": [
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/eurostat_DE_MIG_DCOG.json",
+      "destination_path": "data/raw/2026-09-15/eurostat_DE_MIG_DCOG.json",
+      "sha256": "04293b6e061c9c2e6ec9959640b4c86f0a960d94ab389b8044caa069e6a17ca9"
+    },
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/eurostat_DE_MIG_NDCOG.json",
+      "destination_path": "data/raw/2026-09-15/eurostat_DE_MIG_NDCOG.json",
+      "sha256": "1cbe9d7d0957436022ca87efcbf17c3155bf70473ab6c6d9fa8de94715c94cb6"
+    },
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/eurostat_hicp_DE.json",
+      "destination_path": "data/raw/2026-09-15/eurostat_hicp_DE.json",
+      "sha256": "42c1aba25e900b1e29ece1c6e41e83c2e8d3af23eccbc68fdf0a991e7b978000"
+    },
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/jk_ecb_events.csv",
+      "destination_path": "data/raw/2026-09-15/jk_ecb_events.csv",
+      "sha256": "2327230c45a97c8733ccefba45de354d6e37965c553983ea5ac98badfce413e8"
+    },
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/jk_ecb_monthly.csv",
+      "destination_path": "data/raw/2026-09-15/jk_ecb_monthly.csv",
+      "sha256": "89c5b2ec39509057b3c71f44218424fc8d15d4041b16f31c96613f8fe0965534"
+    },
+    {
+      "source_path": "data/public/germany_monetary_policy/2026-09-15/manifest.json",
+      "destination_path": "data/raw/2026-09-15/manifest.json",
+      "sha256": "abd077e16c975756f146887302dfeef788aed516aba961ce6803531b06c1ab57"
+    }
+  ],
+  "adapted_material": {
+    "projects/germany_monetary_policy/SOURCES.md": "docs/sources.md",
+    "projects/germany_monetary_policy/data_audit.md": "docs/data_audit.md",
+    "projects/germany_monetary_policy/research_design.md": "docs/research_design.md",
+    "projects/germany_monetary_policy/notebooks/data_coverage.ipynb": "notebooks/data_coverage.ipynb",
+    "scripts/audit_germany_data.py": "scripts/audit_germany_data.py",
+    "scripts/check_repository.py": "scripts/check_repository.py",
+    "scripts/execute_notebooks.py": "scripts/execute_notebooks.py"
+  },
+  "limitations": "Initial data access and coverage only; no main estimates or full-text review added by migration."
+}

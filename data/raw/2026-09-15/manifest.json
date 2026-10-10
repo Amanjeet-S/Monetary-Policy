@@ -1,0 +1,70 @@
+{
+  "purpose": "data_access_and_coverage_audit_only",
+  "snapshot_date": "2026-09-15",
+  "sources": [
+    {
+      "file": "eurostat_DE_MIG_DCOG.json",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?lang=en&freq=M&unit=I21&s_adj=SCA&indic_bt=PRD&geo=DE&nace_r2=MIG_DCOG",
+      "access_date": "2026-09-15",
+      "sha256": "04293b6e061c9c2e6ec9959640b4c86f0a960d94ab389b8044caa069e6a17ca9",
+      "bytes": 40054,
+      "modifications": "None; original source bytes retained",
+      "provider": "Eurostat",
+      "reuse_url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+      "attribution": "Source: Eurostat, accessed 15 September 2026",
+      "retrieved_utc": "2026-09-15T21:42:52.719339+00:00",
+      "units": "Volume index, 2021=100; seasonally and calendar adjusted"
+    },
+    {
+      "file": "eurostat_DE_MIG_NDCOG.json",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?lang=en&freq=M&unit=I21&s_adj=SCA&indic_bt=PRD&geo=DE&nace_r2=MIG_NDCOG",
+      "access_date": "2026-09-15",
+      "sha256": "1cbe9d7d0957436022ca87efcbf17c3155bf70473ab6c6d9fa8de94715c94cb6",
+      "bytes": 39931,
+      "modifications": "None; original source bytes retained",
+      "provider": "Eurostat",
+      "reuse_url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+      "attribution": "Source: Eurostat, accessed 15 September 2026",
+      "retrieved_utc": "2026-09-15T21:42:52.710823+00:00",
+      "units": "Volume index, 2021=100; seasonally and calendar adjusted"
+    },
+    {
+      "file": "eurostat_hicp_DE.json",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx?lang=en&freq=M&unit=I15&coicop=CP00&geo=DE",
+      "access_date": "2026-09-15",
+      "sha256": "42c1aba25e900b1e29ece1c6e41e83c2e8d3af23eccbc68fdf0a991e7b978000",
+      "bytes": 19002,
+      "modifications": "None; original source bytes retained",
+      "provider": "Eurostat",
+      "reuse_url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+      "attribution": "Source: Eurostat, accessed 15 September 2026",
+      "units": "Index, 2015=100"
+    },
+    {
+      "file": "jk_ecb_monthly.csv",
+      "source_url": "https://raw.githubusercontent.com/marekjarocinski/jkshocks_update_ecb/main/shocks_ecb_mpd_me_m.csv",
+      "access_date": "2026-09-15",
+      "sha256": "89c5b2ec39509057b3c71f44218424fc8d15d4041b16f31c96613f8fe0965534",
+      "bytes": 21768,
+      "modifications": "None; original source bytes retained",
+      "provider": "Marek Jarociński, update of Jarociński and Karadi (2020)",
+      "reuse_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Jarociński and Karadi (2020), AEJ: Macroeconomics 12(2), 1–43, DOI 10.1257/mac.20180090; author-maintained update, accessed 15 September 2026",
+      "retrieved_utc": "2026-09-15T21:38:12.835321+00:00",
+      "units": "Policy factor in percentage points per annum; equity surprise is 100 times log change; see upstream definitions"
+    },
+    {
+      "file": "jk_ecb_events.csv",
+      "source_url": "https://raw.githubusercontent.com/marekjarocinski/jkshocks_update_ecb/main/shocks_ecb_mpd_me_d.csv",
+      "access_date": "2026-09-15",
+      "sha256": "2327230c45a97c8733ccefba45de354d6e37965c553983ea5ac98badfce413e8",
+      "bytes": 24416,
+      "modifications": "None; original source bytes retained",
+      "provider": "Marek Jarociński, update of Jarociński and Karadi (2020)",
+      "reuse_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Jarociński and Karadi (2020), AEJ: Macroeconomics 12(2), 1–43, DOI 10.1257/mac.20180090; author-maintained update, accessed 15 September 2026",
+      "retrieved_utc": "2026-09-15T21:38:13.426225+00:00",
+      "units": "Policy factor in percentage points per annum; equity surprise is 100 times log change; see upstream definitions"
+    }
+  ]
+}

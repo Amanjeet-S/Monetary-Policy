@@ -6,7 +6,7 @@ I investigate whether separating monetary-policy and information components chan
 
 ## 2. Evidence and status
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. Main estimation, independent verification and the paper remain outstanding.
+The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The paper remains outstanding.
 
 ## 3. Reproduction
 

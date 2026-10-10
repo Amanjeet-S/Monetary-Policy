@@ -49,6 +49,18 @@ def main() -> None:
     for entry in migration["raw_files"]:
         if hashlib.sha256((ROOT / entry["destination_path"]).read_bytes()).hexdigest() != entry["sha256"]:
             failures.append(f"Migrated snapshot checksum differs: {entry['destination_path']}")
+    summary_path = ROOT / "results/summary.json"
+    if summary_path.exists():
+        summary = json.loads(summary_path.read_text())
+        estimates = ROOT / "results/estimates.csv"
+        specification = ROOT / "docs/primary_specification.json"
+        verification = json.loads((ROOT / "results/verification.json").read_text())
+        if hashlib.sha256(estimates.read_bytes()).hexdigest() != summary["estimates_sha256"]:
+            failures.append("Recorded estimate checksum differs")
+        if hashlib.sha256(specification.read_bytes()).hexdigest() != summary["specification_sha256"]:
+            failures.append("Primary specification differs from the recorded analysis")
+        if verification["status"] != "passed":
+            failures.append("Recorded independent numerical verification has not passed")
     if failures:
         raise SystemExit("\n".join(failures))
     print(f"Verified {links_checked} case-sensitive tracked Markdown targets, {source_hashes} source hashes across {len(manifests)} vintages, and the migrated snapshot.")

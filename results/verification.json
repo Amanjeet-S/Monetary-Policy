@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "selected_cases": 9,
+  "numeric_comparisons": 351,
+  "maximum_absolute_difference": 1.0369483049998962e-13,
+  "absolute_tolerance": 1e-08,
+  "relative_tolerance": 1e-07,
+  "scope": "Independent transformations, samples, QR estimates, joint calendar covariance and intervals; not causal identification",
+  "r_runtime": "Rscript (R) version 4.6.1 (2026-06-24)",
+  "verification_run": "https://github.com/Amanjeet-S/Monetary-Policy/actions/runs/38093902650",
+  "implementation_commit": "bc96efb143d66232858173ebb7453926d358188c"
+}

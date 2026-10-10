@@ -39,7 +39,7 @@ For population projection coefficients, the estimated mixture weight varies with
 
 The covariance procedure requires appropriate moment, dependence and rank conditions. Lagged growth controls do not automatically inherit Montiel Olea and Plagborg-Møller's (2021) lag-augmentation theorem; the procedure must reflect the consulted 2026 author corrigendum. The Bartlett bandwidth is $L=h+\lceil4(n/100)^{2/9}\rceil$, with one common $n/(n-k_F)$ covariance adjustment and actual calendar distances. This bandwidth grows with sample size; the finite-sample approximation still requires assessed score regularity. The response path uses January 2000 to August 2024 common origins, 296 observations. A primary-horizon interval is pointwise; intervals along a response path require separate labelling or valid joint inference. The supplied factor and rotation are not an IV first stage, and ordinary regression uncertainty does not incorporate their construction or identification uncertainty.
 
-Python will implement the analysis, with selected coefficients and uncertainty independently checked in R on the same sample. I will retain influence, sample-loss and supported-domain checks, plus a small declared sensitivity set. Refining the study must improve its economic evidence, rather than select a desired significance result.
+Python implements the analysis; selected coefficients and uncertainty were independently reconstructed in base R on identical samples. The [results note](results.md) reports the findings and their limits. I retain influence, sample-loss and supported-domain checks alongside the declared sensitivity set. Refining the study must improve its economic evidence, rather than select a desired significance result.
 
 ## 5. Paper and completion
 

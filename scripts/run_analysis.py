@@ -21,6 +21,8 @@ SPEC_PATH = ROOT / 'docs/primary_specification.json'
 
 
 def read_specification() -> tuple[dict, str]:
+    if subprocess.check_output(["git","rev-parse","--is-shallow-repository"],cwd=ROOT).strip() == b"true":
+        raise ValueError("Full Git history is required to verify the pre-estimation specification revision")
     if subprocess.check_output(['git','status','--porcelain','--',str(SPEC_PATH)],cwd=ROOT).strip():
         raise ValueError('Primary specification must be committed and unchanged before estimation')
     commit = subprocess.check_output(['git','log','-1','--format=%H','--',str(SPEC_PATH)],cwd=ROOT).decode().strip()

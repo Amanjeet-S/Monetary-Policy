@@ -4,7 +4,7 @@
 
 I separated this project from [Quantitative-Finance](https://github.com/Amanjeet-S/Quantitative-Finance) on 10 October 2026. The source checkout was clean at commit `281e007cb89673fa49270bd5c92a636080a369c3`. The migrated project was `projects/germany_monetary_policy/`, with data under `data/public/germany_monetary_policy/` and associated audit scripts. The source repository's unrelated studies, private inputs and full Git history have not been imported.
 
-The source register and data audit retain their earlier consultation and retrieval records. I adapted local paths, organised the single-project layout, re-executed the coverage notebook in a fresh kernel, and added a writing-sample plan and untransformed monthly panel construction. These changes do not constitute new consultation of the cited paper texts.
+The source register and data audit retain their earlier consultation and retrieval records. I adapted local paths, organised the single-project layout, re-executed the coverage notebook in a fresh kernel, and added a research plan and untransformed monthly panel construction. These changes do not constitute new consultation of the cited paper texts.
 
 ## 2. Source data
 

@@ -2,7 +2,7 @@
 
 ## 1. Research question
 
-I investigate how unexpected ECB monetary tightening affects German durable relative to non-durable consumer-goods production. I am developing this quantitative economics project as an individual research paper within a twenty-page limit. The paper will explain the economic problem, derive its empirical comparison, and develop an original argument from checked mathematics and retained evidence. The [research design](docs/research_design.md) records the proposed estimand and unresolved choices; the [writing-sample plan](docs/writing_sample_plan.md) sets the research and presentation requirements.
+I investigate how unexpected ECB monetary tightening affects German durable relative to non-durable consumer-goods production. The paper will explain the economic problem, derive its empirical comparison, and develop an original argument from checked mathematics and retained evidence. The [research design](docs/research_design.md) records the proposed estimand and unresolved choices; the [research plan](docs/research_plan.md) sets the research and presentation requirements.
 
 Production reflects exports, inventories and supply conditions as well as domestic demand. The response difference therefore requires an explicit account of its identifying assumptions and economic interpretation. Its contribution must be established against the relevant published literature before estimation and writing are treated as complete.
 
@@ -26,7 +26,7 @@ These scripts require no credentials or download. The generated panel retains so
 
 ## 4. Research package
 
-The finished project will include a concise LaTeX paper and matching PDF, an executable notebook, analysis code, independently checked estimates and uncertainty calculations, and reproducible figures and tables. Every display will support a stated part of the economic argument. The paper will use British English, first person singular for my research choices, numbered sections, author–date references and keywords immediately after the abstract. The final paper will be checked against its page-count and presentation requirements.
+The finished project will include a concise LaTeX paper and matching PDF, an executable notebook, analysis code, independently checked estimates and uncertainty calculations, and reproducible figures and tables. Every display will support a stated part of the economic argument. The paper will use British English, first person singular for my research choices, numbered sections, author–date references and keywords immediately after the abstract.
 
 This repository is private. Original and third-party rights are recorded in [licensing](LICENSING.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Research development uses free sources or existing authorised access at no additional cost.
 

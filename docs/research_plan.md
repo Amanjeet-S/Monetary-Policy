@@ -1,8 +1,8 @@
-# Writing-sample development plan
+# Research development plan
 
 ## 1. Purpose and scope
 
-I am developing an individual quantitative economics paper with a maximum of twenty pages. The research connects economic formulation, mathematical reasoning, econometric identification and inference, implementation, independent judgement and clear communication. I will check the final paper's page count and presentation before release.
+I investigate heterogeneity in the response of German consumer-goods production to unexpected ECB monetary tightening. I will connect the economic question to a defined estimand, justify identification and inference, implement and independently verify the analysis, and explain the resulting evidence. The main paper will be concise, with a maximum of twenty pages and necessary technical detail retained in supporting material.
 
 My question is how unexpected ECB monetary tightening affects German durable relative to non-durable consumer-goods production. The [research design](research_design.md) develops the proposed response contrast. The [data audit](data_audit.md) and [source register](sources.md) establish the available evidence and consultation record. The primary specification and main estimates remain outstanding.
 
@@ -18,7 +18,7 @@ I will attribute established identification and estimation methods at the releva
 
 I will first reconcile the recorded 315 dated raw EA-MPD observations with the 312 retained derived events, review event exclusions and monthly aggregation, and establish the shock decomposition, sign and scale. Missing observations, months without retained events and measured zero surprises require distinct treatment. I will review the production and price classifications, units, seasonal adjustment and revisions. Before locking the design, I will check whether free sources provide a later suitable vintage and preserve any new retrieval separately from the unchanged snapshot.
 
-The literature review must cover the economic mechanisms and closest empirical comparisons as well as shock identification, local projections and inference. Published peer-reviewed articles take priority. I will check for published successors to working papers, use supplements for a defined gap, and record the version and sections actually consulted. Existing authorised institutional or publisher access can support reading at no additional cost. Metadata or an abstract cannot stand in for a completed full-text methods review.
+The literature review must cover the economic mechanisms and closest empirical comparisons as well as shock identification, local projections and inference. Published peer-reviewed articles take priority. I will check for published successors to working papers, use supplements for a defined gap, and record the version and sections actually consulted. Existing Safari institutional or publisher access can support reading at no additional cost. Metadata or an abstract cannot stand in for a completed full-text methods review.
 
 I will then record and commit the primary horizon, output formula, shock measure and normalisation, sample dates, lags, controls, missingness and exclusion rules, inference procedure and limited robustness set before inspecting main estimates. Later departures will be dated and explained, with exploratory analysis identified. A local specification record documents research sequence; its existence alone establishes neither external preregistration nor causal identification.
 
@@ -32,7 +32,7 @@ Independent critical review will challenge the economic interpretation, literatu
 
 ## 5. Paper and repository presentation
 
-The main paper will present the question, economic reasoning, identification, principal evidence and interpretation in connected research prose. Essential derivations will remain in the paper; longer proofs and verification details can be placed in supporting material within my twenty-page limit. The abstract will state the question, approach and principal finding concisely. Keywords will appear below it. I will use the established article layout, British English, first person singular for my decisions and interpretations, numbered sections, author–date citations and an alphabetised bibliography. Amanjeet Singh will appear on the author line and in the relevant file metadata.
+The main paper will present the question, economic reasoning, identification, principal evidence and interpretation in connected research prose. Essential derivations will remain in the paper. The main paper will remain within twenty pages; longer proofs and verification details may be retained in separate supporting material. The abstract will state the question, approach and principal finding concisely. Keywords will appear below it. I will use the established article layout, British English, first person singular for my decisions and interpretations, numbered sections, author–date citations and an alphabetised bibliography. Amanjeet Singh will appear on the author line and in the relevant file metadata.
 
 Every table and figure must clarify a substantive claim and be referred to and interpreted in the text. I will choose between prose, tables and plots according to what communicates the evidence most clearly. Colour figures will have readable labels, units, legends and uncertainty descriptions, with legends clear of the plotted evidence. Two- or three-dimensional displays are appropriate only when they add information. Mathematical notation will follow conventional journal typesetting, and the final PDF will be visually checked for overflow and obscured content.
 

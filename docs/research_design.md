@@ -2,7 +2,7 @@
 
 ## 1. Design stage
 
-I have not locked the specification or inspected main estimates. I am developing this study as a quantitative economics research paper within a twenty-page limit. I will record and commit the primary specification before fitting the main model. This document preserves the feasibility-stage question and unresolved methodological choices; it is not a preregistration of a completed design.
+I have not locked the specification or inspected main estimates. I will record and commit the primary specification before fitting the main model. This document preserves the feasibility-stage question and unresolved methodological choices; it is not a preregistration of a completed design.
 
 ## 2. Question and measurement
 
@@ -32,4 +32,4 @@ I will interpret potential export, inventory and supply mechanisms without claim
 
 Before estimation, I will add a dated specification record containing the primary horizon, shock field and scale, outcome formula, sample dates, missing-data and exclusion rules, regressors, lag order, inference method and limited robustness set. I will identify the commit that freezes this record and explain subsequent departures.
 
-Completion requires an auditable estimation sample, a literature-grounded specification, independently checked estimates and uncertainty calculations, reproducible tables and figures, and a paper with explicit limitations. The current notebook and panel establish source access and data alignment only. The [writing-sample plan](writing_sample_plan.md) sets out the remaining research stages and presentation requirements for this monetary-economics study.
+Completion requires an auditable estimation sample, a literature-grounded specification, independently checked estimates and uncertainty calculations, reproducible tables and figures, and a paper with explicit limitations. The current notebook and panel establish source access and data alignment only. The [research plan](research_plan.md) sets out the remaining research stages and presentation requirements.

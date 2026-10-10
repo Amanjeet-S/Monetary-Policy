@@ -1,20 +1,20 @@
 # ECB monetary policy and consumer-goods production in Germany
 
-## 1. Research purpose
+## 1. Research question
 
-I investigate how unexpected ECB monetary tightening affects German durable relative to non-durable consumer-goods production. I am developing this quantitative economics project as a focused research paper. The intended contribution is a focused empirical comparison supported by transparent identification, econometric inference and reproducible evidence. I do not claim a new identification method or theoretical result.
+I investigate how unexpected ECB monetary tightening affects German durable relative to non-durable consumer-goods production. I am developing this quantitative economics project as an individual research paper within a twenty-page limit. The paper will explain the economic problem, derive its empirical comparison, and develop an original argument from checked mathematics and retained evidence. The [research design](docs/research_design.md) records the proposed estimand and unresolved choices; the [writing-sample plan](docs/writing_sample_plan.md) sets the research and presentation requirements.
 
-The principal estimand is the difference between the two production responses at a horizon declared before the main estimation. Production reflects exports, inventories and supply conditions as well as domestic demand, so this comparison cannot separately identify a household-consumption channel. The [research design](docs/research_design.md) records the unresolved choices and the [writing-sample plan](docs/writing_sample_plan.md) defines the route to a finished paper.
+Production reflects exports, inventories and supply conditions as well as domestic demand. The response difference therefore requires an explicit account of its identifying assumptions and economic interpretation. Its contribution must be established against the relevant published literature before estimation and writing are treated as complete.
 
-## 2. Current status
+## 2. Current evidence
 
-The attributed source snapshot, coverage audit and initial monthly data alignment are available. The snapshot contains 322 common monthly observations from January 1999 to October 2025 before transformations, lags and response-horizon losses. All five retained source files are checked against their original SHA-256 hashes. No local-projection estimates or causal findings have been produced, and the primary specification is not locked.
+The attributed source snapshot, coverage notebook and initial monthly panel are available. The production, price and shock series overlap for 322 months from January 1999 to October 2025 before transformations, lags and response-horizon losses. The five source files retain their original SHA-256 hashes. Specification, estimation, full-text methodological review and the paper remain outstanding.
 
-The next research milestone is to reconcile event exclusions, review the published identification and inference methods, and record the primary specification before estimation. Python will implement the analysis; selected estimates and uncertainty calculations will subsequently be checked independently in R. The current code supports source auditing and data alignment only.
+The [source register](docs/sources.md) records the versions actually consulted. The [data audit](docs/data_audit.md) identifies coverage and unresolved event exclusions. The [migration record](PROVENANCE.md) preserves the original snapshot and repository revision. This repository contains all inputs needed for the initial audit and panel construction.
 
 ## 3. Reproduction
 
-The source audit and panel construction use the Python standard library and require no download or credentials. From this repository's root, with Python 3.11 or later:
+From the repository root, with Python 3.11 or later:
 
 ```sh
 python3 scripts/check_repository.py
@@ -22,18 +22,14 @@ python3 scripts/audit_germany_data.py
 python3 scripts/build_monthly_panel.py
 ```
 
-The panel retains the source indices and supplied monthly shock measures without transformation or imputation. Generated files are written to `data/processed/` and `reports/` and remain outside Git. The [development guide](docs/development.md) describes the optional notebook environment and fresh execution of the [coverage notebook](notebooks/data_coverage.ipynb). The [data audit](docs/data_audit.md) and [data guide](data/README.md) state the measurement and coverage limits.
+These scripts require no credentials or download. The generated panel retains source index levels, supplied shock measures and missing inputs. The [development guide](docs/development.md) provides the optional notebook environment and fresh execution command for the [coverage notebook](notebooks/data_coverage.ipynb). The [data guide](data/README.md) explains the fields and generated files.
 
-## 4. Evidence and provenance
+## 4. Research package
 
-The [source register](docs/sources.md) records publication details and the versions actually consulted. The [migration record](PROVENANCE.md) identifies the source repository revision and preserved snapshot. The source files remain unchanged; path changes and subsequent work are recorded separately. Prior consultation records have not been upgraded to full-text reviews by this migration.
+The finished project will include a concise LaTeX paper and matching PDF, an executable notebook, analysis code, independently checked estimates and uncertainty calculations, and reproducible figures and tables. Every display will support a stated part of the economic argument. The paper will use British English, first person singular for my research choices, numbered sections, author–date references and keywords immediately after the abstract. The final paper will be checked against its page-count and presentation requirements.
 
-This repository is private. Free sources and existing authorised institutional access are the permitted acquisition routes. [Third-party notices](THIRD_PARTY_NOTICES.md) and [licensing](LICENSING.md) retain the applicable rights in migrated material. A private repository does not change permissions already granted for previously released material.
+This repository is private. Original and third-party rights are recorded in [licensing](LICENSING.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Research development uses free sources or existing authorised access at no additional cost.
 
-## 5. Writing sample
-
-The paper will connect an economic question to a defined estimand, explain the identifying assumptions, report uncertainty for the response difference, and assess sensitivity to a small prespecified robustness set. I will distinguish established methods, any checked project-specific derivations, numerical findings and interpretation. The intended argument remains to be established by retained evidence. A twenty-page paper and a 2,000-word version are provisional internal drafting targets.
-
-## 6. Keywords
+## 5. Keywords
 
 Monetary economics; ECB monetary policy; Germany; consumer-goods production; local projections; econometric inference.

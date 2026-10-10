@@ -2,13 +2,13 @@
 
 ## 1. Design stage
 
-I have not locked the specification or inspected main estimates. I will record and commit the primary specification before fitting the main model. This document preserves the feasibility-stage question and unresolved methodological choices; it is not a preregistration of a completed design.
+I have not locked the specification or inspected main estimates. I am developing this study as a quantitative economics research paper within a twenty-page limit. I will record and commit the primary specification before fitting the main model. This document preserves the feasibility-stage question and unresolved methodological choices; it is not a preregistration of a completed design.
 
 ## 2. Question and measurement
 
 I ask how unexpected ECB monetary tightening changes German durable consumer-goods production relative to non-durable consumer-goods production. Eurostat's `MIG_DCOG` and `MIG_NDCOG` identify consumer-goods production groups, rather than household consumption or the broader US manufacturing categories. The [source register](sources.md) and [data audit](data_audit.md) record the classifications, index units, seasonal adjustment and retrieval vintage.
 
-My primary estimand will be the difference between the two production responses at one declared horizon. Twelve months is a candidate, subject to the methodological review. A limited response path will provide context. I will choose the horizon, output transformation, sample rules, lags and controls before the main estimation, with an explicit account of the economic and statistical rationale.
+My primary estimand will be the difference between the two production responses at one declared horizon. Twelve months is a candidate, subject to the methodological review. A limited response path will provide context. I will choose the horizon, output transformation, sample rules, lags and controls before the main estimation, with an explicit account of the economic and statistical rationale. I will show the derivation of the response contrast and the uncertainty calculation, including the assumptions and intermediate steps needed to assess them.
 
 ## 3. Identification and shock construction
 
@@ -26,10 +26,10 @@ I will estimate the response difference directly or use a joint procedure preser
 
 I will prespecify a small set of checks for lag length, shock decomposition, influential events and crisis-period sensitivity. I will report the observations retained at each horizon and explain losses from transformations, controls and exclusions. A fixed-composition euro-area comparison remains optional and requires an additional metadata review. Common ECB shocks would not provide independent replications across countries.
 
-I will interpret potential export, inventory and supply mechanisms without claiming to identify them separately. Imprecise, contrary and sensitive results belong in the evidence. The intended project-specific contribution is an empirical response contrast and an assessment of what its assumptions and precision permit me to conclude. Neither sophisticated implementation nor a familiar result establishes theoretical novelty.
+I will interpret potential export, inventory and supply mechanisms without claiming to identify them separately. Imprecise, contrary and sensitive results belong in the evidence. I will establish the contribution of this empirical contrast against the closest published research on monetary transmission and durable/non-durable production, then develop an original economic argument supported by the checked evidence. Neither sophisticated implementation nor a familiar result establishes theoretical novelty.
 
 ## 6. Specification record and completion
 
 Before estimation, I will add a dated specification record containing the primary horizon, shock field and scale, outcome formula, sample dates, missing-data and exclusion rules, regressors, lag order, inference method and limited robustness set. I will identify the commit that freezes this record and explain subsequent departures.
 
-Completion requires an auditable estimation sample, a literature-grounded specification, independently checked estimates and uncertainty calculations, reproducible tables and figures, and a paper with explicit limitations. The current notebook and panel establish source access and data alignment only. The [writing-sample plan](writing_sample_plan.md) records the remaining sequence and provisional drafting targets.
+Completion requires an auditable estimation sample, a literature-grounded specification, independently checked estimates and uncertainty calculations, reproducible tables and figures, and a paper with explicit limitations. The current notebook and panel establish source access and data alignment only. The [writing-sample plan](writing_sample_plan.md) sets out the remaining research stages and presentation requirements for this monetary-economics study.

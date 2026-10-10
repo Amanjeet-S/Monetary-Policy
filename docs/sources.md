@@ -16,3 +16,7 @@ These citations identify established research. The author-maintained data update
 - [ECB EA-MPD workbook](https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx): accessed for the preliminary event-coverage check; not included in the public snapshot.
 
 Access date for the feasibility snapshot: 15 September 2026. Exact download URLs and checksums are in the [manifest](../data/raw/2026-09-15/manifest.json). See [third-party notices](../THIRD_PARTY_NOTICES.md) for reuse conditions. No paper prose, table or figure is reproduced in this project.
+
+## 3. Literature review still required
+
+I will extend the review to the closest published research on monetary transmission, durable/non-durable production responses and the economic mechanisms relevant to this contrast. The review must establish the proposed comparison's contribution and the limits of its interpretation, alongside the full-text identification, local-projection and inference reviews already outstanding. I will record exact versions, consulted sections and the claims they support. This requirement does not add a completed consultation or a new methodological result to the source record.

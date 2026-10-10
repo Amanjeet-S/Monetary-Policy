@@ -31,9 +31,43 @@ jobs:
         run: python -m pip install -r requirements.lock -r requirements-notebooks.lock
       - name: Check documentation and saved sources
         run: python scripts/check_repository.py
+      - name: Verify projection algebra and valid domains
+        run: PYTHONPATH=scripts python -m pytest -q tests
       - name: Audit German data coverage
         run: python scripts/audit_germany_data.py
       - name: Construct the untransformed monthly panel
         run: python scripts/build_monthly_panel.py
       - name: Execute the coverage notebook
         run: python scripts/execute_notebooks.py
+
+  independent-r-check:
+    runs-on: ubuntu-24.04
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05
+        with:
+          r-version: '4.6.1'
+          use-public-rspm: false
+      - name: Install the declared Python environment
+        run: python -m pip install -r requirements.lock
+      - name: Replay the fixed analysis
+        run: python scripts/run_analysis.py --output reports/replay --no-figures
+      - name: Independently reconstruct selected calculations in R
+        run: Rscript scripts/verify_local_projections.R . reports/replay/r_estimates.csv
+      - name: Compare independent estimates and uncertainty
+        run: python scripts/compare_r_results.py reports/replay/estimates.csv reports/replay/r_estimates.csv --report reports/replay/r_verification.json
+      - name: Retain numerical verification
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: projection-verification
+          path: reports/replay/
+          retention-days: 30

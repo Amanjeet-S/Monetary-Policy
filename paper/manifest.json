@@ -13,5 +13,6 @@
   "verification": "https://github.com/Amanjeet-S/Monetary-Policy/actions/workflows/research.yml",
   "author": "Amanjeet Singh",
   "title": "Policy and information news in German consumer-goods production",
-  "language": "en-GB"
+  "language": "en-GB",
+  "independent_verification_run": "https://github.com/Amanjeet-S/Monetary-Policy/actions/runs/38153118953"
 }

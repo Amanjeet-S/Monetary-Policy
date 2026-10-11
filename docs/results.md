@@ -41,7 +41,6 @@ The [post-estimation record](gap_followup_specification.json) acknowledges that 
 
 The [independent supplementary verification](../results/gap_followup_verification.json) passes all 30 numeric comparisons across six cases, using separate R optimisation and independently reconstructed projection estimates.
 
-
 ## 6. Joint stability and identification extension
 
 The [dated extension](extension_specification.json) preserves the locked primary evidence. [Joint contrasts](../results/joint_stability.json) retain construction and overlapping-period covariance. Poor-man less median gives −0.04 with a four-coordinate 95 per cent image [−3.19, 2.28]; earlier period less full gives −0.60 with [−2.35, 0.97]. Neither establishes tight equivalence. A pooled two-slope period test gives p=0.457 under common lag dynamics.
@@ -49,3 +48,5 @@ The [dated extension](extension_specification.json) preserves the locked primary
 The [complete retained-factor rotation assessment](../results/rotation_sensitivity.json) gives closure point bounds [0.02, 9.01] for the gap. A simultaneous conditional Wald envelope [−3.16, 21.18] and marginal-coordinate companion [−1.31, 20.06] both include zero. Their coverage does not include re-estimated factor loadings or sign boundaries.
 
 The [causal sensitivity](../results/causal_sensitivity.json) reports the latent-policy direction response and predetermined-outcome checks. These checks do not reject, but do not verify exclusion. No independently justified excluded instrument is retained. The revised paper distinguishes a conditional causal response from an unconditional causal finding; the gap remains imprecise and construction-sensitive.
+
+The [independent extension verification](../results/extension_verification.json) passes all 261 numerical comparisons in R 4.6.1, with a maximum absolute difference of approximately 2.26 × 10⁻¹³. It verifies calculation rather than causal identification.

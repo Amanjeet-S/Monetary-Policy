@@ -1,0 +1,181 @@
+{
+  "status": "Prospective US household-purchase design before any US spending response fit",
+  "recorded_utc": "2026-10-11T21:52:08.124406+00:00",
+  "author": "Amanjeet Singh",
+  "question": "Does forecast-purged monetary tightening leave a cumulative shortfall in real durable purchases over the following three years?",
+  "country_selection": "Direct household purchase measures, a longer published policy record and observed pre-decision forecasts; selected before US outcome estimation",
+  "source_snapshot": "data/raw/2026-10-11-us-purchases",
+  "snapshot_manifest_sha256": "5fa5f9368a44c6a0ec861df909c915c911fcc67b7d63b382356dfee52c043bba",
+  "sample": {
+    "first_event": "1971-01-12",
+    "last_event": "1996-12-17",
+    "complete_source_events": 263,
+    "analytic_events": 238,
+    "rule": "All original source events with DTARG, all 18 purge inputs and RESID observed. No imputation or undefined-shock substitution.",
+    "excluded_source_dates": [
+      "1969-01-14",
+      "1969-02-04",
+      "1971-08-24",
+      "1971-09-21",
+      "1972-07-18",
+      "1972-08-15",
+      "1972-09-19",
+      "1972-10-17",
+      "1979-10-06"
+    ],
+    "common_rows": "All consumption horizons, categories and policy-lag comparisons use the same 238 complete events from January 1971. This permits 24 genuinely observed prior monthly intentions from January 1969; pre-coverage monthly zeros are not policy observations. Macro-history and 36-month follow-up must be complete"
+  },
+  "treatment": {
+    "name": "Forecast-controlled innovation in intended funds-rate policy",
+    "source": "Original Romer and Romer (2004)",
+    "units": "Annual percentage points; positive is intended tightening",
+    "reported_scale_percentage_points": 0.25,
+    "reconstruction": "DTARG minus the complete source 19-column forecast design times its least-squares coefficient. Verify supplied RESID.",
+    "interpretation": "A policy-intentions innovation and its ensuing endogenous policy path under maintained source information and response assumptions; not a permanent externally imposed rate path"
+  },
+  "primary": {
+    "category": "durable",
+    "horizon_months": 36,
+    "outcome": "sum(Q[t+j]/Q[t-1] for j=1..36)-36",
+    "timing": "t is the decision calendar month. Start with the next full calendar month. Denominator uses the last full pre-decision month.",
+    "units": "Months of the pre-decision real purchase flow, per 25-basis-point intended-policy innovation",
+    "null": "Cumulative response equals zero; two-sided alpha .05",
+    "counterfactual": "Subtracting 36 is a units baseline absorbed by the intercept, not an assumption of flat no-shock purchases"
+  },
+  "conditioning": {
+    "source_forecasts": [
+      "intercept",
+      "OLDTARG",
+      "GRADM",
+      "GRAD0",
+      "GRAD1",
+      "GRAD2",
+      "IGRDM",
+      "IGRD0",
+      "IGRD1",
+      "IGRD2",
+      "GRAYM",
+      "GRAY0",
+      "GRAY1",
+      "GRAY2",
+      "IGRYM",
+      "IGRY0",
+      "IGRY1",
+      "IGRY2",
+      "GRAU0"
+    ],
+    "past_real_states": [
+      "durable",
+      "nondurable",
+      "services",
+      "real_disposable_income"
+    ],
+    "past_real_transforms": "Monthly and trailing twelve-month 100 log growth, both measured at t-1 for each of the four real series",
+    "other_past_states": "Annual 100 log PCE inflation at t-1 and monthly effective funds-rate level at t-1",
+    "policy_history": "Twelve lags of monthly raw DTARG from the original author monthly sheet; use documented raw intentions rather than generated lagged shocks",
+    "total_control_columns": 41,
+    "total_regression_columns": 42,
+    "forecast_timing": "Each event retains its own genuinely pre-meeting source forecasts. Do not sum later within-month forecasts into controls for an earlier decision.",
+    "generated_proxy": "Since all current source purge columns are included, exact partial-regression invariance removes dependence on estimated current purge coefficients. It does not establish exogeneity or correct source measurement."
+  },
+  "inference": {
+    "method": "OLS joint influence scores; sum all same-month event scores before Bartlett calendar-HAC",
+    "primary_bandwidth_months": 41,
+    "bandwidth_reason": "35 months of overlap in 36 full monthly purchase flows, plus a fixed six-month dependence buffer",
+    "finite_correction": "n/(n-k), where n is event observations and k is design rank",
+    "critical_values": "Asymptotic standard normal, with explicit finite-sample qualification",
+    "primary_interval": "95 per cent two-sided pointwise interval for the single declared durable C36 outcome",
+    "endpoint_family": "Bonferroni .05/9 for the three cumulative windows (first12, later24, full36) in each of three categories",
+    "profile_family": "A separate Bonferroni .05/36 family for each category, covering its 36 cumulative monthly endpoints on common rows and bandwidth 41; no joint 108-endpoint coverage claim"
+  },
+  "companions": {
+    "categories": [
+      "durable",
+      "nondurable",
+      "services"
+    ],
+    "windows": {
+      "first12": [
+        1,
+        12
+      ],
+      "later24": [
+        13,
+        36
+      ],
+      "full36": [
+        1,
+        36
+      ]
+    },
+    "identity": "full36=first12+later24 in coefficients and influence scores; use joint covariance, never combine marginal intervals",
+    "flow_profile": "Monthly real purchase-level response 100*(Q[t+h]/Q[t-1]-1), h=1..36, expressed as a percentage of the pre-decision flow, not a percentage of a growing future counterfactual; no inference of full recovery from non-rejection",
+    "quantity_measure": "Official chain quantity indexes. Reference-year nominal anchor and annual-rate factors cancel within each normalised category. Do not add non-additive category chains."
+  },
+  "financial_check": {
+    "series": "DFF",
+    "window": "Mean published daily effective funds rate date+1..+7 less date-7..-1, equal calendar weights, decision day excluded",
+    "rule": "Window fixed before financial relevance or US spending screening; retain all 263 complete source windows, using the declared 238 common analytical rows",
+    "native_implementation": "Estimated overnight-rate response per .25-point intended-policy innovation",
+    "rate_normalisation": "Supplementary ratio of the spending and financial coefficients times .25, with joint HAC Anderson-Rubin inverse 95 per cent set; do not claim intervention on observed DFF",
+    "measurement": "Published historical quotes include repeated non-trading-day observations and documented changes in rate measurement; no interpolation"
+  },
+  "declared_sensitivities": [
+    {
+      "name": "six_policy_lags",
+      "policy_lags": 6
+    },
+    {
+      "name": "twenty_four_policy_lags",
+      "policy_lags": 24
+    },
+    {
+      "name": "short_bandwidth",
+      "bandwidth_months": 35
+    },
+    {
+      "name": "long_bandwidth",
+      "bandwidth_months": 47
+    },
+    {
+      "name": "leverage_adjusted_HAC",
+      "score_adjustment": "Divide each event residual by 1-minus-its-leverage before calendar aggregation"
+    },
+    {
+      "name": "exclude_reserves_targeting",
+      "exclude_event_months": [
+        "1979-10",
+        "1982-10"
+      ],
+      "inclusive": true
+    },
+    {
+      "name": "event_month_start",
+      "outcome_offsets": [
+        0,
+        35
+      ],
+      "purpose": "Sensitivity to omitted partial decision month, with pre-month denominator retained"
+    }
+  ],
+  "diagnostics": {
+    "predetermined_outcome": "sum(Q[t-j]/Q[t-13] for j=1..12)-12; annual pre-decision durable purchases, same controls and rows",
+    "single_event_deletion": "All 238 primary durable C36 point estimates; record undefined designs and most influential dates",
+    "checks": [
+      "Source purge replay",
+      "Exact current-purge FWL invariance",
+      "Common event sample and actual calendar distances",
+      "Joint window coefficient and score identities",
+      "Non-additive real category treatment",
+      "Financial AR topology and zero-test equivalence"
+    ]
+  },
+  "original_evidence_preservation": {
+    "docs/primary_specification.json": "e08af0188332ae0dd04f334f321a73af21d87d7bfaa9e2cd7f9b3b2facbcec84",
+    "results/estimates.csv": "2fdd836f59da36ba29f852ec489836b097d473fe5e547fdac883bdb9afb81c73",
+    "docs/extension_specification.json": "4f0daf3691cde3a4f5ad9e19a3c88c72bd656233f7f0264640fe7a90c317289e",
+    "docs/future_policy_specification.json": "80eee7aabb4ef0103fa63ed1fe4d48bac5fe95b3beaab2906067760015971d88",
+    "results/future_policy_results.json": "e0e11fcd220c9ab5a8af72005b8472412c9b958223561f39a5c66b1e92e76299"
+  },
+  "limits": "Forecast sufficiency, policy-intentions coding, no omitted policy-correlated news, dynamic sequential restrictions and response stability remain maintained assumptions. A linear signed-shock response imposes symmetric easing and tightening effects. Finite 36-month shortfalls are not lifetime losses or evidence against later purchase reversal. Category contrasts do not isolate a household channel."
+}

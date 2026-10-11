@@ -1,0 +1,97 @@
+{
+  "snapshot": "2026-10-11-us-purchases",
+  "research_author": "Amanjeet Singh",
+  "sources": [
+    {
+      "series_id": "DDURRA3M086SBEA",
+      "file": "DDURRA3M086SBEA.csv.gz",
+      "compressed_sha256": "202746abcc2361cb07bd858645d5dded5eedbeb081ff9345349440f4114a456d",
+      "original_sha256": "b2043fd3d5ff15615ec467e924af7e5b8bdc59992849a36ed2da00119be919bf",
+      "original_bytes": 14603,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DDURRA3M086SBEA",
+      "metadata_url": "https://fred.stlouisfed.org/series/DDURRA3M086SBEA",
+      "retrieved_utc": "2026-10-11T20:03:57.799925+00:00",
+      "sha256": "202746abcc2361cb07bd858645d5dded5eedbeb081ff9345349440f4114a456d"
+    },
+    {
+      "series_id": "DNDGRA3M086SBEA",
+      "file": "DNDGRA3M086SBEA.csv.gz",
+      "compressed_sha256": "198a62e289555dd82c9833b975f9b395ce468b67c4c92a4d75c6cbb7a76f669f",
+      "original_sha256": "5532a1a7db1106496b55a284a66b2f0f88e594fbd8990da487eecf8af92acdd5",
+      "original_bytes": 14758,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DNDGRA3M086SBEA",
+      "metadata_url": "https://fred.stlouisfed.org/series/DNDGRA3M086SBEA",
+      "retrieved_utc": "2026-10-11T20:03:57.800405+00:00",
+      "sha256": "198a62e289555dd82c9833b975f9b395ce468b67c4c92a4d75c6cbb7a76f669f"
+    },
+    {
+      "series_id": "DSERRA3M086SBEA",
+      "file": "DSERRA3M086SBEA.csv.gz",
+      "compressed_sha256": "265a13c9ceb9a9268e1a3eaeb65ac6620fad1105473b6360d0f6cb6177c7bb6e",
+      "original_sha256": "35d9bb3ac56aa409b7f0e2deaf0920431524b5b885446e3da3f3ca2d89b8d3f9",
+      "original_bytes": 14749,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DSERRA3M086SBEA",
+      "metadata_url": "https://fred.stlouisfed.org/series/DSERRA3M086SBEA",
+      "retrieved_utc": "2026-10-11T20:03:57.800536+00:00",
+      "sha256": "265a13c9ceb9a9268e1a3eaeb65ac6620fad1105473b6360d0f6cb6177c7bb6e"
+    },
+    {
+      "series_id": "DSPIC96",
+      "file": "DSPIC96.csv.gz",
+      "compressed_sha256": "e4f46aa11f6fda41f37eef3b4596ee3b3ee588e17cdbc47d6b07c53fda2074c8",
+      "original_sha256": "51e76318fb05ce9e09b3432c8c2f645a93a9263ed305500f8b8884273355d62f",
+      "original_bytes": 14955,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DSPIC96",
+      "metadata_url": "https://fred.stlouisfed.org/series/DSPIC96",
+      "retrieved_utc": "2026-10-11T20:04:00.063220+00:00",
+      "sha256": "e4f46aa11f6fda41f37eef3b4596ee3b3ee588e17cdbc47d6b07c53fda2074c8"
+    },
+    {
+      "series_id": "PCEPI",
+      "file": "PCEPI.csv.gz",
+      "compressed_sha256": "a57920d131d3d15f20dc21bb88bcf60aaa9e55fa32ad39fb3e1f545ecbacefb7",
+      "original_sha256": "0f416a343a73a3b723af3315679596eecd7300abb433e8999c6a161d46c22e4f",
+      "original_bytes": 14748,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPI",
+      "metadata_url": "https://fred.stlouisfed.org/series/PCEPI",
+      "retrieved_utc": "2026-10-11T20:03:59.560681+00:00",
+      "sha256": "a57920d131d3d15f20dc21bb88bcf60aaa9e55fa32ad39fb3e1f545ecbacefb7"
+    },
+    {
+      "series_id": "FEDFUNDS",
+      "file": "FEDFUNDS.csv.gz",
+      "compressed_sha256": "80936955988a1561b08aa8ed835fc3971d8b6ad1d44c2e5afb689c16eac52321",
+      "original_sha256": "74680b2d09bb28f90fb30c1c09e93ac2d443de1b7345ba5a9112b3eca9be0a25",
+      "original_bytes": 13959,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FEDFUNDS",
+      "metadata_url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+      "retrieved_utc": "2026-10-11T20:03:59.620448+00:00",
+      "sha256": "80936955988a1561b08aa8ed835fc3971d8b6ad1d44c2e5afb689c16eac52321"
+    },
+    {
+      "series_id": "DFF",
+      "file": "DFF.csv.gz",
+      "compressed_sha256": "655aec5ccf13dda14e002a127770570ad976286818205963ac188d054ce82098",
+      "original_sha256": "a93504210b53532fda653a7ee8d543b00b1780c83f2131e35bb94827a973c2df",
+      "original_bytes": 424203,
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF",
+      "metadata_url": "https://fred.stlouisfed.org/series/DFF",
+      "retrieved_utc": "2026-10-11T21:40:47.507752+00:00",
+      "sha256": "655aec5ccf13dda14e002a127770570ad976286818205963ac188d054ce82098"
+    },
+    {
+      "file": "rr_author_original.xls",
+      "sha256": "4f90c85125443e67177e410245539fc9cec3b9cf22db978ed72463ed63eab24e",
+      "source_url": "https://eml.berkeley.edu/~cromer/Data/Shocks/RomerandRomerDataAppendix.xls",
+      "publication_doi": "10.1257/0002828042002651",
+      "replication_doi": "10.3886/E116025V1",
+      "version": "Original published 2004 source; no later extension spliced",
+      "authors": [
+        "Christina D. Romer",
+        "David H. Romer"
+      ]
+    }
+  ],
+  "compression": "Gzip contains unchanged original download bytes",
+  "status": "Sources retained before fitting any US household response"
+}

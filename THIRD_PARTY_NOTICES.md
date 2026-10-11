@@ -9,3 +9,7 @@ The unchanged ECB shock CSV files come from [Marek Jarociński's update reposito
 ## 2. Software and original material
 
 Dependencies retain their own licences and are installed from the environment files. Migrated, previously released original software uses [MIT](LICENSE), and research writing uses [CC BY 4.0](LICENSES/CC-BY-4.0.txt), within [LICENSING.md](LICENSING.md). These grants preserve independent source rights and exclude private material.
+
+## 3. US household-purchase sources
+
+The US quantity, income and price observations are BEA estimates distributed by FRED; the effective funds-rate observations originate in Federal Reserve H.15. The [snapshot](data/raw/2026-10-11-us-purchases/manifest.json) records exact source bytes and official series links. The unchanged original policy workbook is by Christina D. Romer and David H. Romer, accompanying their 2004 American Economic Review article, DOI 10.1257/0002828042002651, and obtained from their university data page. Original source authorship and applicable rights remain intact; the repository licence does not relicense third-party data. Published article texts are excluded from the repository.

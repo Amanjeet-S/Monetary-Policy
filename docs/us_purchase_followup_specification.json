@@ -1,0 +1,39 @@
+{
+  "author": "Amanjeet Singh",
+  "status": "Bounded diagnostic follow-up informed by the retained US results",
+  "recorded_utc": "2026-10-11T21:57:55.705766+00:00",
+  "earlier_result_revision": "6fdf67b",
+  "primary_specification_sha256": "4b6d52569aa1129c65cef4c432272a0787d9e894299eb5486d72f3508e143c71",
+  "initial_results_sha256": "2c769237e1951af1aad4c83b03cada90ef74694521b36136403bd4c19b3209c1",
+  "reason": "The prespecified origin exclusion gives a more precise C36 response; the full-sample result is sensitive to long policy history and leverage. Cross those two concerns with the exclusion and test the correlated sample difference, without replacing the primary.",
+  "cases": [
+    {
+      "name": "outside_episode_leverage_adjusted",
+      "exclude_months": [
+        "1979-10",
+        "1982-10"
+      ],
+      "policy_lags": 12,
+      "leverage_adjusted": true
+    },
+    {
+      "name": "outside_episode_twenty_four_policy_lags",
+      "exclude_months": [
+        "1979-10",
+        "1982-10"
+      ],
+      "policy_lags": 24,
+      "leverage_adjusted": false
+    }
+  ],
+  "coefficient_contrast": {
+    "name": "outside_episode_minus_full_sample",
+    "outcome": "durable C36",
+    "designs": "Retained primary 42-column design and retained prespecified 42-column origin-excluded design",
+    "covariance": "Embed each design coefficient score on the original 238 event rows, using zero only for deliberately excluded rows. Multiply each design score by sqrt(n/(n-k)), sum within calendar month and apply the same 41-month Bartlett kernel to the joint two-column scores.",
+    "variance": "V_subset+V_full-2*Cov_subset_full; do not compare separate significance labels"
+  },
+  "inference": "Pointwise 95 intervals and an additional Bonferroni .05/3 family across the two crossed durable C36 checks and the sample coefficient contrast",
+  "prohibited_changes": "No replacement primary, new shock window, instrument, category, horizon or selected favourable lag. Earlier results retained unchanged.",
+  "interpretation": "Excludes decision origins in the reserves-targeting episode; outcome follow-up and prior policy histories can still cross it. A significant secondary response is not itself a significant period contrast. The follow-up is informed, not prospectively unobserved."
+}

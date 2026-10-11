@@ -1,0 +1,138 @@
+{
+  "author": "Amanjeet Singh",
+  "status": "Recorded informed diagnostic follow-up",
+  "specification_sha256": "f9cf3920679a12adf6a06bc697c83d53187a0e15253789fd4b3586a44001ae31",
+  "preceding_results_sha256": "2c769237e1951af1aad4c83b03cada90ef74694521b36136403bd4c19b3209c1",
+  "crossed_checks": {
+    "outside_episode_leverage_adjusted": {
+      "n": 212,
+      "columns": 42,
+      "policy_lags": 12,
+      "bandwidth": 41,
+      "maximum_leverage": 0.4760900865697921,
+      "pointwise95": {
+        "estimate": -0.33969437844174355,
+        "se": 0.13464847637868474,
+        "lower": -0.6036005427171578,
+        "upper": -0.07578821416632925,
+        "p_two_sided": 0.011641672261129101
+      },
+      "diagnostic_family95": {
+        "estimate": -0.33969437844174355,
+        "se": 0.13464847637868474,
+        "lower": -0.6620401109686547,
+        "upper": -0.017348645914832428,
+        "p_two_sided": 0.011641672261129101
+      },
+      "financial": {
+        "rate_response_pp": {
+          "estimate": 0.12585369672275878,
+          "se": 0.029043676444634778,
+          "lower": 0.0689291369126403,
+          "upper": 0.18277825653287727,
+          "p_two_sided": 1.4691983447106024e-05
+        },
+        "hac_t_squared": 18.777110995172958,
+        "durable36_covariance": -0.0008311802587366838,
+        "rate_normalised_ratio_per25bp": -0.6747802950716084,
+        "rate_normalised_AR95": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -1.408875455464742,
+              "upper": -0.16107618627603715
+            }
+          ],
+          "contains_zero": false,
+          "quadratic_coefficients": [
+            0.20157995950733415,
+            0.316470788370579,
+            0.04574580720236052
+          ]
+        }
+      }
+    },
+    "outside_episode_twenty_four_policy_lags": {
+      "n": 212,
+      "columns": 54,
+      "policy_lags": 24,
+      "bandwidth": 41,
+      "maximum_leverage": 0.6924594895826705,
+      "pointwise95": {
+        "estimate": -0.3108569367465867,
+        "se": 0.13533203763416443,
+        "lower": -0.5761028564639682,
+        "upper": -0.045611017029205225,
+        "p_two_sided": 0.021619087440609797
+      },
+      "diagnostic_family95": {
+        "estimate": -0.3108569367465867,
+        "se": 0.13533203763416443,
+        "lower": -0.6348391011110548,
+        "upper": 0.013125227617881374,
+        "p_two_sided": 0.021619087440609797
+      },
+      "financial": {
+        "rate_response_pp": {
+          "estimate": 0.1255553974245335,
+          "se": 0.02277112902047016,
+          "lower": 0.08092480465709714,
+          "upper": 0.17018599019196987,
+          "p_two_sided": 3.511723568566011e-08
+        },
+        "hac_t_squared": 30.40196440098508,
+        "durable36_covariance": -0.0008506626960157423,
+        "rate_normalised_ratio_per25bp": -0.6189637067045063,
+        "rate_normalised_AR95": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -1.1988673473507836,
+              "upper": -0.09946566824508665
+            }
+          ],
+          "contains_zero": false,
+          "quadratic_coefficients": [
+            0.22035628818655698,
+            0.28609584414676514,
+            0.026276637196751836
+          ]
+        }
+      }
+    }
+  },
+  "sample_contrast": {
+    "subset_minus_primary": -0.19749092685312988,
+    "joint_covariance_order": [
+      "full",
+      "outside_episode"
+    ],
+    "joint_covariance": [
+      [
+        0.004731817666051009,
+        0.00537773428655876
+      ],
+      [
+        0.00537773428655876,
+        0.011324656209262474
+      ]
+    ],
+    "pointwise95": {
+      "estimate": -0.19749092685312988,
+      "se": 0.07280800300925691,
+      "lower": -0.34019199053755733,
+      "upper": -0.05478986316870246,
+      "p_two_sided": 0.0066779943581122825
+    },
+    "diagnostic_family95": {
+      "estimate": -0.19749092685312988,
+      "se": 0.07280800300925691,
+      "lower": -0.37179181532241623,
+      "upper": -0.02319003838384351,
+      "p_two_sided": 0.0066779943581122825
+    },
+    "source_event_count": 238,
+    "subset_event_count": 212
+  },
+  "interpretation": "Secondary origin exclusions do not purify overlapping outcome or history periods; the full-sample primary remains unchanged"
+}

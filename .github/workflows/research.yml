@@ -53,6 +53,11 @@ jobs:
           python scripts/build_future_policy_panel.py
           python scripts/future_policy.py --check
           python scripts/future_policy_diagnostics.py --check
+      - name: Reproduce the declared US purchase study
+        run: |
+          python scripts/build_us_purchase_panel.py
+          python scripts/us_purchases.py --check
+          python scripts/us_purchase_diagnostics.py --check
       - name: Execute the research notebooks
         run: python scripts/execute_notebooks.py
 
@@ -97,6 +102,11 @@ jobs:
           python scripts/build_future_policy_panel.py
           Rscript scripts/verify_future_policy.R . reports/replay/r_future_policy.csv
           python scripts/compare_future_policy_r.py results/future_policy_results.json reports/replay/r_future_policy.csv --report reports/replay/future_policy_verification.json
+      - name: Independently verify the US purchase study
+        run: |
+          python scripts/build_us_purchase_panel.py
+          Rscript scripts/verify_us_purchases.R . reports/replay/r_us_purchases.csv
+          python scripts/compare_us_purchases_r.py results/us_purchase_results.json reports/replay/r_us_purchases.csv --report reports/replay/us_purchase_verification.json
       - name: Retain numerical verification
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

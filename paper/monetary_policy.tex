@@ -17,6 +17,11 @@
 \hypersetup{pdftitle={Policy and information news in German consumer-goods production},pdfauthor={Amanjeet Singh},pdfsubject={Monetary economics and matched production projections},pdfkeywords={Monetary policy; information shocks; consumer-goods production; local projections}}
 \newtheorem{proposition}{Proposition}
 \newcounter{mainsections}
+\AtEndDocument{\clearpage
+  \typeout{Manuscript pages: \number\numexpr\value{page}-1\relax}
+  \ifnum\value{page}>21\relax
+    \PackageError{manuscript}{Twenty-page limit exceeded}{Shorten the manuscript, including appendices and references.}
+  \fi}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\Var}{\operatorname{Var}}
 \newcommand{\Cov}{\operatorname{Cov}}
@@ -29,22 +34,22 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-I examine whether separating monetary-policy and information components changes the estimated response of German durable relative to non-durable consumer-goods production. On 308 monthly origins, matched local projections give a twelve-month policy-component contrast of $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for the recomposed surprise. The adjustment gap is $1.26$, with prespecified conservative 95 per cent bounds $[-0.11,3.31]$. Every declared sensitivity retains a positive point gap but an interval including zero. I apply an exact mixture decomposition and retain uncertainty in its estimated weight. An illustrative fixed-weight propagation changes a normal-interval conclusion, while the population comparison remains inconclusive. The application clarifies how announcement measurement and the uncertainty target affect the interpretation of production heterogeneity, conditional on the supplied shock construction and identifying assumptions.
+I examine whether separating monetary-policy and information components changes the estimated response of German durable relative to non-durable consumer-goods production. On 308 monthly origins, matched local projections give a twelve-month policy-component contrast of $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for the recomposed surprise. The adjustment gap is $1.26$, with prespecified conservative 95 per cent bounds $[-0.11,3.31]$. Every declared sensitivity retains a positive point gap but an interval including zero. I apply an exact mixture decomposition and retain uncertainty in its estimated weight. An illustrative calculation omitting weight uncertainty excludes zero, whereas the prespecified population-gap interval includes zero. A durable-stock benchmark distinguishes user-cost and outlook channels; a measurement bridge states the extra conditions needed for causal interpretation. The application clarifies how announcement measurement and the uncertainty target affect the interpretation of production heterogeneity, conditional on the supplied shock construction and identifying assumptions.
 \end{abstract}
 \noindent\textit{Keywords:} monetary policy; information shocks; consumer-goods production; local projections
 \par\smallskip\noindent\textit{JEL classification:} C22, E32, E52.
 \section{Introduction}
 \label{sec:intro}
 
-Monetary-policy announcements can change expectations about both financing conditions and the economic outlook. An unexpected rise in near-term interest rates may signal tighter policy, more favourable information about activity, or a combination of the two. If the components have different effects on production, a regression on their combined rate surprise answers a different question from a regression that separates them. I examine how much this distinction changes the estimated response of German durable relative to non-durable consumer-goods production.
+Monetary-policy announcements can change expectations about both financing conditions and the economic outlook \citep{JarocinskiKaradi2020}. An unexpected rise in near-term interest rates may signal tighter policy, more favourable information about activity, or a combination of the two. If the components have different effects on production, a regression on their combined rate surprise answers a different question from a regression that separates them. I examine how much this distinction changes the estimated response of German durable relative to non-durable consumer-goods production.
 
-The economic motivation is heterogeneous transmission. The ability to postpone a durable purchase can make its flow demand more sensitive to financing conditions than expenditure on continuing non-durable needs \citep{DuranteEtAl2022,DedolaLippi2005}. Yet a positive announcement-time information component may partly counter a contraction associated with policy tightening. Consequently, the apparent durability differential may depend on what the announcement variable measures. I compare the two interpretations on identical production outcomes, origin months, controls and rate units. The primary object is the difference between the recomposed-surprise coefficient and the policy-component coefficient at a fixed twelve-month horizon.
+The economic motivation is heterogeneous transmission. A durable stock supplies services after purchase, allowing replacement expenditure to adjust more than current service consumption. The user cost of that stock depends on financing, expected resale prices and risk; outlook news can also change expenditure through income and wealth. The relative production response therefore need not have the same sign under policy and information contributions \citep{BarskyEtAl2007,DuranteEtAl2022,DedolaLippi2005}. Consequently, the apparent durability differential may depend on what the announcement variable measures. I compare the two interpretations on identical production outcomes, origin months, controls and rate units. The primary object is the difference between the recomposed-surprise coefficient and the policy-component coefficient at a fixed twelve-month horizon.
 
 The matched comparison has an exact projection decomposition. Its coefficient gap equals a residualised information weight multiplied by the difference between the two component-response coefficients. The weight describes the mixture after conditioning on the selected controls; it is not a probability of an information announcement. For a population-projection comparison, it is also an estimated quantity. I therefore retain both component-response uncertainty and variation in this weight. Established partial-regression algebra supplies the identity; the project-specific application is its use to assess what information adjustment changes in the German production evidence.
 
-The twelve-month policy-component contrast is $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for the recomposed surprise. The gap is $1.26$, with prespecified conservative 95 per cent bounds $[-0.11,3.31]$. Thus the point estimates suggest appreciably less relative contraction when the components are combined, but I do not reject a zero population gap. Every declared twelve-month sensitivity gives a positive point gap and an interval including zero. The earlier-period policy-contrast interval also includes zero. These findings constrain the conclusion rather than motivate selection of another horizon or covariance convention.
+The twelve-month policy-component contrast is $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for the recomposed surprise. The gap is $1.26$, with prespecified conservative 95 per cent bounds $[-0.11,3.31]$. Thus the point estimates suggest appreciably less relative contraction when the components are combined, but the prespecified conservative procedure does not reject a zero population gap. Every declared twelve-month sensitivity gives a positive point gap and an interval including zero. The earlier-period policy-contrast interval also includes zero. These findings constrain the conclusion rather than motivate selection of another horizon or covariance convention.
 
-The uncertainty target matters numerically. Illustratively holding the realised mixture weight fixed produces a normal interval excluding zero. Retaining its variation in the population comparison produces a regular normal diagnostic interval including zero, as does the primary conservative interval. This does not invalidate every conditional inference problem. It demonstrates why a statement about a population adjustment gap cannot silently condition on an estimated mixture weight. Nor does separate significance of one response and non-significance of another establish a significant difference.
+The uncertainty calculation matters numerically. Omitting weight-variation and covariance terms gives an illustrative normal interval excluding zero. The stacked population-gap diagnostic and primary conservative interval include zero. The arithmetic illustrates omitted terms rather than validating a conditional confidence interval. The zero-gap null is a union of zero-weight and zero-response-difference cases, so this non-rejection is specific to the declared conservative procedure. Nor does separate significance of the policy and recomposed coefficients establish a significant difference.
 
 I contribute a focused reassessment of information adjustment in a carefully defined production contrast. Durability heterogeneity, information-adjusted monetary shocks and local projections are established in the literature. A newer German sample does not by itself establish novelty. The evidence here links the measured adjustment to its component-response difference, its mixture weight and the uncertainty target on the same design. Its economic interpretation remains conditional on the supplied announcement decomposition and the maintained projection assumptions.
 
@@ -53,13 +58,33 @@ I contribute a focused reassessment of information adjustment in a carefully def
 
 \subsection{Durability, purchases and production}
 
-Durability provides a reason to expect heterogeneous responses. A household can continue obtaining services from an existing durable stock while changing the timing of replacement or additional purchases. Higher financing costs and altered valuations of future services can consequently affect the flow of new purchases. The demand faced by producers may then change more than the services currently enjoyed by consumers. In contrast, expenditure meeting continuing non-durable needs offers less scope for a comparable postponement. This reasoning motivates a differential response rather than a universal claim that monetary tightening must reduce every durable activity by more than every non-durable activity. \citet{DuranteEtAl2022} connect durability to demand sensitivity and find stronger investment and sales responses among durable-producing firms.
+A durable purchase adds to a stock that supplies services over time; expenditure and service consumption are distinct objects \citep{Mankiw1982,BarskyEtAl2007}. I use a simple benchmark to separate user-cost and demand channels, rather than to calibrate a German production elasticity. With non-durable consumption $C_t$ as numeraire, end-of-period stock $S_t$, purchases $X_t$ and depreciation $0<d\le1$,
+\begin{equation}
+ S_t=(1-d)S_{t-1}+X_t.\label{eq:stock-law}
+\end{equation}
+For an interior household with logarithmic utility weights $\alpha$ and $1-\alpha$, the stock-service condition is
+\begin{equation}
+ \frac{S_t}{C_t}=\frac{1-\alpha}{\alpha q_t},\qquad
+ q_t=p_t-(1-d)\E_t[M_{t+1}p_{t+1}]>0.
+ \label{eq:user-cost}
+\end{equation}
+Here $p_t$ is the durable price in non-durable units and $M_{t+1}$ the household's marginal-utility discount factor. User cost deducts the risk-adjusted retained resale value from today's price. Holding current and expected relative prices and the risk-adjustment term fixed, a higher real financing rate raises user cost when $d<1$; the financing effect vanishes at $d=1$. Expected resale prices and risk can offset the cost movement, while income and wealth can change the purchase response through $C_t$. Appendix~\ref{app:household} derives the conditions and states the required interiority, resale and timing assumptions.
+
+At a stationary-stock base with positive replacement purchases $\bar X=d\bar S$, holding inherited stock fixed gives the local relation
+\begin{equation}
+ \mathrm d\log(X_t/C_t)=\left(\frac1d-1\right)\mathrm d\log C_t
+                  -\frac1d\mathrm d\log q_t.
+ \label{eq:relative-flow}
+\end{equation}
+The stock-flow ratio $1/d$ amplifies the purchase adjustment needed to change services. Conditional on current non-durable consumption, a user-cost increase reduces the relative purchase flow; favourable demand or wealth news can act in the opposite direction when $d<1$. These are local partial responses. Adjustment costs, borrowing constraints and endogenous relative prices can alter them. In the general-equilibrium models of \citet[pp.~990--992, 995]{BarskyEtAl2007}, which sector has sticky prices can even reverse durable co-movement with a monetary expansion. Their long-lived-durable argument does not supply an unconditional ordering for these production groups.\footnote{The simple US expenditure dynamics tested by \citet{Mankiw1982} are rejected; I use its stock-service distinction as a conceptual foundation, not empirical validation. The benchmark's real return is period-matched to depreciation. The empirical OIS factor is nominal and annualised, so inserting its ten-basis-point contribution into the household derivative would require an additional mapping.}
+
+The mechanism motivates heterogeneity without predicting the sign of the information-component durable-minus-non-durable response. Favourable news can raise both sectors equally, or raise non-durable activity more. A positive adjustment gap requires an information response above the policy response when the weight is positive; it does not require a positive relative information response. \citet{DuranteEtAl2022} provide firm-level evidence of stronger investment and sales responses among durable producers, while the household benchmark explains one reason the purchase flow can be sensitive.
 
 That mechanism does not translate directly into a household-demand elasticity estimated from production indices. German production serves both domestic and foreign purchasers. Inventory accumulation or depletion can separate the timing of sales from the timing of production. Firms' financing requirements can also change their capacity to maintain output independently of a household's decision to postpone a purchase. \citet{DedolaLippi2005} relate industrial responses to financing requirements, borrowing capacity and firm size as well as durability. The relative production coefficient therefore combines potentially different demand, financing and adjustment responses. I use durability to motivate the comparison while keeping these alternative explanations within its interpretation.
 
 The classification makes this distinction material. I use Eurostat's official consumer-goods production groupings, which allocate industries at both division and group levels. Motor-vehicle manufacturing belongs to capital goods under the applicable classification, even though household purchases of cars can enter durable expenditure.\footnote{The production allocation is specified in Commission Implementing Regulation (EU) 2020/1197, Annex II.A. The supply-use manual includes motor vehicles in household consumer durables \citep[pp.~151, 397]{Eurostat2008}. These are different measurements.} The non-durable production grouping likewise excludes household services. I therefore cannot transfer a result for broad durable manufacturing, investment goods or household consumption to these two production categories without checking what the comparison actually measures.
 
-The closest published production studies already establish heterogeneous monetary transmission. \citet{PeersmanSmets2005} study eleven industries in seven euro-area countries, including Germany, over 1980--1998. Their durability classification includes capital and intermediate durables. \citet{DedolaLippi2005} examine twenty-one manufacturing sectors in five countries, including Germany, with domestic-policy identification. \citet{ChoiEtAl2024} subsequently use an annual international industry panel and interactions between monetary shocks and industry characteristics.\footnote{For the detailed specifications I consulted ECB Working Paper 165, August 2002; Bank of Italy Working Paper 389, December 2000; and the December 2023 update of Bank of England Staff Working Paper 1024, alongside the published records. I did not consult their final journal methods texts.} Their differential approach also recognises that a common macroeconomic disturbance can have unequal sectoral effects. Subtracting the two production outcomes removes an identical common response, but does not remove a disturbance simply because it occurs in both sectors.
+The closest published production studies already establish heterogeneous monetary transmission. \citet{PeersmanSmets2005} study eleven industries in seven euro-area countries, including Germany, over 1980--1998. Their durability classification includes capital and intermediate durables. \citet{DedolaLippi2005} examine twenty-one manufacturing sectors in five countries, including Germany, with domestic-policy identification. \citet{ChoiEtAl2024} subsequently use an annual international industry panel and interactions between monetary shocks and industry characteristics.\footnote{I consulted the published Peersman--Smets and Dedola--Lippi journal texts, including their identification and classification passages. For Choi et al., the full methods consultation uses the December 2023 update of Bank of England Staff Working Paper 1024 alongside the published introduction and preview; the final full methods text was not consulted.} Their differential approach also recognises that a common macroeconomic disturbance can have unequal sectoral effects. Subtracting the two production outcomes removes an identical common response, but does not remove a disturbance simply because it occurs in both sectors.
 
 \subsection{Information adjustment and the economic comparison}
 
@@ -110,9 +135,15 @@ I estimate the two ordinary least-squares projections
  Y_{t,h}&=\beta_{m,h}m_t+\beta_{c,h}c_t+Z_t^\top\eta_h+e_{t,h},\label{eq:full}\\
  Y_{t,h}&=\gamma_h r_t+Z_t^\top\zeta_h+v_{t,h}.\label{eq:reduced}
 \end{align}
-The same rows and $Z_t$ enter both. They define linear-projection coefficients; the equations do not, by themselves, establish a correctly specified conditional mean or a structural intervention. Calling $m_t$ a causal policy innovation additionally requires the adopted announcement identification and conditional orthogonality to other determinants of production.
+The same rows and $Z_t$ enter both. They define linear-projection coefficients; the equations do not, by themselves, establish a correctly specified conditional mean or a structural intervention. A structural reading needs more. In a noiseless benchmark, let the supplied components $s_t=(m_t,c_t)^\top$ measure latent innovations $\varepsilon_t$ through a constant invertible matrix $A$, and let the structural relative response be $b_h$. Conditional orthogonality of the remaining production disturbance to the measured components then gives
+\begin{equation}
+ s_t=A\varepsilon_t,\qquad \beta_h=A^{-\top}b_h,
+ \quad \beta_h=(\beta_{m,h},\beta_{c,h})^\top.
+ \label{eq:measurement-bridge}
+\end{equation}
+Appendix~\ref{app:causal-bridge} proves this relation. A known diagonal mapping recovers the separately scaled latent responses. An unknown dense mapping mixes them; measurement noise generally breaks this identity. Orthogonal observed columns do not establish a diagonal mapping, exogeneity or response invariance. Rate--equity restrictions select an admissible interpretation of announcement news, rather than prove these conditions. I therefore estimate supplied-component projections and state the stronger assumptions needed to call them causal responses \citep{JarocinskiKaradi2020,StockWatson2018}.
 
-The controls comprise an intercept, eleven calendar-month indicators and twelve lags of five histories: durable monthly log growth, non-durable monthly log growth, annual German HICP log inflation, and both scaled announcement components. I use preceding reference months, without contemporaneous production or inflation controls. Twelve lags allow a year of preceding dynamics, while the six-lag check assesses the parameter cost on unchanged dates. Month indicators allow residual calendar effects and announcement-opportunity patterns. They do not establish exogeneity or convert the price index into an officially adjusted series.
+The controls comprise an intercept, eleven calendar-month indicators and twelve lags of five histories: durable monthly log growth, non-durable monthly log growth, annual German HICP log inflation, and both scaled announcement components. I use preceding reference months, without contemporaneous production or inflation controls. Twelve lags allow a year of preceding dynamics, while the six-lag check assesses the parameter cost on unchanged dates. Month indicators allow residual calendar effects and announcement-opportunity patterns. These finite histories define the projection rather than demonstrate a sufficient information set or a maximum dependence length. Both models already condition on decomposed announcement histories: the primary gap isolates separation of the current contribution, conditional on those histories. It does not measure the total effect of abandoning information adjustment at every date.
 
 The full primary regression has 74 columns and 234 residual degrees of freedom. Every origin requires its contemporaneous components, complete lagged controls, and positive production at $t-1$ and $t+h$. Future prices and shocks are not required. No missing observation is imputed and no primary pandemic origin is excluded. At $h=12$, the last available production endpoint implies August 2025 as the final origin, producing 308 monthly observations from January 2000. This is a historical projection over different monetary-policy regimes and pandemic states. A stable structural response across them needs stronger assumptions than the pooled specification.
 
@@ -150,7 +181,7 @@ Under regular joint asymptotic linearity, the gap's influence satisfies
  \psi_{\delta,t}=w_c\psi_{\theta,t}+\theta\psi_{w,t},
  \label{eq:main-influence}
 \end{equation}
-with horizon subscripts suppressed. Thus its variance includes component-response variation, weight variation and their covariance. Appendix~\ref{app:population} derives each term, including the effect of residualising on estimated controls. Using only $|\widehat w_c|\operatorname{SE}(\widehat\theta)$ generally addresses a different uncertainty convention under alternatives. At $w_c=0$ but $\theta\ne0$, weight variation is the leading first-order term. At $w_c=\theta=0$, the product gradient vanishes and ordinary gap-Wald inference is not generally regular.
+with horizon subscripts suppressed. Thus its variance includes component-response variation, weight variation and their covariance. Appendix~\ref{app:population} derives each term, including the effect of residualising on estimated controls. Using only $|\widehat w_c|\operatorname{SE}(\widehat\theta)$ omits the latter two terms under alternatives; it does not establish conditional coverage by itself. At $w_c=0$ but $\theta\ne0$, weight variation is the leading first-order term. At $w_c=\theta=0$, the product gradient vanishes and ordinary gap-Wald inference is not generally regular.
 
 I fit the full and reduced regressions with their own residuals, alongside the projection of $c$ on $[r,Z]$ that estimates $w_c$. I retain their joint coefficient contributions and cross-model covariance. The covariance uses Bartlett weights at actual calendar distances, bandwidth
 \begin{equation}
@@ -161,7 +192,7 @@ and one common multiplier $n/(n-k_F)$, where $k_F$ is the full model's column co
 
 The procedure requires regular regressor moments, sufficient higher moments, a suitable weak-dependence central limit theorem and consistent long-run covariance estimation. The periodic calendar controls require the corresponding periodic mean or moment limits to be accommodated. Structural breaks, arbitrary trends and influential observations are not made harmless by naming HAC. Serially uncorrelated surprises also do not establish serially uncorrelated projection scores with overlapping outcomes. The lag-augmentation result of \citet{MontielOleaPlagborgMoller2021} has state-lag and innovation assumptions that my constructed-shock design does not establish automatically.
 
-For the primary comparison I use a conservative product interval. I form individual 97.5 per cent normal intervals for $w_c$ and $\theta$, with critical value $z_{0.9875}$, and take the smallest and largest of their four endpoint products. The Bonferroni union bound gives asymptotic joint coordinate coverage of at least 95 per cent; mapping that rectangle covers their product. Appendix~\ref{app:covariance} proves the coverage statement. It avoids requiring an invertible joint covariance or a regular product gradient, while retaining the need for valid, nondegenerate marginal inference. I do not clip weights to $[0,1]$.
+For the primary comparison I use a conservative product interval. I form individual 97.5 per cent normal intervals for $w_c$ and $\theta$, with critical value $z_{0.9875}$, and take the smallest and largest of their four endpoint products. The Bonferroni union bound gives asymptotic joint coordinate coverage of at least 95 per cent; mapping that rectangle covers their product. Appendix~\ref{app:covariance} proves the coverage statement. It avoids requiring an invertible joint covariance or a regular product gradient, while retaining the need for valid, nondegenerate marginal inference. I do not clip weights to $[0,1]$. The null $\delta_h=0$ is the union of $w_{c,h}=0$ and $\theta_h=0$. The declared rectangle is deliberately conservative; its non-rejection does not imply agreement among all valid zero-gap tests. Under a maintained nonzero weight, a restricted-null test of $\theta_h=0$ has a different justification. I retain the preselected product procedure rather than add a test after inspecting the estimates.
 
 Individual response intervals and the normal stacked-gap interval remain pointwise; the latter is a regularity-dependent diagnostic. Neither supplies simultaneous coverage over a response path. Ordinary uncertainty conditions on the supplied factor, rotation, measurement vintage and specification. It does not incorporate their construction or identification-set uncertainty.
 
@@ -195,13 +226,13 @@ Origins: January 2000--August 2025, $n=308$. Responses are percentage log-change
 \end{table}
 % END PRIMARY_TABLE
 
-The undivided-surprise coefficient is $-1.03$ and its interval includes zero. Its difference from the policy coefficient is $1.26$, but the primary conservative bounds $[-0.11,3.31]$ also include zero. I therefore do not reject the zero-gap hypothesis. The positive point estimate suggests a smaller relative contraction when the contributions are combined, yet the interval accommodates both a small negative difference and a substantial positive difference. Non-rejection is not evidence that the adjustment has no economically relevant effect.
+The undivided-surprise coefficient is $-1.03$ and its interval includes zero. Its difference from the policy coefficient is $1.26$, but the primary conservative bounds $[-0.11,3.31]$ also include zero. The prespecified conservative procedure therefore does not reject the zero-gap hypothesis. The positive point estimate suggests a smaller relative contraction when the contributions are combined, yet the interval accommodates both a small negative difference and a substantial positive difference. Non-rejection is not evidence that the adjustment has no economically relevant effect.
 
-The decomposition attributes the point gap to an information weight of $0.427$ and component-response difference of $2.951$. Their product is $1.261$. This identifies how the coefficient comparison is assembled, rather than measuring the fraction of announcements containing information or identifying a distinct expectations channel. The normal component-difference interval alone cannot establish a nonzero product, and differing separate significance labels do not test the gap.
+The decomposition attributes the point gap to an information weight of $0.427$ and component-response difference of $2.951$. Their product is $1.261$. The 97.5 per cent coordinate bounds are $[0.312,0.542]$ for the weight and $[-0.198,6.100]$ for the response difference; the latter permits the negative endpoint of the primary product bounds. This identifies how the coefficient comparison is assembled, rather than measuring the fraction of announcements containing information or identifying a distinct expectations channel. The normal component-difference interval alone cannot establish a nonzero product, and differing separate significance labels do not test the gap.
 
 \subsection{The dynamic comparison}
 
-Figure~\ref{fig:path} presents horizons zero to twenty-four on 296 common origins, January 2000 to August 2024. The common sample avoids letting changing origin composition alone explain differences across horizons. Its twelve-month point gap is $1.21$, with conservative bounds $[-0.20,3.27]$; it must not replace the primary estimate based on 308 origins.
+Figure~\ref{fig:path} presents horizons zero to twenty-four on 296 common origins, January 2000 to August 2024. The common sample avoids letting changing origin composition alone explain differences across horizons.\footnote{At $h=0$, the outcome covers the whole announcement month, including production before the announcement; it is not an instantaneous event-window response.} Its twelve-month point gap is $1.21$, with conservative bounds $[-0.20,3.27]$; it must not replace the primary estimate based on 308 origins.
 
 % BEGIN PATH_FIGURE
 \begin{figure}[htbp]
@@ -236,7 +267,7 @@ The policy point estimate is negative and the gap point estimate positive throug
 
 \subsection{Declared sensitivity and influence}
 
-Figure~\ref{fig:sensitivity} reports every declared twelve-month gap comparison; Appendix Table~\ref{tab:sensitivities} retains the numerical companion results. Six lags and the alternative poor-man decomposition use the same 308 origins. They give gaps of $1.17$ and $1.23$, respectively, both with conservative intervals including zero. The poor-man comparison is less precise and changes the component construction. It is not a full confidence analysis over all admissible rotations.
+Figure~\ref{fig:sensitivity} reports every declared twelve-month gap comparison; Appendix Table~\ref{tab:sensitivities} retains the numerical companion results. Six lags and the alternative poor-man decomposition use the same 308 origins. They give gaps of $1.17$ and $1.23$, respectively, both with conservative intervals including zero. The poor-man comparison is less precise and replaces both current and lagged components. Six lags instead changes the conditioning set. Matched dates therefore remove sample changes while leaving these distinct design changes. It is not a full confidence analysis over all admissible rotations.
 
 % BEGIN SENSITIVITY_FIGURE
 \begin{figure}[htbp]
@@ -271,18 +302,18 @@ The pre-pandemic comparison requires every production endpoint to occur by Decem
 
 Shorter and longer Bartlett bandwidths, 15 and 24, leave the primary coefficients unchanged. Their conservative gap bounds still include zero. Thus the declared checks retain a positive point gap without resolving its primary imprecision. I preserve this pattern rather than treating the most favourable interval as the result.
 
-Single-origin deletions leave the primary gap positive, but omitting December 2015 changes it by $0.38$, approximately thirty per cent of its original value. March, April and May 2020 also appear among the most influential origins. Maximum primary leverage is $0.565$. The column-scaled condition number is about $49.1$, and the primary control, full and reduced ranks are 72, 74 and 73. These diagnostics show no numerical rank collapse, while highlighting the parameter count and influence burden. They do not prove exogeneity, adequate finite-sample coverage or robustness to an entire episode's removal.\footnote{A single-origin deletion removes one projection row. It does not remove that announcement from every subsequent control history or remove its outcome months from other overlapping rows. I retain it as an influence diagnostic without automatic exclusions.}
+Single-origin deletions leave the primary gap positive, but omitting December 2015 changes it by $0.38$, approximately thirty per cent of its original value. March, April and May 2020 also appear among the most influential origins. Maximum primary leverage is $0.565$. The column-scaled condition number is about $49.1$, and the primary control, full and reduced ranks are 72, 74 and 73. These diagnostics show no numerical rank collapse, while highlighting the parameter count and influence burden. With 74 columns in 308 origins and concentrated leverage, nominal coverage remains an assumption-dependent approximation. The common covariance multiplier $308/234$ does not correct leverage-dependent residual shrinkage or establish finite-sample size.\footnote{A single-origin deletion removes one projection row. It does not remove that announcement from every subsequent control history or remove its outcome months from other overlapping rows. I retain it as an influence diagnostic without automatic exclusions.}
 
-\subsection{An illustration of the uncertainty target}
+\subsection{An illustration of omitted variance terms}
 
-Holding the realised mixture weight fixed when propagating the component-response uncertainty gives a standard error of $0.6005$ and an illustrative normal interval $[0.08,2.44]$. Retaining weight variation and cross-model covariance gives a stacked standard error of $0.6749$ and a regular normal diagnostic interval $[-0.06,2.58]$. The primary conservative interval remains $[-0.11,3.31]$.
+Multiplying the component-difference standard error by the realised weight gives a standard error of $0.6005$ and an illustrative normal interval $[0.08,2.44]$. Retaining weight variation and cross-model covariance gives a stacked standard error of $0.6749$ and a regularity-dependent normal diagnostic interval $[-0.06,2.58]$. The primary conservative interval remains $[-0.11,3.31]$.
 
-The three estimated sampling-variance contributions are approximately $0.3606$ from component-response uncertainty, $0.0229$ from weight variation and $0.0719$ from their cross covariance, summing to $0.4554$. The last two account for about 20.8 per cent of the total in this application. Their sign and importance are sample-specific, rather than a universal upward correction. Fixed-weight propagation concerns a different conditional quantity, and a conditional coverage claim requires its own model and assumptions. It cannot substitute for the locked population comparison. This arithmetic illustration applies the established identity to the retained evidence; it neither changes the primary model nor supplies a new theoretical inference result.
+The three estimated sampling-variance contributions are approximately $0.3606$ from component-response uncertainty, $0.0229$ from weight variation and $0.0719$ from their cross covariance, summing to $0.4554$. Direct weight variation contributes about 5.0 per cent and its cross term about 15.8 per cent of the total; together they are the 20.8 per cent omitted by the illustrative arithmetic. Their sign and importance are sample-specific, rather than a universal upward correction. A valid fixed-design analysis requires its own stochastic model. Dropping terms from the marginal random-design variance does not validate such a conditional interval. It cannot substitute for the locked population comparison. This arithmetic illustration applies the established identity to the retained evidence; it neither changes the primary model nor supplies a new theoretical inference result.
 
 \section{Economic interpretation and limitations}
 \label{sec:interpretation}
 
-The companion estimate is consistent with a larger contraction in the durable production group following a positive supplied policy contribution. Its comparison with the undivided rate surprise suggests a material role for how announcement news is measured. But the primary interval leaves uncertainty about whether this adjustment differs from zero in the population projection. The defensible conclusion combines those two facts, rather than asserting either that information adjustment is established or that it is irrelevant.
+The companion estimate is consistent with a larger contraction in the durable production group following a positive supplied policy contribution. Its comparison with the undivided rate surprise suggests a material role for how announcement news is measured. But the primary interval leaves uncertainty about whether this adjustment differs from zero in the population projection. The theory distinguishes user-cost, wealth and resale-price channels, but production data do not isolate them. The causal bridge further shows why the measured response depends on the mapping from announcement factors to latent innovations.
 
 The difference outcome focuses on heterogeneity but does not automatically remove macroeconomic confounding. An energy-price, foreign-demand or supply disturbance with unequal loadings on the two groups can survive subtraction. Controlling the supplied information component does not demonstrate that the remaining policy component is exogenous. Likewise, an unexpectedly strong systematic response to public news can contaminate the policy-labelled contribution while retaining conventional rate--equity signs \citep{BauerSwanson2023a}. The maintained announcement interpretation is therefore economically substantive, beyond the numerical sign restrictions and regression identities.
 
@@ -295,7 +326,7 @@ Finally, the finite sample averages over unconventional-policy periods, later ti
 
 I compare information-adjusted and recomposed ECB rate-surprise responses on matched German consumer-goods production data. At twelve months, separating the supplied policy component yields a larger negative durable-minus-non-durable point response. The resulting adjustment gap is positive but imprecisely estimated: its primary conservative interval and every declared sensitivity interval include zero. The earlier-period comparison also weakens the companion policy-response inference.
 
-The project-specific finding concerns both measurement and uncertainty. The same rate-factor units and projection design make the coefficient gap interpretable, while its estimated mixture weight makes the population uncertainty different from a fixed-weight propagation. That distinction changes an illustrative normal-interval conclusion in these data. The evidence does not establish private information, a specific production channel or a new durability theorem. It provides a reproducible economic reassessment whose conclusions follow from the defined contrast and retained uncertainty.
+The project-specific finding concerns both measurement and uncertainty. The same rate-factor units and projection design make the coefficient gap interpretable, while its estimated mixture weight enters the population variance together with cross covariance. Omitting those terms changes whether an illustrative arithmetic interval contains zero. The declared conservative procedure remains the primary comparison. The durable-stock argument explains a conditional purchase mechanism; relative-price feedback and the production measurement prevent treating it as a calibrated causal account of the estimates. It provides a reproducible economic reassessment whose conclusions follow from the defined contrast and retained uncertainty.
 
 \clearpage
 \setcounter{mainsections}{\value{section}}
@@ -391,7 +422,7 @@ Hence the long-run variance contains
  &=w_c^2\mathcal V_\theta+\theta^2\mathcal V_w
    +2w_c\theta\mathcal C_{\theta,w},\label{eq:app-gap-variance}
 \end{align}
-where $\mathcal C_{\theta,w}$ is the long-run covariance. A fixed-weight propagation retains only the first term. It concerns a different conditional uncertainty target. If $w_c=0$ and $\theta\ne0$, weight variation is instead the leading term. If both vanish, the first-order product gradient is zero and ordinary gap-Wald inference is not generally regular.
+where $\mathcal C_{\theta,w}$ is the long-run covariance. A fixed-weight propagation retains only the first term. Under a genuinely fixed design $\mathcal X$, the sample identity implies $\Var(\widehat\delta\mid\mathcal X)=\widehat w_c^2\Var(\widehat\theta\mid\mathcal X)$. A marginal random-design HAC variance need not estimate that conditional variance. Conditioning only on an estimated weight is also different from fixing the complete design. If $w_c=0$ and $\theta\ne0$, weight variation is instead the leading term. If $\theta=0$ and $w_c\ne0$, the weight term vanishes under the null; this does not invalidate a response-difference test under a maintained nonzero weight. If both vanish, the first-order product gradient is zero and ordinary gap-Wald inference is not generally regular.
 
 \subsection{Joint covariance and conservative product bounds}
 \label{app:covariance}
@@ -476,7 +507,7 @@ The EA-MPD workbook contains 315 dated rows. The update explicitly excludes 13 S
 \subsection{Specification record and numerical replay}
 \label{app:record}
 
-The primary specification was recorded at 21:30 UTC on 10 October 2026 and committed in revision \texttt{66ed69c} before fitting response models. The initial response-execution record is dated 23:07 UTC that day. The primary outcome, horizon, samples, component choice, controls and interval convention remained unchanged after inspection. I made no post-estimation departures from that primary statistical specification. The fixed-weight propagation in Section~\ref{sec:evidence} is explicitly a subsequent arithmetic illustration of an uncertainty target, rather than an additional preferred model or substitute primary test.
+The primary specification was recorded at 21:30 UTC on 10 October 2026 and committed in revision \texttt{66ed69c} before fitting response models. The initial response-execution record is dated 23:07 UTC that day. The primary outcome, horizon, samples, component choice, controls and interval convention remained unchanged after inspection. I made no post-estimation departures from that primary statistical specification. The omitted-term calculation in Section~\ref{sec:evidence}, the household benchmark and the measurement bridge are post-estimation analytical interpretation. They introduce no calibrated elasticity, additional fitted model, new preferred test or departure from the primary specification.
 
 The six-lag and poor-man comparisons retain the primary origins. The earlier-period check requires $t+h\le\text{December 2019}$, so its twelve-month origins end in December 2018. The short and long bandwidths are $h+\lceil B/2\rceil$ and $h+2B$, respectively, for $B=\lceil4(n/100)^{2/9}\rceil$. These were declared sensitivities, rather than departures selected from the results. Table~\ref{tab:sensitivities} records the numerical comparisons.
 
@@ -507,6 +538,72 @@ Python implements the projections through full-rank QR decompositions. An indepe
 
 The source-window check is equally bounded. The exclusions are the source author's recorded reasons, not my independent historical verification of each announcement. The 45 months without retained events describe the selected event definition, rather than certifying the absence of any ECB communication. Factor reconstruction and coefficient identities establish numerical consistency; they do not establish the sign restrictions, causal orthogonality or score regularity.
 
+
+\setcounter{equation}{0}
+\renewcommand{\theequation}{C.\arabic{equation}}
+\renewcommand{\theHequation}{C.\arabic{equation}}
+\section{Economic mechanism and causal measurement}
+\label{app:economic-derivations}
+
+\subsection{Durable services, user cost and purchase adjustment}
+\label{app:household}
+
+I derive a partial household benchmark using the established stock-service distinction of \citet[pp.~418--420]{Mankiw1982} and \citet[pp.~985--986, 990--992]{BarskyEtAl2007}; it is not a new durability theorem. Let $0<\alpha<1$, $0<\beta_H<1$, $0<d\le1$, $p_t>0$ and $\rho_t>-1$. Consumption and stock are positive; purchases and bond holdings are interior, resale is allowed, and feasibility and transversality hold. There are no adjustment costs. With the stock law \eqref{eq:stock-law}, the household chooses consumption, stock and a bond with next-period face-value payoff $B_t$ to maximise
+\begin{align}
+ \max_{\{C_t,S_t,B_t\}}\quad
+ &\E_0\sum_{t\ge0}\beta_H^t\{\alpha\log C_t+(1-\alpha)\log S_t\},\notag\\
+ \text{subject to}\quad
+ &C_t+p_tX_t+\frac{B_t}{1+\rho_t}=W_t+B_{t-1},\quad t\ge0.
+ \label{eq:household-problem}
+\end{align}
+Resources $W_t$ are in non-durable units. The real risk-free return $\rho_t$, depreciation and discount factor refer to the same period. This return differs from the nominal recomposed announcement factor $r_t$.
+
+Let $\lambda_t=\alpha/C_t$. Varying the bond and end-of-period stock gives
+\begin{align}
+ \frac{\lambda_t}{1+\rho_t}&=\beta_H\E_t\lambda_{t+1},\label{eq:bond-euler}\\
+ \lambda_tp_t&=\frac{1-\alpha}{S_t}
+      +\beta_H(1-d)\E_t[\lambda_{t+1}p_{t+1}].\label{eq:stock-euler}
+\end{align}
+The stock condition values current services and the retained stock's next-period resale value. Set $M_{t+1}=\beta_H\lambda_{t+1}/\lambda_t$. Dividing \eqref{eq:stock-euler} by $\lambda_t$ proves \eqref{eq:user-cost}, including positive $q_t$. The bond condition and covariance decomposition then imply
+\begin{equation}
+ q_t=p_t-\frac{1-d}{1+\rho_t}\E_tp_{t+1}
+             -(1-d)\Cov_t(M_{t+1},p_{t+1}).
+ \label{eq:risky-user-cost}
+\end{equation}
+A negative covariance raises user cost relative to the expectation-only expression: resale is less valuable in high-marginal-utility states. Both this risk term and expected prices can change with announcement news.\footnote{This household valuation covariance differs from the observed announcement-time rate--equity covariance; it is not estimated by the production regressions.}
+
+Under certainty and constant relative prices, $q_t=p(\rho_t+d)/(1+\rho_t)$, requiring $\rho_t+d>0$. This simplification does not require stationary consumption. Stationary consumption at a benchmark would additionally require $\beta_H(1+\bar\rho)=1$. At a stationary-stock base, $\bar X=d\bar S>0$. Holding inherited stock fixed gives $\mathrm dX_t=\mathrm dS_t$ and hence
+\begin{align}
+ \mathrm d\log X_t&=\frac1d\mathrm d\log S_t
+   =\frac1d(\mathrm d\log C_t-\mathrm d\log q_t),\label{eq:flow-proof}\\
+ \left.\frac{\partial\log X_t}{\partial\rho_t}\right|_{C_t,S_{t-1},p}
+   &=-\frac{1-d}{d(1+\rho_t)(\rho_t+d)}.\label{eq:rate-flow-derivative}
+\end{align}
+Subtracting $\mathrm d\log C_t$ proves \eqref{eq:relative-flow}. The rate derivative is negative for $d<1$ and zero at $d=1$. It is a local impact comparison with positive purchases, not a comparison of steady states holding consumption fixed as rates vary. Zero depreciation, a binding no-resale constraint, a finite movement outside the positive-purchase neighbourhood or adjustment costs can invalidate this derivative. Endogenous consumption and prices instead alter the total equilibrium response. The positive-purchase restriction is material: with current $C_t$ fixed,
+\begin{equation}
+ X_t(q_t)=\bar S\left\{\frac{\bar q}{q_t}-(1-d)\right\}>0
+ \quad\Longleftrightarrow\quad q_t<\frac{\bar q}{1-d},\qquad 0<d<1.
+ \label{eq:purchase-neighbourhood}
+\end{equation}
+As $d$ approaches zero, the amplification grows but this admissible contraction neighbourhood shrinks; a large finite elasticity does not follow from the local derivative. Exports, inventories, firm financing and index aggregation also separate household purchases from measured production.
+
+\subsection{A conditional bridge from components to causal responses}
+\label{app:causal-bridge}
+
+For a fixed horizon, suppose a stable linear structural relation and a noiseless measurement equation hold:
+\begin{equation}
+ Y_{t,h}=b_h^\top\varepsilon_t+Z_t^\top\eta_h+\nu_{t,h},
+ \qquad s_t=A\varepsilon_t.
+ \label{eq:structural-measurement}
+\end{equation}
+The constant $A$ is invertible and $Q_s=\E[\widetilde s_t\widetilde s_t^\top]$ is positive definite. Tildes denote population linear residualisation on the same $Z_t$. Maintain $\E[\widetilde s_t\nu_{t,h}]=0$, which implies orthogonality to the residualised disturbance. Since $\widetilde\varepsilon_t=A^{-1}\widetilde s_t$,
+\begin{equation}
+ \beta_h=Q_s^{-1}\E[\widetilde s_t\widetilde Y_{t,h}]
+        =Q_s^{-1}Q_sA^{-\top}b_h=A^{-\top}b_h.
+ \label{eq:bridge-proof}
+\end{equation}
+If $A=\operatorname{diag}(a_m,a_c)$ is known with ordered nonzero scales, then $b_{m,h}=a_m\beta_{m,h}$ and $b_{c,h}=a_c\beta_{c,h}$. A known dense mapping also permits joint recovery $b_h=A^\top\beta_h$; a diagonal mapping is needed to read each supplied coefficient as one separately scaled latent response. An unidentified dense $A$ mixes responses. Orthogonality of observed columns constrains their second moments, not the mapping's diagonality or causal exogeneity. Noise in $s_t$ generally breaks \eqref{eq:bridge-proof}. A causal interpretation requires the structural relation, invariance and orthogonality in addition to matched regression rows and financial sign restrictions. The supplied point rotation and HAC intervals do not establish these assumptions or cover its entire identification set. Here $b_h$ is a difference of latent sector responses, not an intervention on a physical production ratio.
+
 \clearpage
 \setcounter{section}{\value{mainsections}}
 \renewcommand{\thesection}{\arabic{section}}
@@ -520,6 +617,11 @@ The source-window check is equally bounded. The exclusions are the source author
 Altavilla, C., Brugnolini, L., G\"urkaynak, R. S., Motto, R. and Ragusa, G. (2019).
 Measuring euro area monetary policy. \emph{Journal of Monetary Economics}, 108, 162--179.
 \href{https://doi.org/10.1016/j.jmoneco.2019.08.016}{doi:10.1016/j.jmoneco.2019.08.016}.
+
+\bibitem[Barsky et al.(2007)]{BarskyEtAl2007}
+Barsky, R. B., House, C. L. and Kimball, M. S. (2007).
+Sticky-Price Models and Durable Goods. \emph{American Economic Review}, 97(3), 984--998.
+\href{https://doi.org/10.1257/aer.97.3.984}{doi:10.1257/aer.97.3.984}.
 
 \bibitem[Bauer and Swanson(2023a)]{BauerSwanson2023a}
 Bauer, M. D. and Swanson, E. T. (2023a).
@@ -609,6 +711,11 @@ Jord\`a, \`O. (2005).
 Estimation and Inference of Impulse Responses by Local Projections.
 \emph{American Economic Review}, 95(1), 161--182.
 \href{https://doi.org/10.1257/0002828053828518}{doi:10.1257/0002828053828518}.
+
+\bibitem[Mankiw(1982)]{Mankiw1982}
+Mankiw, N. G. (1982).
+Hall's consumption hypothesis and durable goods. \emph{Journal of Monetary Economics}, 10(3), 417--425.
+\href{https://doi.org/10.1016/0304-3932(82)90036-8}{doi:10.1016/0304-3932(82)90036-8}.
 
 \bibitem[Montiel Olea and Plagborg-M\o ller(2021)]{MontielOleaPlagborgMoller2021}
 Montiel Olea, J. L. and Plagborg-M\o ller, M. (2021).

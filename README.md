@@ -2,11 +2,11 @@
 
 ## 1. Question
 
-I investigate whether separating monetary-policy and information components changes the estimated response of German durable relative to non-durable consumer-goods production. The [research design](docs/research_design.md) defines the comparison, its economic interpretation and the remaining specification choices. The [source register](docs/sources.md) positions it against published research and records the material actually consulted.
+I investigate whether separating monetary-policy and information components changes the estimated response of German durable relative to non-durable consumer-goods production. The [research design](docs/research_design.md) defines the comparison, its economic interpretation and the fixed specification. The [source register](docs/sources.md) positions it against published research and records the material actually consulted.
 
 ## 2. Evidence and status
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [manuscript draft](paper/monetary_policy.tex) develops the economic argument, evidence and appendix proofs.
+The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [manuscript draft](paper/monetary_policy.tex) develops the durable-stock mechanism, causal measurement assumptions, matched evidence and appendix proofs.
 
 ## 3. Reproduction
 

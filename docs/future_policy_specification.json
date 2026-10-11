@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "status": "declared_before_new_production_fits",
+  "recorded_utc": "2026-10-11T18:18:09.308122+00:00",
+  "author": "Amanjeet Singh",
+  "question": "How does German manufacturing respond to unexpected future-policy news after separating current-rate and outlook news?",
+  "contribution": "A test of anticipatory monetary transmission with an independently observed financial response scale, broad-output and durability comparisons; not a new general theory or a pure forward-guidance-versus-QE decomposition.",
+  "prior_information": "Original German durability-gap outcomes, published euro-area forward-policy results, workbook definitions and all four source-only financial diagnostics are known. No new manufacturing or broad-industry response to these factors has been fitted. This is an informed redesign, not blind registration.",
+  "normalisation_choice": "One-year AAA sovereign yield impact matches the one-year horizon of the supplied normalised future-policy factor and describes future financing news beyond current Target and Delphic news. It was selected after source-only screening and before production fitting. Retain all four financial benchmarks and protect the selected scale through family confidence sets.",
+  "snapshot": "data/raw/2026-10-11-future-policy",
+  "snapshot_manifest_sha256": "a18d9763ccbd83c40345049f1e92467ebe838baeec9f75574c65d3dc2c68c906",
+  "original_evidence_preservation": {
+    "docs/primary_specification.json": "e08af0188332ae0dd04f334f321a73af21d87d7bfaa9e2cd7f9b3b2facbcec84",
+    "results/estimates.csv": "2fdd836f59da36ba29f852ec489836b097d473fe5e547fdac883bdb9afb81c73"
+  },
+  "primary_outcome": "100*(log(German_NACE_C_volume[t+12])-log(German_NACE_C_volume[t-1]))",
+  "primary_horizon": 12,
+  "primary_first": "2005-01",
+  "primary_last": "2016-01",
+  "expected_origins": 133,
+  "instrument": "Source MP_Odyssean_1Y divided by 0.10 percentage points; positive supplied value is a higher one-year OIS contribution. QE-package news can be included.",
+  "primary_financial_indicator": "Monthly sum of same-day close-to-close changes in one-year AAA euro-area government zero-coupon spot yield, divided by 0.10 percentage points",
+  "financial_companions": [
+    "one-year less three-month AAA yield slope",
+    "three-month AAA yield",
+    "forward yield for months four to twelve: (one-year yield-.25*three-month yield)/.75"
+  ],
+  "date_rules": "Use cached workbook dates without refreshing external links. Verify four no-decision months as zeros inside coverage. Covered meetings with missing current or preceding curve values remain unavailable. August/September 2004 benchmarks are missing, not zero. Use common paired business dates, including the 1 May 2013 holiday exception.",
+  "controls": [
+    "intercept",
+    "current normalised Target_1M/0.10",
+    "current normalised Delphic_1Y/0.10",
+    "lags 1,2 of manufacturing monthly log growth",
+    "lags 1,2 of annual German HICP log inflation",
+    "lags 1,2 of each of the three normalised factors/0.10",
+    "lags 1,2 of both one-year and three-month announcement-day AAA yield changes/0.10"
+  ],
+  "controls_rationale": "Two lags give a compact state history comparable to the published supplementary local-projection check. Production is SCA and inflation annual, so no additional month dummies. Both yield histories keep the conditioning set identical across the four financial normalisations.",
+  "expected_control_columns": 17,
+  "expected_augmented_columns": 18,
+  "estimator": "Just-identified LP-IV. Fit response and each financial indicator on the same excluded proxy and controls; use the reduced-form/first-stage ratio. It is a total future-policy shock response scaled to its 10 bp financial impact, not an intervention on the sovereign yield.",
+  "primary_inference": "Calendar-HAC Anderson-Rubin inversion. For each candidate response theta and financial indicator x/0.10, test the excluded-proxy coefficient in Y-theta*x. Retain bounded, disconnected, unbounded, whole-line, point and empty confidence sets. For each outcome, invert all four restrictions at alpha=.05/4, giving at least 95%family coverage and protecting the selected normalisation under maintained score conditions.",
+  "companion_inference": "Individual 95%AR sets and conventional delta intervals are diagnostics. No family claim across outcome/horizon families. The four-normalisation95%family protection is applied separately to each reported outcome.",
+  "covariance": "Joint reduced-form and financial first-stage score covariance, each regression own residual, common calendar Bartlett kernel and one n/(n-k_augmented) multiplier; bandwidth h+ceil(4*(n/100)^(2/9)); no prewhitening.",
+  "first_stage": "Report coefficient, covariance, conditional partial R2, leverage and HAC squared t on the same macro origins/controls; no iid F > 10 certification. A source-only fit is not the macro first stage.",
+  "assumptions": "Conditional proxy relevance; contemporaneous and required lead/lag exclusion from other innovations; stable structural response; sufficient conditioning and valid weakly dependent score/HAC limits. Source signs and predictability checks do not prove exclusion. Supplied median factors treated as retained inputs; unobserved accepted-set/generated-factor uncertainty not recovered.",
+  "declared_outcomes": [
+    "German NACE_C manufacturing primary",
+    "German B-D broad industry companion",
+    "durable-minus-nondurable consumer-goods production heterogeneity, retained original official MIG definitions"
+  ],
+  "horizon_profile": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "sample_for_profiles": "Same 2005-01\u20132016-01 origins for all horizons, no horizon or outcome selected by rejection.",
+  "sensitivity": [
+    "three lags on the same origins and definitions",
+    "shorter and longer calendar bandwidths h+ceil(B/2) and h+2B on unchanged coefficients"
+  ],
+  "falsification": "Primary manufacturing growth from t-13 to t-1, regressed on the excluded proxy and identical controls; nominal 5%diagnostic, not proof of exclusion.",
+  "influence": "Retain every primary origin. Report single-origin deletion reduced-form, first-stage and ratio ranges, including all unbounded or denominator-zero cases; no automatic exclusions.",
+  "reporting": "British English, six main sections at most, concise essential methods, economic reasoning before algebra; appendix before references; 20-page maximum including references. No readiness claim from computation alone."
+}

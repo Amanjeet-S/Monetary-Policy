@@ -1,0 +1,64 @@
+{
+  "snapshot": "2026-10-11-future-policy",
+  "author": "Amanjeet Singh",
+  "sources": [
+    {
+      "file": "eurostat_DE_manufacturing.json",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?lang=en&freq=M&unit=I21&s_adj=SCA&indic_bt=PRD&geo=DE&nace_r2=C",
+      "retrieved_utc": "2026-10-11T17:58:53.852217+00:00",
+      "sha256": "2f0e245e8d0ebdc0956ec9754ace42dc1f1ffbbda3fdf84d933db32bf9d126e5",
+      "uncompressed_sha256": "2f0e245e8d0ebdc0956ec9754ace42dc1f1ffbbda3fdf84d933db32bf9d126e5",
+      "storage": "exact retrieved bytes"
+    },
+    {
+      "file": "eurostat_DE_industrial.json",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?lang=en&freq=M&unit=I21&s_adj=SCA&indic_bt=PRD&geo=DE&nace_r2=B-D",
+      "retrieved_utc": "2026-10-11T17:58:53.852556+00:00",
+      "sha256": "e3f7c0cdbdc2b17c8826fad74f8c417da4d6c1b433a856479bcdfd6f950cb9ca",
+      "uncompressed_sha256": "e3f7c0cdbdc2b17c8826fad74f8c417da4d6c1b433a856479bcdfd6f950cb9ca",
+      "storage": "exact retrieved bytes"
+    },
+    {
+      "file": "eurostat_DE_hicp_historical.json",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx?lang=en&freq=M&unit=I15&coicop=CP00&geo=DE",
+      "retrieved_utc": "2026-10-11T17:58:53.852647+00:00",
+      "sha256": "42c1aba25e900b1e29ece1c6e41e83c2e8d3af23eccbc68fdf0a991e7b978000",
+      "uncompressed_sha256": "42c1aba25e900b1e29ece1c6e41e83c2e8d3af23eccbc68fdf0a991e7b978000",
+      "storage": "exact retrieved bytes"
+    },
+    {
+      "file": "ecb_yc_1Y.csv.gz",
+      "url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_1Y?format=csvdata",
+      "retrieved_utc": "2026-10-11T17:58:53.852705+00:00",
+      "sha256": "7854168f6732761450d1e4f5561b640c6eeb3c92a8935eae0119ad3607f4906c",
+      "uncompressed_sha256": "1e5b41d27d958fc5365bf0960af859092f594b089d534816fdf951a8c7ff9321",
+      "storage": "gzip of exact retrieved bytes"
+    },
+    {
+      "file": "ecb_yc_3M.csv.gz",
+      "url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M?format=csvdata",
+      "retrieved_utc": "2026-10-11T17:58:53.852751+00:00",
+      "sha256": "1c8a925e4dc2714c719daec1c521bc9e2d5b6eb5352fe4c3cfb9ec234759f4b7",
+      "uncompressed_sha256": "32e87253f55154901cee3e1c3ba6a50f5ba28f12322ed8080ddf59c71893f6c5",
+      "storage": "gzip of exact retrieved bytes"
+    },
+    {
+      "file": "AF_MP_surprises_.xlsx",
+      "url": "https://github.com/naffe15/naffe15.github.io/blob/3f54c068d7920656f2bfb29d1de403111285078a/_publications/AF_MP_surprises_.xlsx",
+      "retrieved_utc": "2026-10-11T18:18:09.306148+00:00",
+      "sha256": "a2bef41cee019a87d4ea87912c7cb012504e7ba15032e376f1ed584c91876e9e",
+      "provenance": "User-supplied copy, byte-identical to the public author file",
+      "version": "Supplied workbook uses median accepted rotations; published supplementary algorithm uses their average"
+    }
+  ],
+  "units": "German production volume I21 SCA; historical all-items HICP I15 NSA; AAA sovereign yields PCPA continuous compounding; source factors percentage points",
+  "financial_timing": "YC TIME_PERIOD is market observation date. Noon publication uses previous-business-day closing prices. Event changes use event-day market close less latest preceding common close.",
+  "no_meeting_months": [
+    "2015-02",
+    "2015-05",
+    "2015-08",
+    "2015-11"
+  ],
+  "calendar_source": "https://www.ecb.europa.eu/press/pr/date/2014/html/pr140717_1.en.html",
+  "outcomes_estimated": false
+}

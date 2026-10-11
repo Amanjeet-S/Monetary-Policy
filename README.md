@@ -6,7 +6,9 @@ I investigate whether separating monetary-policy and information components chan
 
 ## 2. Evidence and status
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [final paper](paper/monetary_policy.pdf), with its [editable source](paper/monetary_policy.tex), develops the durable-stock mechanism, matched evidence, joint stability tests, complete retained-factor rotation assessment and causal sensitivity, with appendix proofs.
+The project is being redesigned around a clearer economic question and stronger identification, retaining German outcomes where the data permit. The current manuscript records the earlier evidence and is not a completed submission paper.
+
+The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [working paper](paper/monetary_policy.pdf), with its [editable source](paper/monetary_policy.tex), develops the durable-stock mechanism, matched evidence, joint stability tests, complete retained-factor rotation assessment and causal sensitivity, with appendix proofs.
 
 ## 3. Reproduction
 
@@ -22,4 +24,4 @@ The [development guide](docs/development.md) provides notebook execution and the
 
 ## 4. Research package
 
-The final paper is twenty pages, including appendices and bibliography. The appendices precede the references. The [paper manifest](paper/manifest.json) identifies the matching source and PDF. Code, an executable notebook and independent numerical checks support the evidence, including the complete supplementary inference. [Licensing](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](PROVENANCE.md) identify the applicable rights and origins.
+The current working paper is twenty pages, including appendices and bibliography. The appendices precede the references. The [paper manifest](paper/manifest.json) identifies the matching source and PDF. Code, an executable notebook and independent numerical checks support the evidence, including the complete supplementary inference. [Licensing](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](PROVENANCE.md) identify the applicable rights and origins.

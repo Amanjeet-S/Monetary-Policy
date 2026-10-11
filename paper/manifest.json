@@ -1,5 +1,5 @@
 {
-  "status": "final",
+  "status": "research_redesign",
   "date": "2026-10-11",
   "source": "monetary_policy.tex",
   "pdf": "monetary_policy.pdf",
@@ -14,5 +14,6 @@
   "author": "Amanjeet Singh",
   "title": "Policy and information news in German consumer-goods production",
   "language": "en-GB",
-  "independent_verification_run": "https://github.com/Amanjeet-S/Monetary-Policy/actions/runs/38153118953"
+  "independent_verification_run": "https://github.com/Amanjeet-S/Monetary-Policy/actions/runs/38153118953",
+  "scientific_scope": "Existing announcement-measurement study retained as working evidence; German monetary-policy design under reassessment"
 }

@@ -4,7 +4,7 @@ import argparse, csv, hashlib, json
 from pathlib import Path
 import numpy as np
 from scipy.stats import norm
-from local_projections import ols, calendar_hac
+from linear_inference import ols, calendar_hac, verify_historical_evidence
 from ar_inference import ar_inverse_set
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -112,8 +112,7 @@ def fit_case(root,policy_lags=12,L=41,leverage_adjusted=False,exclude_reserves=F
             'purge_FWL_invariance':fwl,'window_identities':identities}
 def run(root,check=False):
     spec=json.loads((root/'docs/us_purchase_specification.json').read_text())
-    for name,wanted in spec['original_evidence_preservation'].items():
-        if digest(root/name)!=wanted:raise ValueError('Earlier retained evidence changed')
+    verify_historical_evidence(root,spec['original_evidence_preservation'])
     primary=fit_case(root)
     sensitivity={
        'six_policy_lags':fit_case(root,policy_lags=6),
@@ -135,7 +134,7 @@ def run(root,check=False):
             'interpretation':'Responses to forecast-controlled intended-policy innovations, conditional on source information sufficiency and dynamic restrictions; a financial ratio does not identify intervention on the observed rate'}
     path=root/'results/us_purchase_results.json'
     if check:
-        from future_policy import compare_values
+        from linear_inference import compare_values
         return {'retained_results_verified':True,'numeric_comparisons':compare_values(report,json.loads(path.read_text()))}
     path.write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
     return {'primary':primary['windows']['durable_full36'],'financial':primary['financial'],

@@ -1,21 +1,20 @@
 cff-version: 1.2.0
-message: "Cite the paper for the research analysis and the repository revision for its reproducible code and retained data. Attribute the original data and methodological sources."
-title: "ECB policy and information surprises in German consumer-goods production"
+message: "Cite the paper for the research analysis and the repository revision for the reproducible code. Attribute the original data and methods."
+title: "Monetary tightening and cumulative household purchases"
 type: software
 authors:
   - family-names: Singh
     given-names: Amanjeet
 repository-code: "https://github.com/Amanjeet-S/Monetary-Policy"
-url: "https://github.com/Amanjeet-S/Monetary-Policy"
 keywords:
   - monetary economics
-  - ECB monetary policy
-  - Germany
-  - econometrics
+  - household purchases
+  - durable goods
+  - narrative identification
   - local projections
 preferred-citation:
   type: report
-  title: "Policy and information news in German consumer-goods production"
+  title: "Monetary tightening and cumulative household purchases"
   authors:
     - family-names: Singh
       given-names: Amanjeet

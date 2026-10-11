@@ -1,70 +1,47 @@
-"""Check local Markdown targets and retained source hashes without network access."""
-
+"""Check documented targets, source checksums and the saved paper package."""
 from __future__ import annotations
-
-import hashlib
-import json
+import hashlib,json,re,subprocess
 from pathlib import Path
-import re
-import subprocess
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote,urlsplit
+from pypdf import PdfReader
+from linear_inference import verify_historical_evidence
 
-ROOT = Path(__file__).resolve().parents[1]
-
-
-def main() -> None:
-    names = set(filter(None, subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode().split("\0")))
-    if not names:
-        raise SystemExit("No tracked files found; repository validation requires a populated index.")
-    targets = names | {parent.as_posix() for name in names for parent in Path(name).parents}
-    failures = []
-    links_checked = 0
+ROOT=Path(__file__).resolve().parents[1]
+def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def main():
+    names=set(filter(None,subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')))
+    targets=names|{p.as_posix() for n in names for p in Path(n).parents}
+    failures=[];links=0
     for name in sorted(names):
-        path = ROOT / name
-        if path.suffix != ".md":
-            continue
-        text = path.read_text()
-        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", text):
-            parsed = urlsplit(target.strip("<>"))
-            if parsed.scheme or parsed.netloc or not parsed.path:
-                continue
-            destination = (path.parent / unquote(parsed.path)).resolve()
-            links_checked += 1
-            if (not destination.is_relative_to(ROOT) or not destination.exists()
-                    or destination.relative_to(ROOT).as_posix() not in targets):
-                failures.append(f"{name}: missing or external local target {target}")
-
-    manifests = sorted((ROOT / "data/raw").glob("*/manifest.json"))
-    if not manifests:
-        raise SystemExit("No retained source manifests found.")
-    source_hashes = 0
-    for manifest_path in manifests:
-        snapshot = manifest_path.parent
-        manifest = json.loads(manifest_path.read_text())
-        for entry in manifest["sources"]:
-            source_hashes += 1
-            if hashlib.sha256((snapshot / entry["file"]).read_bytes()).hexdigest() != entry["sha256"]:
-                failures.append(f"Source checksum differs: {snapshot.name}/{entry['file']}")
-    migration = json.loads((ROOT / "migration.json").read_text())
-    for entry in migration["raw_files"]:
-        if hashlib.sha256((ROOT / entry["destination_path"]).read_bytes()).hexdigest() != entry["sha256"]:
-            failures.append(f"Migrated snapshot checksum differs: {entry['destination_path']}")
-    summary_path = ROOT / "results/summary.json"
-    if summary_path.exists():
-        summary = json.loads(summary_path.read_text())
-        estimates = ROOT / "results/estimates.csv"
-        specification = ROOT / "docs/primary_specification.json"
-        verification = json.loads((ROOT / "results/verification.json").read_text())
-        if hashlib.sha256(estimates.read_bytes()).hexdigest() != summary["estimates_sha256"]:
-            failures.append("Recorded estimate checksum differs")
-        if hashlib.sha256(specification.read_bytes()).hexdigest() != summary["specification_sha256"]:
-            failures.append("Primary specification differs from the recorded analysis")
-        if verification["status"] != "passed":
-            failures.append("Recorded independent numerical verification has not passed")
-    if failures:
-        raise SystemExit("\n".join(failures))
-    print(f"Verified {links_checked} case-sensitive tracked Markdown targets, {source_hashes} source hashes across {len(manifests)} vintages, and the migrated snapshot.")
-
-
-if __name__ == "__main__":
-    main()
+        path=ROOT/name
+        if not path.exists():failures.append('Tracked file missing:'+name);continue
+        if path.suffix!='.md':continue
+        for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)',path.read_text()):
+            parsed=urlsplit(target.strip('<>'))
+            if parsed.scheme or parsed.netloc or not parsed.path:continue
+            destination=(path.parent/unquote(parsed.path)).resolve();links+=1
+            if not destination.is_relative_to(ROOT) or not destination.exists() or destination.relative_to(ROOT).as_posix() not in targets:
+                failures.append('Invalid documented target:'+name+':'+target)
+    source_count=0
+    for path in sorted((ROOT/'data/raw').glob('*/manifest.json')):
+        for entry in json.loads(path.read_text())['sources']:
+            source_count+=1
+            if digest(path.parent/entry['file'])!=entry['sha256']:failures.append('Source checksum differs:'+entry['file'])
+    spec=json.loads((ROOT/'docs/us_purchase_specification.json').read_text())
+    verify_historical_evidence(ROOT,spec['original_evidence_preservation'])
+    results=json.loads((ROOT/'results/us_purchase_results.json').read_text())
+    if digest(ROOT/'docs/us_purchase_specification.json')!=results['specification_sha256']:failures.append('Prospective specification changed')
+    follow=json.loads((ROOT/'docs/us_purchase_followup_specification.json').read_text())
+    if digest(ROOT/'results/us_purchase_results.json')!=follow['initial_results_sha256']:failures.append('Initial retained results changed')
+    verification=json.loads((ROOT/'results/us_purchase_verification.json').read_text())
+    if not verification['passed']:failures.append('Independent reconstruction failed')
+    manifest=json.loads((ROOT/'paper/manifest.json').read_text())
+    for name,key in [('monetary_policy.tex','source_sha256'),('monetary_policy.pdf','pdf_sha256')]:
+        if digest(ROOT/'paper'/name)!=manifest[key]:failures.append('Paper package checksum differs:'+name)
+    reader=PdfReader(ROOT/'paper/monetary_policy.pdf');meta=reader.metadata
+    if len(reader.pages)>20 or len(reader.pages)!=manifest['pages_including_appendices_and_references']:failures.append('Paper page count differs')
+    if meta.author!='Amanjeet Singh' or meta.get('/Creator')!='Amanjeet Singh':failures.append('Paper authorship metadata differs')
+    if meta.title!=manifest['title']:failures.append('Paper title metadata differs')
+    if failures:raise SystemExit('\n'.join(failures))
+    print(json.dumps({'documented_targets':links,'source_hashes':source_count,'historical_evidence_preserved':True,'matching_paper_pages':len(reader.pages),'authorship_metadata_verified':True}))
+if __name__=='__main__':main()

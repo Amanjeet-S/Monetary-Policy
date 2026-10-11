@@ -1,27 +1,28 @@
-# ECB policy and information surprises in German consumer-goods production
+# Monetary tightening and cumulative household purchases
 
-## 1. Question
+## 1. Research
 
-I investigate whether separating monetary-policy and information components changes the estimated response of German durable relative to non-durable consumer-goods production. The [research design](docs/research_design.md) defines the comparison, its economic interpretation and the fixed specification. The [source register](docs/sources.md) positions it against published research and records the material actually consulted.
+I assess whether the first-year reduction in US consumer-durable purchases following monetary tightening is offset during the next two years. The study uses the original meeting-level policy and pre-decision forecast record, monthly household quantity measures and joint uncertainty for early, later and cumulative responses.
 
-## 2. Evidence and status
+The primary durable shortfall is negative but sensitive in precision to longer policy histories and leverage adjustment. Services have a smaller cumulative contraction across the declared checks. A prespecified exclusion of reserves-targeting decision origins gives a larger durable deficit; the subsequent joint sample comparison is exploratory and does not identify a causal operating-regime effect.
 
-The project is being redesigned around cumulative US household purchases, using direct expenditure measures and a published narrative policy record. The [prospective US design](docs/us_purchase_design.md) fixes the new analysis before spending estimation. The German studies remain retained. The current manuscript records the earlier evidence and is not a completed submission paper.
+The [paper](paper/monetary_policy.pdf) and [editable LaTeX source](paper/monetary_policy.tex) contain the economic mechanism, estimates, interpretation and two appendices before the references. The [paper manifest](paper/manifest.json) records matching hashes, authorship and page count.
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [working paper](paper/monetary_policy.pdf), with its [editable source](paper/monetary_policy.tex), develops the durable-stock mechanism, matched evidence, joint stability tests, complete retained-factor rotation assessment and causal sensitivity, with appendix proofs.
+## 2. Reproduction
 
-## 3. Reproduction
-
-From the repository root, with Python 3.11 or later:
+Use a complete Git checkout and Python 3.11 or later. Install the pinned environment with `python -m pip install -r requirements.lock`, then run:
 
 ```sh
-python3 scripts/check_repository.py
-python3 scripts/audit_germany_data.py
-python3 scripts/build_monthly_panel.py
+python scripts/build_us_purchase_panel.py
+python scripts/us_purchases.py --check
+python scripts/us_purchase_diagnostics.py --check
+python scripts/check_repository.py
 ```
 
-The [development guide](docs/development.md) provides notebook execution and the optional source-reconstruction command. The [data guide](data/README.md) documents inputs and generated fields. These initial reproduction commands use retained data and require no credentials or download.
+These commands use retained source bytes without credentials or downloads. The [data guide](data/README.md), [source register](docs/sources.md), [prospective design](docs/us_purchase_specification.json) and [informed follow-up record](docs/us_purchase_followup_specification.json) specify measurement and chronology. Independent R reconstruction checks all retained cases, inverse-set topologies and the overlapping-sample contrast through the [research workflow](.github/workflows/research.yml).
 
-## 4. Research package
+## 3. Research record
 
-The current working paper is twenty pages, including appendices and bibliography. The appendices precede the references. The [paper manifest](paper/manifest.json) identifies the matching source and PDF. Code, an executable notebook and independent numerical checks support the evidence, including the complete supplementary inference. [Licensing](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](PROVENANCE.md) identify the applicable rights and origins.
+The [research design](docs/us_purchase_design.md) explains the scope and identifying assumptions. Earlier German announcement and future-policy studies, including their inconclusive findings, remain intact at the [preserved study revision](https://github.com/Amanjeet-S/Monetary-Policy/tree/german-studies-2026-10-11). Their original hashes are verified from Git history. The current working tree presents the US study.
+
+[Provenance](PROVENANCE.md), [licensing](LICENSING.md) and [third-party notices](THIRD_PARTY_NOTICES.md) preserve authorship and source rights. PDF export uses the saved standalone source with `python scripts/build_paper.py --compile` when XeLaTeX is installed.

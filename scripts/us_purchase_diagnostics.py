@@ -4,8 +4,8 @@ import argparse,hashlib,json
 from pathlib import Path
 import numpy as np
 from us_purchases import ROOT,build_design,fit_case,clustered_hac,interval
-from local_projections import ols
-from future_policy import compare_values
+from linear_inference import ols
+from linear_inference import compare_values
 
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def run(root,check=False):

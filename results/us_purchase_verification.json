@@ -1,0 +1,22 @@
+{
+  "independent_language": "R",
+  "retained_status": "Prospectively specified US household-purchase study",
+  "matched_quantities": 15635,
+  "numeric_comparisons": 15279,
+  "max_absolute_difference": 1.6200374375330284e-12,
+  "max_difference_quantity": "sensitivity.exclude_reserves_targeting.scaled_design_condition_number",
+  "all_topologies_and_memberships_match": true,
+  "all_declared_cases_and_deletions_match": true,
+  "recorded_crossed_checks_and_joint_contrast_match": true,
+  "source_and_prehistory_checks": {
+    "source_purge_rank": 19.0,
+    "source_purge_replay_max_abs_error": 5.00641195166907e-13,
+    "processed_innovation_max_abs_error": 1.66533453693773e-15,
+    "complete_source_events": 263.0,
+    "primary_events": 238.0,
+    "prehistory_guard": 1.0,
+    "next_full_months_start": 1.0,
+    "next_full_months_end": 36.0
+  },
+  "passed": true
+}

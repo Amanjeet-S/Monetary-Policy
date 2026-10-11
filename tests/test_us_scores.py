@@ -1,6 +1,6 @@
 """Checks for repeated event months and generated current-purge invariance."""
 import numpy as np
-from local_projections import ols
+from linear_inference import ols
 from us_purchases import clustered_hac
 
 def test_same_month_scores_use_all_calendar_pairs():

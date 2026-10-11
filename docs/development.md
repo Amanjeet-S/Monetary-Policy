@@ -40,8 +40,10 @@ The pinned GitHub workflow runs this check in an isolated environment and retain
 
 ## 5. Manuscript numerical blocks
 
-`python scripts/build_paper.py` refreshes the seven numerical table and figure blocks in `paper/monetary_policy.tex` from the retained estimates and sample description. It preserves the surrounding research text and its layout choices. The source is self-contained and can be compiled without additional project files. The manuscript remains a research draft.
+`python scripts/build_paper.py` refreshes the seven numerical table and figure blocks in `paper/monetary_policy.tex` from the retained estimates and sample description. It preserves the surrounding research text and its layout choices. The source is self-contained and can be compiled without additional project files. The [final PDF](../paper/monetary_policy.pdf) and editable source are identified by the [paper manifest](../paper/manifest.json).
 
 `python scripts/describe_primary_sample.py` reproduces the post-estimation sample description without fitting outcomes. Use `--check` to compare its moments and input hashes with the retained summary. The table reports the reporting unit against observed monthly variation; it does not change the primary normalisation or confidence procedure.
 
 `python scripts/gap_followup.py` reproduces the six-case supplementary calculation from unchanged estimates. Use `--check` for retained-result verification. The independent check uses `Rscript scripts/verify_gap_followup.R reports/r_estimates.csv reports/r_gap_followup.csv`, followed by `python scripts/gap_followup.py --check --compare-r reports/r_gap_followup.csv`. It checks the p-values and joint-region extrema with a separate numerical method, without additional outcome regressions.
+
+`python scripts/build_paper.py --compile` exports a matching PDF when XeLaTeX is available. The source enforces the twenty-page total; every updated export requires a fresh layout review.

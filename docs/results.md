@@ -38,3 +38,5 @@ The [recorded estimates](../results/estimates.csv), [response path](../results/f
 ## 5. Recorded supplementary inference
 
 The [post-estimation record](gap_followup_specification.json) acknowledges that the estimates and preliminary diagnostic arithmetic were already known. The [complete follow-up](../results/gap_followup.json) retains all six cases. The primary intersection-union test gives p=0.036, while its covariance-aware joint-ellipse product bounds are [−0.19, 3.18]. The poor-man and earlier-period tests do not reject, with p=0.174 and 0.414, and every ellipse interval includes zero. This is supplementary nominal evidence for the selected decomposition; the original interval and construction, magnitude and causal uncertainty remain.
+
+The [independent supplementary verification](../results/gap_followup_verification.json) passes all 30 numeric comparisons across six cases, using separate R optimisation and independently reconstructed projection estimates.

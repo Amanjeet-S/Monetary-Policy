@@ -1,0 +1,14 @@
+{
+  "status": "final",
+  "date": "2026-10-11",
+  "source": "monetary_policy.tex",
+  "pdf": "monetary_policy.pdf",
+  "source_sha256": "0207aecc126378dd1664468def298ded752044cfce607e6db75c0528a39a428f",
+  "pdf_sha256": "db4d7c297fc56edfead37e296174c487e2ef6c351f9ab88f245d315cd867bf00",
+  "pages_including_appendices_and_references": 20,
+  "format": "A4, 11-point text, 25 mm margins",
+  "layout_review": "All pages inspected; no clipping or unresolved references; bibliography entries kept intact",
+  "compiler": "XeTeX 3.141592653-2.6-0.999994 (TeX Live 2022)",
+  "numerical_scope": "Locked primary evidence preserved; complete post-estimation follow-up included",
+  "verification": "https://github.com/Amanjeet-S/Monetary-Policy/actions/runs/38140058043"
+}

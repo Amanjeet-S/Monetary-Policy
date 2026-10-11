@@ -39,6 +39,28 @@ Origins: January 2000--August 2025, $n=308$. Responses are percentage log-change
 \end{table}'''
 
 
+def table_variation(description):
+    before = description['before_controls']['sd_basis_points']
+    after = description['after_controls']['sd_basis_points']
+    rows = [f"{label} & ${before[key]:.2f}$ & ${after[key]:.2f}$ \\\\" for key, label in
+            [('m','Policy contribution'),('c','Information contribution'),('r','Recomposed factor')]]
+    return r"""\begin{table}[htbp]
+\centering\small
+\caption{Monthly announcement variation on the primary origins}
+\label{tab:variation}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Contribution & Sample SD, basis points & Control-residual SD, basis points \\
+\midrule
+""" + '\n'.join(rows) + r"""
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\footnotesize
+January 2000--August 2025, $n=308$, including 45 months without retained events. Both columns use divisor $n-1$. The right column removes the same 72 controls defined in Section~\ref{sec:design} from each current contribution, without removing the other current component. These are descriptive standard deviations in normalised factor units, not disturbance standard errors or actual policy-rate changes.
+\end{minipage}
+\end{table}"""
+
+
 def path_figure(path):
     def coordinates(key):
         return ' '.join(f"({r['horizon']},{float(r[key]):.10g})" for r in path)
@@ -47,7 +69,7 @@ def path_figure(path):
         plots += [f'\\addplot[name path={name}lo,draw=none,forget plot] coordinates {{{coordinates(key+"_low")}}};',
                   f'\\addplot[name path={name}hi,draw=none,forget plot] coordinates {{{coordinates(key+"_high")}}};',
                   f'\\addplot[{colour}!15,draw=none,forget plot] fill between[of={name}lo and {name}hi];',
-                  f'\\addplot[{colour},very thick] coordinates {{{coordinates(key)}}};',
+                  f'\\addplot[{colour},very thick'+(',dashed' if key=='gamma' else '')+f'] coordinates {{{coordinates(key)}}};',
                   '\\addlegendentry{'+('Policy component' if key=='beta_m' else 'Recomposed surprise')+'}']
     return r'''\begin{figure}[htbp]
 \centering
@@ -63,18 +85,20 @@ def path_figure(path):
 \addplot[gray,densely dotted,forget plot] coordinates {(12,-7)(12,1.5)};
 \end{axis}
 \end{tikzpicture}
-\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample.}
+\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample. Figure~\ref{fig:sensitivity} shows the directly assessed primary gap; overlap of these individual response bands is not a test of that gap.}
 \label{fig:path}
 \end{figure}'''
 
 
 def sensitivity_figure(checks):
-    labels=['Primary','Six lags','Poor-man components','Pre-pandemic endpoints','Short bandwidth','Long bandwidth']
+    labels=['Primary comparison','Six lags','Poor-man components','Pre-pandemic endpoints','Short bandwidth','Long bandwidth']
     plots=[]
     for i,row in enumerate(checks):
         lo,hi,point=(float(row[k]) for k in ['delta_product_low','delta_product_high','delta'])
-        plots += [f'\\addplot[policyblue,thick,forget plot] coordinates {{({lo:.10g},{i})({hi:.10g},{i})}};',
-                  f'\\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {{({point:.10g},{i})}};']
+        weight='very thick' if i==0 else 'thick'
+        size=2.8 if i==0 else 2
+        plots += [f'\\addplot[policyblue,{weight},forget plot] coordinates {{({lo:.10g},{i})({hi:.10g},{i})}};',
+                  f'\\addplot[policyblue,only marks,mark=*,mark size={size:g}pt,forget plot] coordinates {{({point:.10g},{i})}};']
     return r'''\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
@@ -87,7 +111,7 @@ def sensitivity_figure(checks):
 \addplot[gray,thin,forget plot] coordinates {(0,-.4)(0,5.4)};
 \end{axis}
 \end{tikzpicture}
-\caption{Declared twelve-month adjustment-gap checks. Points show the recomposed-rate coefficient less the policy-component coefficient per ten-basis-point factor contribution. Lines are the conservative 95 per cent product intervals. All samples have 308 origins except the pre-pandemic check, with 228. Every interval includes zero.}
+\caption{Declared twelve-month adjustment-gap checks. Points show the recomposed-rate coefficient less the policy-component coefficient per ten-basis-point factor contribution. Lines are the conservative 95 per cent product intervals. The larger point and thicker line identify the primary comparison. All samples have 308 origins except the pre-pandemic check, with 228. Every interval includes zero.}
 \label{fig:sensitivity}
 \end{figure}'''
 
@@ -115,6 +139,35 @@ All responses use the same ten-basis-point factor units. Six-lag and poor-man co
 \end{table}'''
 
 
+def followup_summary(followup):
+    row=followup['cases'][0]
+    return (f"The primary intersection-union test gives $p={row['p_IUT']:.3f}$, a nominal 5 per cent rejection of the zero-product restriction. "
+            f"Its joint-ellipse product bounds are $[{row['ellipse95_low']:.2f},{row['ellipse95_high']:.2f}]$. "
+            "Every joint-region interval includes zero. The poor-man and pre-pandemic tests do not reject, "
+            f"with $p={followup['cases'][2]['p_IUT']:.3f}$ and $p={followup['cases'][3]['p_IUT']:.3f}$. "
+            "Table~\\ref{tab:gap-followup} reports all six cases without selection.")
+
+
+def followup_table(followup):
+    labels=['Primary','Six lags','Poor-man components','Pre-pandemic endpoints','Short bandwidth','Long bandwidth']
+    lines=[f"{label} & ${r['p_IUT']:.3f}$ & $[{r['ellipse95_low']:.2f},{r['ellipse95_high']:.2f}]$ \\\\" for label,r in zip(labels,followup['cases'])]
+    return r"""\begin{table}[htbp]
+\centering\small
+\caption{Post-estimation twelve-month zero-gap assessment}
+\label{tab:gap-followup}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+Specification & Intersection-union $p$ & Joint-ellipse product 95\% bounds \\
+\midrule
+"""+'\n'.join(lines)+r"""
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\footnotesize
+The same six designs and ten-basis-point factor units are retained. Nominal levels require valid marginal or joint asymptotic inference. The procedures were recorded after primary inspection and preliminary diagnostic arithmetic; they do not replace the primary product bounds. No confidence claim across all six designs is made.
+\end{minipage}
+\end{table}"""
+
+
 def refresh():
     summary=json.loads((ROOT/'results/summary.json').read_text())
     source=ROOT/'results/estimates.csv'
@@ -124,7 +177,15 @@ def refresh():
         rows=list(csv.DictReader(f))
     checks=[r for r in rows if not r['case'].startswith('path_')]
     path=[r for r in rows if r['case'].startswith('path_')]
-    blocks={'PRIMARY_TABLE':table_primary(checks[0]),'PATH_FIGURE':path_figure(path),
+    description=json.loads((ROOT/'results/sample_description.json').read_text())
+    if description['source_sha256']['estimates']!=summary['estimates_sha256']:
+        raise ValueError('Descriptive sample does not match retained estimates')
+    followup=json.loads((ROOT/'results/gap_followup.json').read_text())
+    if followup['estimates_sha256']!=summary['estimates_sha256']:
+        raise ValueError('Follow-up does not match retained estimates')
+    blocks={'FOLLOWUP_SUMMARY':followup_summary(followup),'FOLLOWUP_TABLE':followup_table(followup),
+            'VARIATION_TABLE':table_variation(description),
+            'PRIMARY_TABLE':table_primary(checks[0]),'PATH_FIGURE':path_figure(path),
             'SENSITIVITY_FIGURE':sensitivity_figure(checks),'SENSITIVITY_TABLE':sensitivity_table(checks)}
     text=TEX.read_text()
     for key,value in blocks.items():

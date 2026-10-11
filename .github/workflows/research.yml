@@ -39,6 +39,10 @@ jobs:
         run: python scripts/audit_germany_data.py
       - name: Construct the untransformed monthly panel
         run: python scripts/build_monthly_panel.py
+      - name: Reproduce the descriptive sample moments
+        run: python scripts/describe_primary_sample.py --check
+      - name: Reproduce the supplementary gap calculations
+        run: python scripts/gap_followup.py --check
       - name: Execute the research notebooks
         run: python scripts/execute_notebooks.py
 
@@ -68,6 +72,10 @@ jobs:
         run: Rscript scripts/verify_local_projections.R . reports/replay/r_estimates.csv
       - name: Compare independent estimates and uncertainty
         run: python scripts/compare_r_results.py reports/replay/estimates.csv reports/replay/r_estimates.csv --report reports/replay/r_verification.json
+      - name: Independently verify the supplementary gap calculations
+        run: |
+          Rscript scripts/verify_gap_followup.R reports/replay/r_estimates.csv reports/replay/r_gap_followup.csv
+          python scripts/gap_followup.py --check --compare-r reports/replay/r_gap_followup.csv
       - name: Retain numerical verification
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

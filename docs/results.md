@@ -34,3 +34,7 @@ Single-origin deletions preserve the gap's point-estimate sign, but the largest 
 The specification was locked in commit `66ed69c136b41d2775a62909375a4d1cd00ec048` and implementation committed before fitting. Independent reconstruction in R 4.6.1 passed for nine selected cases and 351 numerical comparisons, covering transformations, samples, estimates, joint calendar covariance and intervals. The maximum absolute difference was approximately 1.04 × 10⁻¹³. This agreement checks calculation; it does not establish causal identification or independent empirical replication.
 
 The [recorded estimates](../results/estimates.csv), [response path](../results/figures/response_paths.svg), [gap sensitivities](../results/figures/primary_sensitivity.svg) and [independent verification record](../results/verification.json) retain the numerical evidence.
+
+## 5. Recorded supplementary inference
+
+The [post-estimation record](gap_followup_specification.json) acknowledges that the estimates and preliminary diagnostic arithmetic were already known. The [complete follow-up](../results/gap_followup.json) retains all six cases. The primary intersection-union test gives p=0.036, while its covariance-aware joint-ellipse product bounds are [−0.19, 3.18]. The poor-man and earlier-period tests do not reject, with p=0.174 and 0.414, and every ellipse interval includes zero. This is supplementary nominal evidence for the selected decomposition; the original interval and construction, magnitude and causal uncertainty remain.

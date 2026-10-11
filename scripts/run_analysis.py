@@ -104,7 +104,8 @@ def draw_figures(rows: list[dict], directory: Path) -> None:
     fig, ax = plt.subplots(figsize=(7.5,4.6),layout='constrained')
     for key, label, colour in [('beta_m','Policy component','#245d8f'),
                                ('gamma','Recomposed rate surprise','#ba5b21')]:
-        ax.plot(horizons,[r[key] for r in path],label=label,color=colour,lw=1.8)
+        ax.plot(horizons,[r[key] for r in path],label=label,color=colour,lw=1.8,
+                linestyle='--' if key=='gamma' else '-')
         ax.fill_between(horizons,[r[key+'_low'] for r in path],
                          [r[key+'_high'] for r in path],color=colour,alpha=.14)
     ax.axhline(0,color='#666666',lw=.7)
@@ -116,16 +117,19 @@ def draw_figures(rows: list[dict], directory: Path) -> None:
     fig.text(.5,-.03,'Common origins: Jan 2000–Aug 2024, n=296. Shading: 95% pointwise HAC intervals.',
              ha='center',fontsize=8)
     for extension in ['png','svg']:
-        fig.savefig(directory/f'response_paths.{extension}',bbox_inches='tight')
+        destination=directory/f'response_paths.{extension}'
+        fig.savefig(destination,bbox_inches='tight')
+        if extension=='svg':
+            destination.write_text('\n'.join(line.rstrip() for line in destination.read_text().splitlines())+'\n')
     plt.close(fig)
     checks = [r for r in rows if not r['case'].startswith('path_')]
-    labels = ['Primary','Six lags, matched sample','Poor-man decomposition',
+    labels = ['Primary comparison','Six lags, matched sample','Poor-man decomposition',
               'Pre-pandemic outcome window','Short HAC bandwidth','Long HAC bandwidth']
     fig,ax=plt.subplots(figsize=(7.5,4.6),layout='constrained')
     for i,row in enumerate(checks):
         lo,hi=row['delta_product_low'],row['delta_product_high']
-        ax.plot([lo,hi],[i,i],color='#245d8f',lw=1.4)
-        ax.plot(row['delta'],i,'o',color='#245d8f',ms=4)
+        ax.plot([lo,hi],[i,i],color='#245d8f',lw=2.3 if i==0 else 1.4)
+        ax.plot(row['delta'],i,'o',color='#245d8f',ms=6 if i==0 else 4)
     ax.axvline(0,color='#666666',lw=.7)
     ax.set(yticks=range(len(checks)),yticklabels=labels,
            xlabel='Recomposed-rate response minus policy-component response\n(per cent log points, per 10 bp factor contribution)',
@@ -134,7 +138,10 @@ def draw_figures(rows: list[dict], directory: Path) -> None:
     fig.text(.5,-.03,'95% conservative product intervals. All n=308 except pre-pandemic n=228.',
              ha='center',fontsize=8)
     for extension in ['png','svg']:
-        fig.savefig(directory/f'primary_sensitivity.{extension}',bbox_inches='tight')
+        destination=directory/f'primary_sensitivity.{extension}'
+        fig.savefig(destination,bbox_inches='tight')
+        if extension=='svg':
+            destination.write_text('\n'.join(line.rstrip() for line in destination.read_text().splitlines())+'\n')
     plt.close(fig)
 
 

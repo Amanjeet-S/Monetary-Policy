@@ -23,3 +23,7 @@ I checked the source update at commit `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`
 The 322 months contain 277 months with retained events and 45 without. Six event factors are observed zeros; these can have offsetting nonzero median components and are distinct from empty-event months. No retained rate/equity inputs are missing after the exclusions. The update uses four OIS maturities and scales the factor to one-year OIS-surprise variation before division by 100. A 0.01 movement is one basis point in that normalised factor, not necessarily a one-basis-point policy-rate change.
 
 The [review metadata](../data/metadata/shock_source_review_2026-10-10.json) records exact URLs, hashes, exclusions and source rights. The optional audit reproduces these checks from externally retained source files. Agreement establishes construction and coverage; identifying assumptions and the economic response still require separate analysis.
+
+## 3. Primary-sample variation
+
+The [descriptive summary](../results/sample_description.json) retains moments on the 308 primary origins, including 263 months with retained events and 45 without. Policy, information and recomposed factor standard deviations are 3.32, 2.79 and 4.35 basis points before controls, and 2.77, 2.41 and 3.59 after projecting each contribution on the same control matrix. These are descriptive factor units. The covariance ratio reproduces the recorded mixture weight; no outcome regression is fitted.

@@ -1,0 +1,3313 @@
+{
+  "status": "post_estimation_diagnostics",
+  "author": "Amanjeet Singh",
+  "specification_sha256": "764e65fdf763086e015458bdb4cd4519e359eee57da772d536e11a3758f1dbdf",
+  "primary_results_sha256": "e0e11fcd220c9ab5a8af72005b8472412c9b958223561f39a5c66b1e92e76299",
+  "checks": [
+    {
+      "kind": "annual_state",
+      "horizon": 0,
+      "columns": 20,
+      "n": 133,
+      "bandwidth": 5,
+      "maximum_leverage": 0.7958948045512784,
+      "coefficients": [
+        1.0085663711598667,
+        0.8814067566971224,
+        1.249079873250419,
+        0.5515574897910747,
+        0.41810959538259473
+      ],
+      "joint_covariance": [
+        [
+          0.18916311821530907,
+          0.19478545735163588,
+          0.10936076806711212,
+          -0.00172179316847441,
+          -0.02276867987574038
+        ],
+        [
+          0.19478545735163588,
+          0.21185229044895573,
+          0.10676233354405819,
+          0.0012078235052318635,
+          -0.022630840181965328
+        ],
+        [
+          0.10936076806711212,
+          0.10676233354405819,
+          1.138754479175661,
+          -0.03246324955753252,
+          -0.04896957163500387
+        ],
+        [
+          -0.00172179316847441,
+          0.0012078235052318635,
+          -0.03246324955753252,
+          0.010108018147037965,
+          0.0048873850612511155
+        ],
+        [
+          -0.02276867987574038,
+          -0.022630840181965328,
+          -0.04896957163500387,
+          0.0048873850612511155,
+          0.01904219690328648
+        ]
+      ],
+      "first_stage_hac_t_squared": 30.096469962687813,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 1.0085663711598667,
+          "reduced_form_se": 0.434928865695655,
+          "reduced_form_p": 0.020399234083496583,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.8285788695243774,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.13950129581914208,
+                    "upper": 4.842039977570606
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2411564634398612,
+                  -1.13404759768033,
+                  -0.1628941616512017
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 7.557754100433206,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10306600501480553,
+                  -0.006578737947738577,
+                  -0.1628941616512017
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 2.412205752506037,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.14345522423815976,
+                    "upper": 20.26954391136554
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.05602026689138654,
+                  -1.1274688597325913,
+                  -0.1628941616512017
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.6921115461604248,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.13899175881125142,
+                    "upper": 4.559104779687289
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25706141561610574,
+                  -1.1362405103295758,
+                  -0.1628941616512017
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 0.8814067566971224,
+          "reduced_form_se": 0.46027414705689884,
+          "reduced_form_p": 0.055497556222629384,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.5980324318159325,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.5048926217565083,
+                    "upper": 4.4741949164146515
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2411564634398612,
+                  -0.9572229037034837,
+                  -0.5447695574185099
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 6.604875712756945,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10306600501480553,
+                  0.06219281126850341,
+                  -0.5447695574185099
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 2.1080758883100583,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.5195596960070454,
+                    "upper": 18.71682599872665
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.05602026689138654,
+                  -1.0194157149719871,
+                  -0.5447695574185099
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.47877084991029,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.5102477398862566,
+                    "upper": 4.153314764820621
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25706141561610574,
+                  -0.9364919666139825,
+                  -0.5447695574185099
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 1.249079873250419,
+          "reduced_form_se": 1.0671243972357023,
+          "reduced_form_p": 0.24179575643760187,
+          "benchmarks": {
+            "one_year": {
+              "point": 2.26464130461461,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -2.3576405241511904,
+                    "upper": 9.750868875467352
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2411564634398612,
+                  -1.7829248026067215,
+                  -5.543956454005007
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 9.360056813088587,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10306600501480553,
+                  -0.12742370007526768,
+                  -5.543956454005007
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 2.987446083621778,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.0367514787239185,
+                    "upper": 32.588576102144216
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.05602026689138654,
+                  -1.6555011025314537,
+                  -5.543956454005007
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 2.0956305266979918,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -2.2952382396449664,
+                    "upper": 9.396262580164898
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25706141561610574,
+                  -1.8253993692984771,
+                  -5.543956454005007
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "annual_state",
+      "horizon": 6,
+      "columns": 20,
+      "n": 133,
+      "bandwidth": 11,
+      "maximum_leverage": 0.7958948045512784,
+      "coefficients": [
+        0.7940324602486017,
+        0.6546090790107791,
+        1.8972407977647363,
+        0.5515574897910747,
+        0.41810959538259473
+      ],
+      "joint_covariance": [
+        [
+          2.279285475848323,
+          2.018169495966327,
+          1.3329753784105174,
+          -0.06785646514084667,
+          -0.07785552019323566
+        ],
+        [
+          2.018169495966327,
+          1.8227299411108997,
+          1.260245805194015,
+          -0.04936779166067584,
+          -0.07399773999515254
+        ],
+        [
+          1.3329753784105174,
+          1.260245805194015,
+          1.3462613715797274,
+          -0.013347291127259811,
+          -0.06927640644096866
+        ],
+        [
+          -0.06785646514084667,
+          -0.04936779166067584,
+          -0.013347291127259811,
+          0.012062781749140135,
+          0.00531827338105519
+        ],
+        [
+          -0.07785552019323566,
+          -0.07399773999515254,
+          -0.06927640644096866,
+          0.00531827338105519,
+          0.01741964439233303
+        ]
+      ],
+      "first_stage_hac_t_squared": 25.2193624050536,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 0.7940324602486017,
+          "reduced_form_se": 1.5097302659244543,
+          "reduced_form_p": 0.5989276294530985,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.4396186706654541,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.811559933727488,
+                    "upper": 12.334911421470492
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.22896160691070397,
+                  -1.7225586459876734,
+                  -13.588909281985213
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 5.950131051285775,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.09976229305735848,
+                  -0.08716505725915394,
+                  -13.588909281985213
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 1.8991012620076695,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.56574083879672,
+                    "upper": 31.291004894592007
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06614261368606916,
+                  -1.6353935887285194,
+                  -13.588909281985213
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.332179549539885,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.719769493049492,
+                    "upper": 12.05189340790717
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2388958077378672,
+                  -1.751613665074058,
+                  -13.588909281985213
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 0.6546090790107791,
+          "reduced_form_se": 1.3500851606883544,
+          "reduced_form_p": 0.6277720913825011,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.1868374396633423,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.58334007126313,
+                    "upper": 10.427438817144461
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.22896160691070397,
+                  -1.3380742398018193,
+                  -10.942647179569217
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 4.905353373407607,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.09976229305735848,
+                  0.13259706655073192,
+                  -10.942647179569217
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 1.565639933261454,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -5.883672578367556,
+                    "upper": 28.11852579013746
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06614261368606916,
+                  -1.4706713063525512,
+                  -10.942647179569217
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.0982634484845475,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.581586388602971,
+                    "upper": 9.997651366344105
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2388958077378672,
+                  -1.2938752176182418,
+                  -10.942647179569217
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 1.8972407977647363,
+          "reduced_form_se": 1.1602850389364363,
+          "reduced_form_p": 0.10201747735442152,
+          "benchmarks": {
+            "one_year": {
+              "point": 3.439787933046463,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.7968860021304098,
+                    "upper": 11.664958632286847
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.22896160691070397,
+                  -2.259409766512155,
+                  -4.799172859707761
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 14.217090544398852,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.09976229305735848,
+                  0.19146564318096243,
+                  -4.799172859707761
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 4.537663853489538,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.864344339939,
+                    "upper": 38.91875258158543
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06614261368606916,
+                  -2.450875409693117,
+                  -4.799172859707761
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 3.1830756522769863,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.8238760821709765,
+                    "upper": 11.01444290811119
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.2388958077378672,
+                  -2.195587885451834,
+                  -4.799172859707761
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "annual_state",
+      "horizon": 12,
+      "columns": 20,
+      "n": 133,
+      "bandwidth": 17,
+      "maximum_leverage": 0.7958948045512784,
+      "coefficients": [
+        4.00247230643556,
+        3.734296892343293,
+        3.4790200433303338,
+        0.5515574897910747,
+        0.41810959538259473
+      ],
+      "joint_covariance": [
+        [
+          7.440113045699325,
+          6.901910578271536,
+          3.063166059156959,
+          -0.1884285406577314,
+          -0.02678862387360962
+        ],
+        [
+          6.901910578271536,
+          6.41103888412289,
+          2.833936624974335,
+          -0.17315142878472276,
+          -0.027992532926279876
+        ],
+        [
+          3.063166059156959,
+          2.833936624974335,
+          2.1083984578071933,
+          -0.10639125995701952,
+          -0.07504000794712011
+        ],
+        [
+          -0.1884285406577314,
+          -0.17315142878472276,
+          -0.10639125995701952,
+          0.01178943245032544,
+          0.005114638801299745
+        ],
+        [
+          -0.02678862387360962,
+          -0.027992532926279876,
+          -0.07504000794712011,
+          0.005114638801299745,
+          0.017806509536653404
+        ]
+      ],
+      "first_stage_hac_t_squared": 25.80409751075284,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 4.00247230643556,
+          "reduced_form_se": 2.727657061600546,
+          "reduced_form_p": 0.1422764112781363,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.2566729316859835,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.9581538716599467,
+                    "upper": 33.29145742961133
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23066690543263577,
+                  -6.766222357828769,
+                  -30.39560349410811
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 29.99277226648563,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10301122730796745,
+                  -3.0850347960143285,
+                  -30.39560349410811
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 9.572782712085484,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -7.327487035279424,
+                    "upper": 65.09050402840369
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06372914285714379,
+                  -3.6811875618144407,
+                  -30.39560349410811
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 6.7151055166734634,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.5177299248338976,
+                    "upper": 35.92352292735377
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.240530058598703,
+                  -7.7945672898335445,
+                  -30.39560349410811
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 3.734296892343293,
+          "reduced_form_se": 2.5320029392010763,
+          "reduced_form_p": 0.1402558110683995,
+          "benchmarks": {
+            "one_year": {
+              "point": 6.770458132583447,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.6570610584986647,
+                    "upper": 30.881514898440315
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23066690543263577,
+                  -6.279780519352978,
+                  -26.050502034932013
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 27.98318331582456,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10301122730796745,
+                  -2.8078251334599837,
+                  -26.050502034932013
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 8.93138290434639,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.6832595067977625,
+                    "upper": 61.16312900191684
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06372914285714379,
+                  -3.4719553858929944,
+                  -26.050502034932013
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 6.265177056278715,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.2566971330636756,
+                    "upper": 33.255950750445926
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.240530058598703,
+                  -7.215722230506305,
+                  -26.050502034932013
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 3.4790200433303338,
+          "reduced_form_se": 1.4520325264287963,
+          "reduced_form_p": 0.01657664411005454,
+          "benchmarks": {
+            "one_year": {
+              "point": 6.307629046335963,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.2014195068293584,
+                    "upper": 22.593924445602514
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23066690543263577,
+                  -5.165209819111817,
+                  -1.0497321287457257
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 26.070250555480175,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -11.959194049499711
+                  },
+                  {
+                    "lower": -0.8521028450870086,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10301122730796745,
+                  -1.3197074165181302,
+                  -1.0497321287457257
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 8.320832819315775,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.2717527259629383,
+                    "upper": 60.61310097246019
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06372914285714379,
+                  -3.8455024025936866,
+                  -1.0497321287457257
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 5.8368890268201055,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.18579978451689774,
+                    "upper": 23.488967479811137
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.240530058598703,
+                  -5.605112291284526,
+                  -1.0497321287457257
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "annual_state",
+      "horizon": 18,
+      "columns": 20,
+      "n": 133,
+      "bandwidth": 23,
+      "maximum_leverage": 0.7958948045512784,
+      "coefficients": [
+        4.806288556175841,
+        4.390870713583771,
+        3.0398787338893705,
+        0.5515574897910747,
+        0.41810959538259473
+      ],
+      "joint_covariance": [
+        [
+          4.078263461842113,
+          3.809456746605269,
+          1.4813360324099853,
+          -0.17283092479591225,
+          -0.07354345377944649
+        ],
+        [
+          3.809456746605269,
+          3.574566447938641,
+          1.4294643537674185,
+          -0.16301878774682194,
+          -0.06469426213750878
+        ],
+        [
+          1.4813360324099853,
+          1.4294643537674185,
+          1.1992651363979732,
+          -0.07173213852103925,
+          0.01573711824667076
+        ],
+        [
+          -0.17283092479591225,
+          -0.16301878774682194,
+          -0.07173213852103925,
+          0.010975568609446458,
+          0.0042803826421944115
+        ],
+        [
+          -0.07354345377944649,
+          -0.06469426213750878,
+          0.01573711824667076,
+          0.0042803826421944115,
+          0.018062113684420504
+        ]
+      ],
+      "first_stage_hac_t_squared": 27.71753112479284,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 4.806288556175841,
+          "reduced_form_se": 2.019471084675914,
+          "reduced_form_p": 0.017313862391147076,
+          "benchmarks": {
+            "one_year": {
+              "point": 8.71403007870752,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.310951832426446,
+                    "upper": 31.94825595374148
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23574422156595987,
+                  -7.458311632524946,
+                  -2.3419700233908682
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 36.01621874575209,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -21.966834700806487
+                  },
+                  {
+                    "lower": -0.9697676634596978,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10993757454486071,
+                  -2.5215944322273423,
+                  -2.3419700233908682
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 11.495284033789767,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.4715990112037646,
+                    "upper": 79.92364873377554
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06213454803916929,
+                  -4.936717200297603,
+                  -2.3419700233908682
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 8.06369971540003,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.2798939434597533,
+                    "upper": 34.186911132321875
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.24475296849939626,
+                  -8.298843109934058,
+                  -2.3419700233908682
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 4.390870713583771,
+          "reduced_form_se": 1.8906523868597953,
+          "reduced_form_p": 0.020210849386917328,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.960857743491066,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.43273029412541736,
+                    "upper": 29.60685497660233
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23574422156595987,
+                  -6.877631313138775,
+                  -3.0203038248593743
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 32.903259605906186,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -20.477168726332632
+                  },
+                  {
+                    "lower": -1.3416355966708509,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10993757454486071,
+                  -2.3987064267399245,
+                  -3.0203038248593743
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 10.501721945811523,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.6681438145566255,
+                    "upper": 72.75243552897226
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06213454803916929,
+                  -4.4789248863988504,
+                  -3.0203038248593743
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 7.36673683022797,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.3885979308909805,
+                    "upper": 31.755735862339687
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.24475296849939626,
+                  -7.677200122052082,
+                  -3.0203038248593743
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 3.0398787338893705,
+          "reduced_form_se": 1.0951096458336824,
+          "reduced_form_p": 0.005505472373468316,
+          "benchmarks": {
+            "one_year": {
+              "point": 5.5114449357597355,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": 0.42407213273325534,
+                    "upper": 17.596909733986905
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.23574422156595987,
+                  -4.248342342024222,
+                  1.7592080230263116
+                ],
+                "contains_zero": false
+              }
+            },
+            "slope_1y_3m": {
+              "point": 22.7795181584836,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -18.186866940092333
+                  },
+                  {
+                    "lower": 0.8798591530862652,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10993757454486071,
+                  -1.9026904587324645,
+                  1.7592080230263116
+                ],
+                "contains_zero": false
+              }
+            },
+            "three_month": {
+              "point": 7.27053090256803,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": 0.7655096625107942,
+                    "upper": 36.98566029551434
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06213454803916929,
+                  -2.3456518832917577,
+                  1.7592080230263116
+                ],
+                "contains_zero": false
+              }
+            },
+            "forward_3m_1y": {
+              "point": 5.100124346428756,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": 0.36705729430740114,
+                    "upper": 19.581924427428437
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.24475296849939626,
+                  -4.882572494935043,
+                  1.7592080230263116
+                ],
+                "contains_zero": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "annual_state",
+      "horizon": 24,
+      "columns": 20,
+      "n": 133,
+      "bandwidth": 29,
+      "maximum_leverage": 0.7958948045512784,
+      "coefficients": [
+        4.310154931549544,
+        3.9262641426644054,
+        1.8832110797583805,
+        0.5515574897910747,
+        0.41810959538259473
+      ],
+      "joint_covariance": [
+        [
+          3.8071105133585372,
+          3.4702932839609,
+          0.7656540001251034,
+          -0.12428719342157935,
+          -0.035176325151443116
+        ],
+        [
+          3.4702932839609,
+          3.176648978819743,
+          0.7154065554289554,
+          -0.11147525454928538,
+          -0.023462187974299952
+        ],
+        [
+          0.7656540001251034,
+          0.7154065554289554,
+          1.631174882464667,
+          -0.03403778337214396,
+          0.08845895932411399
+        ],
+        [
+          -0.12428719342157935,
+          -0.11147525454928538,
+          -0.03403778337214396,
+          0.010122943650712389,
+          0.0035661766544561736
+        ],
+        [
+          -0.035176325151443116,
+          -0.023462187974299952,
+          0.08845895932411399,
+          0.0035661766544561736,
+          0.01703361587229222
+        ]
+      ],
+      "first_stage_hac_t_squared": 30.052095027045088,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 4.310154931549544,
+          "reduced_form_se": 1.9511818247817236,
+          "reduced_form_p": 0.027174844789360962,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.814516186122673,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.7962330168830303,
+                    "upper": 26.95257693706964
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.241063350198066,
+                  -6.305335894332999,
+                  -5.173347655947825
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 32.29841093150778,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -18.510514749955888
+                  },
+                  {
+                    "lower": -2.609213842609092,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10711332347276463,
+                  -2.262204320392409,
+                  -5.173347655947825
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 10.308672604381394,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.2529236801816463,
+                    "upper": 60.23294620396089
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06855086520712166,
+                  -4.04313157394059,
+                  -5.173347655947825
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 7.231316781887061,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.7146732300519245,
+                    "upper": 28.844093322496803
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25096159031826304,
+                  -7.059404001130468,
+                  -5.173347655947825
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 3.9262641426644054,
+          "reduced_form_se": 1.7823156226717374,
+          "reduced_form_p": 0.027601755805262414,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.118503900929061,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.7458860517825038,
+                    "upper": 24.48240515472787
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.241063350198066,
+                  -5.722004816996402,
+                  -4.40207821240008
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 29.421701706631886,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -17.71544283048039
+                  },
+                  {
+                    "lower": -2.3198625123783594,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10711332347276463,
+                  -2.146048142065239,
+                  -4.40207821240008
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 9.390514319748256,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.203265952355897,
+                    "upper": 53.3682774970922
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06855086520712166,
+                  -3.575956674931163,
+                  -4.40207821240008
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 6.5872480771273105,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.6665146070496288,
+                    "upper": 26.317269328204876
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25096159031826304,
+                  -6.437354197684814,
+                  -4.40207821240008
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 1.8832110797583805,
+          "reduced_form_se": 1.2771745700822057,
+          "reduced_form_p": 0.14034339943402688,
+          "benchmarks": {
+            "one_year": {
+              "point": 3.4143513860571906,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -2.188288911605314,
+                    "upper": 12.567676714235178
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.241063350198066,
+                  -2.5020899967068977,
+                  -6.629653769838187
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 14.111957990089593,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -14.771273937880444
+                  },
+                  {
+                    "lower": -4.190148369296915,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.10711332347276463,
+                  -2.0310209610923833,
+                  -6.629653769838187
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 4.504108732628182,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.981236817067015,
+                    "upper": 13.85305432354504
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.06855086520712166,
+                  -0.4710690356145139,
+                  -6.629653769838187
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 3.1595374414990203,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.823032250589303,
+                    "upper": 14.490695775139185
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.25096159031826304,
+                  -3.1790969837376917,
+                  -6.629653769838187
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "leverage",
+      "horizon": 0,
+      "columns": 18,
+      "n": 133,
+      "bandwidth": 5,
+      "maximum_leverage": 0.7918828449983403,
+      "coefficients": [
+        0.7300868584243457,
+        0.6408002381954557,
+        0.7631869563908423,
+        0.558146945666212,
+        0.44445390385601813
+      ],
+      "joint_covariance": [
+        [
+          0.31673308246919035,
+          0.326886545232583,
+          0.14696295816227273,
+          -0.00018820175808683602,
+          -0.02696356609015505
+        ],
+        [
+          0.326886545232583,
+          0.3598048266844247,
+          0.12774024516730167,
+          0.008346565063200315,
+          -0.02387312248752206
+        ],
+        [
+          0.14696295816227273,
+          0.12774024516730167,
+          1.3444258056862848,
+          -0.03859268033309878,
+          -0.06306416163356927
+        ],
+        [
+          -0.00018820175808683602,
+          0.008346565063200315,
+          -0.03859268033309878,
+          0.018412951806588206,
+          0.00636117309640438
+        ],
+        [
+          -0.02696356609015505,
+          -0.02387312248752206,
+          -0.06306416163356927,
+          0.00636117309640438,
+          0.026720011344038404
+        ]
+      ],
+      "first_stage_hac_t_squared": 16.918960969911183,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 0.7300868584243457,
+          "reduced_form_se": 0.5627904427663909,
+          "reduced_form_p": 0.19454093038164566,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.308054920112308,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.335957214902103,
+                    "upper": 5.492100489091585
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.19665821216927837,
+                  -0.8173397058214743,
+                  -1.4429228513290753
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 6.421561485206784,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18926858391766607,
+                  0.168066377061678,
+                  -1.4429228513290753
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 1.642660469601498,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.4027027295715515,
+                    "upper": 33.349099266727215
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.0308456098244778,
+                  -0.9854060828831523,
+                  -1.4429228513290753
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.224886235437855,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.4389194421939215,
+                    "upper": 5.975710458207707
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1678097089874715,
+                  -0.7613175801342484,
+                  -1.4429228513290753
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 0.6408002381954557,
+          "reduced_form_se": 0.5998373335200342,
+          "reduced_form_p": 0.28538970800879204,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.1480851828913756,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.8725438984765046,
+                    "upper": 4.980376251951438
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.19665821216927837,
+                  -0.6111807543562212,
+                  -1.8340292089170123
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 5.636230924890256,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18926858391766607,
+                  0.25629808812614296,
+                  -1.8340292089170123
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 1.4417698497773674,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.975446096813884,
+                    "upper": 30.098697587661984
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.0308456098244778,
+                  -0.8674788424823642,
+                  -1.8340292089170123
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.0750876863129395,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -2.091797301468804,
+                    "upper": 5.224798731996435
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1678097089874715,
+                  -0.5257480583141736,
+                  -1.8340292089170123
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 0.7631869563908423,
+          "reduced_form_se": 1.1594937713012023,
+          "reduced_form_p": 0.5104051054253059,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.3673584748903207,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.7637997191405854,
+                    "upper": 10.5444183074128
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.19665821216927837,
+                  -1.33346432897139,
+                  -7.8047899362721775
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 6.712697138185054,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18926858391766607,
+                  0.13179417644913619,
+                  -7.8047899362721775
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 1.7171341049533868,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.834535192115606,
+                    "upper": 52.33751904486983
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.0308456098244778,
+                  -1.465258505420526,
+                  -7.8047899362721775
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.280419154463828,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.985435944257592,
+                    "upper": 11.669931344448967
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1678097089874715,
+                  -1.289532936821678,
+                  -7.8047899362721775
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "leverage",
+      "horizon": 6,
+      "columns": 18,
+      "n": 133,
+      "bandwidth": 11,
+      "maximum_leverage": 0.7918828449983403,
+      "coefficients": [
+        1.3033797919610035,
+        1.0721746809030845,
+        1.9590098177642512,
+        0.558146945666212,
+        0.44445390385601813
+      ],
+      "joint_covariance": [
+        [
+          5.511970501014561,
+          4.9326150122657735,
+          2.6976541605228626,
+          -0.164144171075617,
+          -0.07376870856953203
+        ],
+        [
+          4.9326150122657735,
+          4.460742645672405,
+          2.5163481602178597,
+          -0.13035519551086996,
+          -0.07247013315249509
+        ],
+        [
+          2.6976541605228626,
+          2.5163481602178597,
+          2.2807800044675806,
+          -0.04412103322679438,
+          -0.10489307936899302
+        ],
+        [
+          -0.164144171075617,
+          -0.13035519551086996,
+          -0.04412103322679438,
+          0.02251582727827486,
+          0.007795220982043044
+        ],
+        [
+          -0.07376870856953203,
+          -0.07247013315249509,
+          -0.10489307936899302,
+          0.007795220982043044,
+          0.024793203744667168
+        ]
+      ],
+      "first_stage_hac_t_squared": 13.835956774153688,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 1.3033797919610035,
+          "reduced_form_se": 2.3477586121691814,
+          "reduced_form_p": 0.5787857734434055,
+          "benchmarks": {
+            "one_year": {
+              "point": 2.335191121408487,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.963475173968774,
+                    "upper": 27.44135164911004
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17106228963398554,
+                  -3.502992436679594,
+                  -32.68780898216968
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 11.464024281599794,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18495134528434024,
+                  -1.4239909712039798,
+                  -32.68780898216968
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 2.9325421166358714,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -12.500783476530874,
+                    "upper": 61.00072427918452
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.04286606191820058,
+                  -2.079001465475614,
+                  -32.68780898216968
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 2.186715112454421,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.722679142173626,
+                    "upper": 36.9494608905119
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.131593767635096,
+                  -3.977656093747587,
+                  -32.68780898216968
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 1.0721746809030845,
+          "reduced_form_se": 2.112047027334478,
+          "reduced_form_p": 0.6117008092403406,
+          "benchmarks": {
+            "one_year": {
+              "point": 1.9209541308576397,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.7163629500498905,
+                    "upper": 23.220949296607596
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17106228963398554,
+                  -2.8233123299039775,
+                  -26.67893003351189
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 9.430433594107178,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18495134528434024,
+                  -0.9660333030720228,
+                  -26.67893003351189
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 2.412341688532942,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -11.377088053394111,
+                    "upper": 54.70458173303555
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.04286606191820058,
+                  -1.8572790268319546,
+                  -26.67893003351189
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 1.7988161182047229,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -6.6383783666523515,
+                    "upper": 30.54014428956319
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.131593767635096,
+                  -3.1453234309279847,
+                  -26.67893003351189
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 1.9590098177642512,
+          "reduced_form_se": 1.5102251502566035,
+          "reduced_form_p": 0.1945747369607207,
+          "benchmarks": {
+            "one_year": {
+              "point": 3.5098459876474815,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.1686057473648033,
+                    "upper": 19.170564507571285
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17106228963398554,
+                  -2.737331704149533,
+                  -10.39100102938497
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 17.230692279609702,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.18495134528434024,
+                  0.3128052163044551,
+                  -10.39100102938497
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 4.407678278372996,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.2575946413753796,
+                    "upper": 74.4126479391201
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.04286606191820058,
+                  -3.0501369204539883,
+                  -10.39100102938497
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 3.2866831297932526,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.376555330531885,
+                    "upper": 23.385582703439766
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.131593767635096,
+                  -2.6330632987147147,
+                  -10.39100102938497
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "leverage",
+      "horizon": 12,
+      "columns": 18,
+      "n": 133,
+      "bandwidth": 17,
+      "maximum_leverage": 0.7918828449983403,
+      "coefficients": [
+        4.33776705407779,
+        3.9657999056893756,
+        3.202181172567884,
+        0.558146945666212,
+        0.44445390385601813
+      ],
+      "joint_covariance": [
+        [
+          9.708335988190644,
+          8.961378810130789,
+          4.03171723575949,
+          -0.32163180148771187,
+          -0.031688148902042995
+        ],
+        [
+          8.961378810130789,
+          8.292485341733412,
+          3.7580357829028688,
+          -0.29500589225107665,
+          -0.04165492926599518
+        ],
+        [
+          4.03171723575949,
+          3.7580357829028688,
+          2.947494220711756,
+          -0.18296276309238282,
+          -0.14472017994776917
+        ],
+        [
+          -0.32163180148771187,
+          -0.29500589225107665,
+          -0.18296276309238282,
+          0.023307197260204505,
+          0.008665534860033313
+        ],
+        [
+          -0.031688148902042995,
+          -0.04165492926599518,
+          -0.14472017994776917,
+          0.008665534860033313,
+          0.02710597664972246
+        ]
+      ],
+      "first_stage_hac_t_squared": 13.36617223763901,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 4.33776705407779,
+          "reduced_form_se": 3.115820275335316,
+          "reduced_form_p": 0.16386941492820495,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.771729448237274,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.358321863009462,
+                    "upper": 57.66292826499778
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1661253021738469,
+                  -8.855243845788285,
+                  -41.74954789696808
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 38.153320423245624,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.19345767893003118,
+                  -4.60399374112521,
+                  -41.74954789696808
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 9.759768147931533,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -9.248383861241743,
+                    "upper": 158.74156478369304
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.02843775266825305,
+                  -4.251250104663075,
+                  -41.74954789696808
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 7.27758772229192,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.8394510116765495,
+                    "upper": 86.27289761815778
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.12603996137347556,
+                  -10.389908426163355,
+                  -41.74954789696808
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 3.9657999056893756,
+          "reduced_form_se": 2.8796675748657887,
+          "reduced_form_p": 0.16845882397444656,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.105297156030732,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.09691649613405,
+                    "upper": 52.90228134212852
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1661253021738469,
+                  -8.107805982745676,
+                  -36.005371553532015
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 34.88164132603756,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.19345767893003118,
+                  -4.0628442113265955,
+                  -36.005371553532015
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 8.922859876542125,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -8.404670694530305,
+                    "upper": 150.6438208343633
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.02843775266825305,
+                  -4.044961771419082,
+                  -36.005371553532015
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 6.653528495860506,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.629728091115767,
+                    "upper": 78.70185032450495
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.12603996137347556,
+                  -9.462087386521208,
+                  -36.005371553532015
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 3.202181172567884,
+          "reduced_form_se": 1.71682678820892,
+          "reduced_form_p": 0.06215697913658497,
+          "benchmarks": {
+            "one_year": {
+              "point": 5.737165091436119,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.3379127861271154,
+                    "upper": 36.596922359090996
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.1661253021738469,
+                  -5.8574136196591855,
+                  -8.13407463106432
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 28.165146446814223,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.19345767893003118,
+                  -1.2052866420079504,
+                  -8.13407463106432
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 7.204754294621378,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.7301649522007836,
+                    "upper": 165.31998978546594
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.02843775266825305,
+                  -4.6521269776512355,
+                  -8.13407463106432
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 5.372384938035554,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.2672079908948284,
+                    "upper": 50.92745673625065
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.12603996137347556,
+                  -6.2591758336618355,
+                  -8.13407463106432
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "leverage",
+      "horizon": 18,
+      "columns": 18,
+      "n": 133,
+      "bandwidth": 23,
+      "maximum_leverage": 0.7918828449983403,
+      "coefficients": [
+        5.164814153498449,
+        4.598058526295733,
+        2.77450031090847,
+        0.558146945666212,
+        0.44445390385601813
+      ],
+      "joint_covariance": [
+        [
+          5.863300397314192,
+          5.619616213334253,
+          2.628323039736804,
+          -0.3012643123550434,
+          -0.0401614734062708
+        ],
+        [
+          5.619616213334253,
+          5.4065179479847245,
+          2.498616834698082,
+          -0.2902647814599311,
+          -0.04277789781307136
+        ],
+        [
+          2.628323039736804,
+          2.498616834698082,
+          1.7840864993920045,
+          -0.1305597125303884,
+          0.03812926236981178
+        ],
+        [
+          -0.3012643123550434,
+          -0.2902647814599311,
+          -0.1305597125303884,
+          0.022324503261357678,
+          0.007781658613220909
+        ],
+        [
+          -0.0401614734062708,
+          -0.04277789781307136,
+          0.03812926236981178,
+          0.007781658613220909,
+          0.02880415385522604
+        ]
+      ],
+      "first_stage_hac_t_squared": 13.9545327978588,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 5.164814153498449,
+          "reduced_form_se": 2.4214252822076077,
+          "reduced_form_p": 0.032927638911023197,
+          "benchmarks": {
+            "one_year": {
+              "point": 9.253502493565838,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.0209152337898497,
+                    "upper": 56.312760657962485
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.172255870757748,
+                  -9.524344979343661,
+                  -9.903085648471377
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 45.42770666758046,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -18.67382465234559
+                  },
+                  {
+                    "lower": -2.5380260566320563,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.2089494258913766,
+                  -4.4322040277344685,
+                  -9.903085648471377
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 11.620584516615255,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.931702738842033,
+                    "upper": 287.30772558441987
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.01784361874846312,
+                  -5.092140951609193,
+                  -9.903085648471377
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 8.665146745509352,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.890701131417194,
+                    "upper": 84.96321124452321
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13086020992023126,
+                  -11.001746321921818,
+                  -9.903085648471377
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 4.598058526295733,
+          "reduced_form_se": 2.3251920238949566,
+          "reduced_form_p": 0.04798556307947876,
+          "benchmarks": {
+            "one_year": {
+              "point": 8.238078810603229,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.3992164637955238,
+                    "upper": 52.22150328251932
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.172255870757748,
+                  -8.754437269859286,
+                  -12.586596459299027
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 40.442743487961316,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -16.02246721839508
+                  },
+                  {
+                    "lower": -3.7595661832015765,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.2089494258913766,
+                  -4.1334445222276575,
+                  -12.586596459299027
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 10.345411495778615,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -2.695725508320857,
+                    "upper": 261.6674516347625
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.01784361874846312,
+                  -4.620992747631631,
+                  -12.586596459299027
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 7.714285682052076,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.2229158768143908,
+                    "upper": 78.65097530586604
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13086020992023126,
+                  -10.13225211060184,
+                  -12.586596459299027
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 2.77450031090847,
+          "reduced_form_se": 1.335697008827977,
+          "reduced_form_p": 0.03778376114957831,
+          "benchmarks": {
+            "one_year": {
+              "point": 4.970913721648673,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.7079523286616619,
+                    "upper": 28.14480997043331
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.172255870757748,
+                  -4.726159803939748,
+                  -3.4322298782955207
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 24.403431087193443,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -11.686754535862509
+                  },
+                  {
+                    "lower": -1.4055337000792405,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.2089494258913766,
+                  -2.7356261105044526,
+                  -3.4322298782955207
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 6.242492836348841,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.6984177553437114,
+                    "upper": 113.25279030136895
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.01784361874846312,
+                  -1.9905336934352957,
+                  -3.4322298782955207
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 4.654853325786843,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.6003967300971281,
+                    "upper": 43.684808542860445
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13086020992023126,
+                  -5.638035174107899,
+                  -3.4322298782955207
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "leverage",
+      "horizon": 24,
+      "columns": 18,
+      "n": 133,
+      "bandwidth": 29,
+      "maximum_leverage": 0.7918828449983403,
+      "coefficients": [
+        4.36258703609223,
+        3.955024770983832,
+        1.4544016725433924,
+        0.558146945666212,
+        0.44445390385601813
+      ],
+      "joint_covariance": [
+        [
+          3.8137198705959388,
+          3.571873650008136,
+          1.1481336802032613,
+          -0.19385322343398764,
+          0.007844828394553688
+        ],
+        [
+          3.571873650008136,
+          3.3614041219855686,
+          1.0109626567590932,
+          -0.1786466587053092,
+          0.015736208504338333
+        ],
+        [
+          1.1481336802032613,
+          1.0109626567590932,
+          2.5396734803348613,
+          -0.08031671147924323,
+          0.10300344546676576
+        ],
+        [
+          -0.19385322343398764,
+          -0.1786466587053092,
+          -0.08031671147924323,
+          0.02115050855559627,
+          0.006327726388440277
+        ],
+        [
+          0.007844828394553688,
+          0.015736208504338333,
+          0.10300344546676576,
+          0.006327726388440277,
+          0.02729606359129223
+        ]
+      ],
+      "first_stage_hac_t_squared": 14.72910271342357,
+      "outcomes": {
+        "manufacturing": {
+          "reduced_form": 4.36258703609223,
+          "reduced_form_se": 1.9528747708432148,
+          "reduced_form_p": 0.025487628742747022,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.816197992241962,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.6428672896336056,
+                    "upper": 41.23009110459258
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17957987504519957,
+                  -7.288648581121881,
+                  -4.759850233263215
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 38.37162738046361,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -15.189471627563728
+                  },
+                  {
+                    "lower": -1.4896754944214612,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.21035795854526537,
+                  -3.508591338856943,
+                  -4.759850233263215
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 9.815611918903294,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.2479724196458375,
+                    "upper": 139.9560535823418
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.027251889079419722,
+                  -3.7800572422649386,
+                  -4.759850233263215
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 7.319228869482154,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.5577180295736778,
+                    "upper": 62.35785076598481
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13686344434700826,
+                  -8.458179027407528,
+                  -4.759850233263215
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "industrial": {
+          "reduced_form": 3.955024770983832,
+          "reduced_form_se": 1.8334132436484603,
+          "reduced_form_p": 0.030990691019350432,
+          "benchmarks": {
+            "one_year": {
+              "point": 7.085991962677605,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.7852658558295508,
+                    "upper": 37.78248512586878
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17957987504519957,
+                  -6.6439560135334945,
+                  -5.3280083817535235
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 34.78686741081826,
+              "family_AR95": {
+                "kind": "two_rays",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": -13.994878197598652
+                  },
+                  {
+                    "lower": -1.809826024548041,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.21035795854526537,
+                  -3.3246453155825146,
+                  -5.3280083817535235
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 8.898616339446242,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -1.5845413695725663,
+                    "upper": 123.38566452391862
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.027251889079419722,
+                  -3.31931069795098,
+                  -5.3280083817535235
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 6.6354507643775795,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -0.679149222111098,
+                    "upper": 57.32079780631994
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13686344434700826,
+                  -7.7521711187276665,
+                  -5.3280083817535235
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        },
+        "durability_contrast": {
+          "reduced_form": 1.4544016725433924,
+          "reduced_form_se": 1.5936353034288808,
+          "reduced_form_p": 0.3614364161611958,
+          "benchmarks": {
+            "one_year": {
+              "point": 2.6057683981543573,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -4.086479289407833,
+                    "upper": 18.707586212708645
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.17957987504519957,
+                  -2.6256565543088617,
+                  -13.728551669065661
+                ],
+                "contains_zero": true
+              }
+            },
+            "slope_1y_3m": {
+              "point": 12.79235430231042,
+              "family_AR95": {
+                "kind": "whole_real_line",
+                "intervals": [
+                  {
+                    "lower": null,
+                    "upper": null
+                  }
+                ],
+                "quadratic_coefficients": [
+                  -0.21035795854526537,
+                  -2.618008264552697,
+                  -13.728551669065661
+                ],
+                "contains_zero": true
+              }
+            },
+            "three_month": {
+              "point": 3.2723341159234125,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -22.304825718921183,
+                    "upper": 22.585477446728948
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.027251889079419722,
+                  -0.007648289756164758,
+                  -13.728551669065661
+                ],
+                "contains_zero": true
+              }
+            },
+            "forward_3m_1y": {
+              "point": 2.440088557875061,
+              "family_AR95": {
+                "kind": "bounded_interval",
+                "intervals": [
+                  {
+                    "lower": -3.456820998336623,
+                    "upper": 29.017524899348
+                  }
+                ],
+                "quadratic_coefficients": [
+                  0.13686344434700826,
+                  -3.4983259758264276,
+                  -13.728551669065661
+                ],
+                "contains_zero": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "manufacturing_profile_family_AR95": [
+    {
+      "horizon": 0,
+      "benchmarks": {
+        "one_year": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -1.280434586628582,
+              "upper": 4.910820488189018
+            }
+          ],
+          "quadratic_coefficients": [
+            0.22156558698526993,
+            -0.8043685832622864,
+            -1.3932009549393658
+          ],
+          "contains_zero": true
+        },
+        "slope_1y_3m": {
+          "kind": "whole_real_line",
+          "intervals": [
+            {
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "quadratic_coefficients": [
+            -0.14580346174277603,
+            0.19778764126921128,
+            -1.3932009549393658
+          ],
+          "contains_zero": true
+        },
+        "three_month": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -1.3286985288815474,
+              "upper": 30.03277955685741
+            }
+          ],
+          "quadratic_coefficients": [
+            0.0349133708044778,
+            -1.0021562245314977,
+            -1.3932009549393658
+          ],
+          "contains_zero": true
+        },
+        "forward_3m_1y": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -1.347904130373626,
+              "upper": 4.720058970896678
+            }
+          ],
+          "quadratic_coefficients": [
+            0.21898145382652245,
+            -0.7384393695058827,
+            -1.3932009549393658
+          ],
+          "contains_zero": true
+        }
+      }
+    },
+    {
+      "horizon": 6,
+      "benchmarks": {
+        "one_year": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -5.637904659782724,
+              "upper": 18.198327230026834
+            }
+          ],
+          "quadratic_coefficients": [
+            0.20437555656675951,
+            -2.567043353507328,
+            -20.969020780345424
+          ],
+          "contains_zero": true
+        },
+        "slope_1y_3m": {
+          "kind": "whole_real_line",
+          "intervals": [
+            {
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "quadratic_coefficients": [
+            -0.14586748392106072,
+            -0.35343789602505865,
+            -20.969020780345424
+          ],
+          "contains_zero": true
+        },
+        "three_month": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -8.257505274630823,
+              "upper": 64.36482158779117
+            }
+          ],
+          "quadratic_coefficients": [
+            0.03945306250484579,
+            -2.2136054574822692,
+            -20.969020780345424
+          ],
+          "contains_zero": true
+        },
+        "forward_3m_1y": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -5.56575710912412,
+              "upper": 19.368243919053782
+            }
+          ],
+          "quadratic_coefficients": [
+            0.1945197284002594,
+            -2.6848559855156804,
+            -20.969020780345424
+          ],
+          "contains_zero": true
+        }
+      }
+    },
+    {
+      "horizon": 12,
+      "benchmarks": {
+        "one_year": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -3.649839160235939,
+              "upper": 41.845995119112224
+            }
+          ],
+          "quadratic_coefficients": [
+            0.20138158271955262,
+            -7.692002340801376,
+            -30.757241056860604
+          ],
+          "contains_zero": true
+        },
+        "slope_1y_3m": {
+          "kind": "whole_real_line",
+          "intervals": [
+            {
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "quadratic_coefficients": [
+            -0.15482294740373995,
+            -3.4417216567549724,
+            -30.757241056860604
+          ],
+          "contains_zero": true
+        },
+        "three_month": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -7.000724048731345,
+              "upper": 214.8505312871898
+            }
+          ],
+          "quadratic_coefficients": [
+            0.02044880743704618,
+            -4.250280684046404,
+            -30.757241056860604
+          ],
+          "contains_zero": true
+        },
+        "forward_3m_1y": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -3.249245233271443,
+              "upper": 49.07637650500021
+            }
+          ],
+          "quadratic_coefficients": [
+            0.19288230896761488,
+            -8.839242893053033,
+            -30.757241056860604
+          ],
+          "contains_zero": true
+        }
+      }
+    },
+    {
+      "horizon": 18,
+      "benchmarks": {
+        "one_year": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": 0.20894520694100097,
+              "upper": 40.09258852669682
+            }
+          ],
+          "quadratic_coefficients": [
+            0.20547063125532722,
+            -8.280781576808428,
+            1.721259162935049
+          ],
+          "contains_zero": false
+        },
+        "slope_1y_3m": {
+          "kind": "two_rays",
+          "intervals": [
+            {
+              "lower": null,
+              "upper": -17.32127278874051
+            },
+            {
+              "lower": 0.584966452172287,
+              "upper": null
+            }
+          ],
+          "quadratic_coefficients": [
+            -0.1698773602601623,
+            -2.8431195409616374,
+            1.721259162935049
+          ],
+          "contains_zero": false
+        },
+        "three_month": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": 0.3166363826998837,
+              "upper": 1084.6587043904717
+            }
+          ],
+          "quadratic_coefficients": [
+            0.005011783983930752,
+            -5.437662035846791,
+            1.721259162935049
+          ],
+          "contains_zero": false
+        },
+        "forward_3m_1y": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": 0.18726362145714703,
+              "upper": 46.708034412583444
+            }
+          ],
+          "quadratic_coefficients": [
+            0.19678919800794284,
+            -9.228488090462307,
+            1.721259162935049
+          ],
+          "contains_zero": false
+        }
+      }
+    },
+    {
+      "horizon": 24,
+      "benchmarks": {
+        "one_year": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -0.05220167766714716,
+              "upper": 31.06813280119672
+            }
+          ],
+          "quadratic_coefficients": [
+            0.2092024455244873,
+            -6.488608641261446,
+            -0.3392863366331315
+          ],
+          "contains_zero": true
+        },
+        "slope_1y_3m": {
+          "kind": "two_rays",
+          "intervals": [
+            {
+              "lower": null,
+              "upper": -12.34825895414395
+            },
+            {
+              "lower": -0.16012192483174265,
+              "upper": null
+            }
+          ],
+          "quadratic_coefficients": [
+            -0.17159705890921914,
+            -2.146401370548542,
+            -0.3392863366331315
+          ],
+          "contains_zero": true
+        },
+        "three_month": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -0.07812075825431386,
+              "upper": 379.6661007761126
+            }
+          ],
+          "quadratic_coefficients": [
+            0.011439264411134983,
+            -4.342207270712904,
+            -0.3392863366331315
+          ],
+          "contains_zero": true
+        },
+        "forward_3m_1y": {
+          "kind": "bounded_interval",
+          "intervals": [
+            {
+              "lower": -0.04703537394239502,
+              "upper": 36.27424505031608
+            }
+          ],
+          "quadratic_coefficients": [
+            0.19885814638039628,
+            -7.204075764777627,
+            -0.3392863366331315
+          ],
+          "contains_zero": true
+        }
+      }
+    }
+  ],
+  "profile_family_critical_square": 9.140593461244022,
+  "scope": "Annual-state and leverage checks are supplementary; initial primary retained. Twenty-response family is primary manufacturing profile over five declared horizons and four financial normalisations. No family claim across diagnostic designs or other outcomes."
+}

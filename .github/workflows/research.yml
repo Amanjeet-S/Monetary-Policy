@@ -48,6 +48,11 @@ jobs:
           python scripts/joint_stability.py --check
           python scripts/rotation_sensitivity.py --check
           python scripts/causal_sensitivity.py --check
+      - name: Reproduce the recorded future-policy pilot
+        run: |
+          python scripts/build_future_policy_panel.py
+          python scripts/future_policy.py --check
+          python scripts/future_policy_diagnostics.py --check
       - name: Execute the research notebooks
         run: python scripts/execute_notebooks.py
 
@@ -87,6 +92,11 @@ jobs:
           Rscript scripts/verify_rotation_sensitivity.R . reports/replay/r_rotation.csv
           Rscript scripts/verify_causal_sensitivity.R . reports/replay/r_causal.csv
           python scripts/compare_extension_r.py --r-stability reports/replay/r_stability.csv --r-regime reports/replay/r_regime.csv --r-rotation reports/replay/r_rotation.csv --r-causal reports/replay/r_causal.csv --output reports/replay/extension_verification.json
+      - name: Independently verify the future-policy pilot
+        run: |
+          python scripts/build_future_policy_panel.py
+          Rscript scripts/verify_future_policy.R . reports/replay/r_future_policy.csv
+          python scripts/compare_future_policy_r.py results/future_policy_results.json reports/replay/r_future_policy.csv --report reports/replay/future_policy_verification.json
       - name: Retain numerical verification
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

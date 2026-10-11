@@ -89,7 +89,7 @@ trust_min <- function(Q,b,constant) {
   u <- drop(es$vectors%*%coordinates)
   stationarity <- sqrt(sum(((Q+lambda*diag(length(b)))%*%u+b/2)^2))
   if(stationarity>1e-8*scale || sqrt(sum(u^2))>1+1e-8 ||
-     abs(lambda*(sum(u^2)-1))>1e-8*scale || min(values+lambda)<-1e-8*scale) stop('Trust-region certificate failure')
+     abs(lambda*(sum(u^2)-1))>1e-8*scale || min(values+lambda) < -1e-8*scale) stop('Trust-region certificate failure')
   drop(constant+crossprod(b,u)+crossprod(u,Q%*%u))
 }
 

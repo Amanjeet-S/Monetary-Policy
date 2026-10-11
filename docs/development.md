@@ -23,7 +23,7 @@ Download the eight unchanged files listed in the [review metadata](../data/metad
 python scripts/reconcile_shock_sources.py --evidence /absolute/path/to/source-files
 ```
 
-The full reconstruction uses the declared NumPy dependency; `--skip-construction` permits standard-library coverage and aggregation checks. The metadata pins hashes and the author revision. The ECB workbook URL is mutable, so a later download may fail the recorded hash check. These external files and copyrighted paper texts are not redistributed here. The paper-stage workflow will add commands regenerating the matching LaTeX/PDF.
+The full reconstruction uses the declared NumPy dependency; `--skip-construction` permits standard-library coverage and aggregation checks. The metadata pins hashes and the author revision. The ECB workbook URL is mutable, so a later download may fail the recorded hash check. These external files and copyrighted paper texts are not redistributed here. The self-contained manuscript source includes its bibliography and vector figures.
 
 ## 4. Fixed empirical analysis
 
@@ -37,3 +37,7 @@ python scripts/compare_r_results.py results/estimates.csv reports/r_estimates.cs
 ```
 
 The pinned GitHub workflow runs this check in an isolated environment and retains its numerical report. Agreement assesses transformations, samples, coefficients, joint covariance and interval construction; it does not validate causal assumptions. Source vintages, the supplied decomposition and its identification uncertainty are kept distinct from ordinary projection uncertainty.
+
+## 5. Manuscript numerical blocks
+
+`python scripts/build_paper.py` refreshes the four numerical table and figure blocks in `paper/monetary_policy.tex` from the retained estimates. It preserves the surrounding research text and its layout choices. The source is self-contained and can be compiled without additional project files. The manuscript remains a research draft.

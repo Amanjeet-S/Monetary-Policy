@@ -6,7 +6,7 @@ I investigate whether separating monetary-policy and information components chan
 
 ## 2. Evidence and status
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The paper remains outstanding.
+The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [manuscript draft](paper/monetary_policy.tex) develops the economic argument, evidence and appendix proofs.
 
 ## 3. Reproduction
 
@@ -22,4 +22,4 @@ The [development guide](docs/development.md) provides notebook execution and the
 
 ## 4. Research package
 
-The paper will contain the economic argument and evidence, with long proofs and derivations in appendices. Its complete length, including appendices and bibliography, will not exceed twenty pages. Code, an executable notebook and matching LaTeX/PDF versions will support the findings. [Licensing](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](PROVENANCE.md) identify the applicable rights and origins.
+The manuscript contains the economic argument and evidence, with long proofs and derivations in appendices before the references. Its complete length, including appendices and bibliography, will not exceed twenty pages. Code, an executable notebook and matching LaTeX/PDF versions will support the findings. [Licensing](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](PROVENANCE.md) identify the applicable rights and origins.

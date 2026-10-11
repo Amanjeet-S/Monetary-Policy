@@ -40,3 +40,12 @@ The [recorded estimates](../results/estimates.csv), [response path](../results/f
 The [post-estimation record](gap_followup_specification.json) acknowledges that the estimates and preliminary diagnostic arithmetic were already known. The [complete follow-up](../results/gap_followup.json) retains all six cases. The primary intersection-union test gives p=0.036, while its covariance-aware joint-ellipse product bounds are [−0.19, 3.18]. The poor-man and earlier-period tests do not reject, with p=0.174 and 0.414, and every ellipse interval includes zero. This is supplementary nominal evidence for the selected decomposition; the original interval and construction, magnitude and causal uncertainty remain.
 
 The [independent supplementary verification](../results/gap_followup_verification.json) passes all 30 numeric comparisons across six cases, using separate R optimisation and independently reconstructed projection estimates.
+
+
+## 6. Joint stability and identification extension
+
+The [dated extension](extension_specification.json) preserves the locked primary evidence. [Joint contrasts](../results/joint_stability.json) retain construction and overlapping-period covariance. Poor-man less median gives −0.04 with a four-coordinate 95 per cent image [−3.19, 2.28]; earlier period less full gives −0.60 with [−2.35, 0.97]. Neither establishes tight equivalence. A pooled two-slope period test gives p=0.457 under common lag dynamics.
+
+The [complete retained-factor rotation assessment](../results/rotation_sensitivity.json) gives closure point bounds [0.02, 9.01] for the gap. A simultaneous conditional Wald envelope [−3.16, 21.18] and marginal-coordinate companion [−1.31, 20.06] both include zero. Their coverage does not include re-estimated factor loadings or sign boundaries.
+
+The [causal sensitivity](../results/causal_sensitivity.json) reports the latent-policy direction response and predetermined-outcome checks. These checks do not reject, but do not verify exclusion. No independently justified excluded instrument is retained. The revised paper distinguishes a conditional causal response from an unconditional causal finding; the gap remains imprecise and construction-sensitive.

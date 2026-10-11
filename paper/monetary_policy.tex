@@ -9,7 +9,7 @@
 \usepackage{booktabs,tabularx}
 \usepackage[round,authoryear]{natbib}
 \usepackage{pgfplots}
-\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{fillbetween,groupplots}
 \pgfplotsset{compat=1.18}
 \usepackage{xcolor}
 \definecolor{policyblue}{HTML}{245D8F}
@@ -28,15 +28,19 @@
 \newcommand{\Cov}{\operatorname{Cov}}
 \setlength{\parindent}{1.3em}
 \setlength{\parskip}{0pt}
+\AtBeginDocument{\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+ \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}}
 \setlength{\emergencystretch}{1em}
+\interfootnotelinepenalty=10000
 \title{Policy and information news in\\German consumer-goods production}
 \author{Amanjeet Singh}
 \date{11 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-I examine how separating the current policy and information contributions to ECB announcements changes the estimated durability contrast in German consumer-goods production. Matched local projections on 308 monthly origins give a twelve-month policy-component contrast of $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for the recomposed surprise. An exact decomposition links their $1.26$ gap to the component-response ranking and the controlled announcement mixture, retaining joint uncertainty. Prespecified conservative 95 per cent bounds are $[-0.11,3.31]$; every declared sensitivity also includes zero. A post-estimation zero-product test gives nominal $p=0.036$ for the primary construction, while joint-region bounds and the construction and period alternatives leave a stronger conclusion unresolved. A durable-stock benchmark illustrates user-cost and demand mechanisms, while production measurement and relative-price feedback limit a direct household interpretation. The point estimates indicate that combining announcement contributions weakens the estimated durability contrast without requiring a positive relative information response. The declared procedure leaves the population adjustment unresolved, and a causal transmission interpretation requires additional measurement and orthogonality assumptions.
+I examine how separating policy and information contributions to ECB announcements changes the German consumer-goods durability contrast. Matched local projections on 308 monthly origins give a twelve-month policy contrast of $-2.29$ percentage log-change points per ten-basis-point factor contribution, compared with $-1.03$ for recomposed news. The exact $1.26$ adjustment has prespecified conservative 95 per cent bounds $[-0.11,3.31]$. Joint construction and period comparisons do not establish tight equivalence. Across every financially admissible rotation of the retained factor, the point gap ranges from $0.02$ to $9.01$; a common conditional 95 per cent sampling envelope includes zero. A stock-flow benchmark explains possible user-cost amplification, while production measurement limits household interpretation. An explicit latent-shock sensitivity shows that the projection adjustment equals a causal adjustment only under additional separation and exogeneity assumptions. Predetermined-outcome tests do not reject but cannot verify those assumptions. The evidence supports a directionally stable point comparison within this rotation family, rather than a precise, construction-invariant causal effect.
 \end{abstract}
+
 \noindent\textit{Keywords:} monetary policy; information shocks; consumer-goods production; local projections
 \par\smallskip\noindent\textit{JEL classification:} C22, E32, E52.
 \section{Introduction}
@@ -48,9 +52,9 @@ Durability makes this comparison economically meaningful. A stock supplies servi
 
 I compare projections on separated contributions with a projection on their recomposed rate factor, holding production outcomes, origin months, controls and rate units constant. Both already condition on decomposed announcement histories, so the comparison isolates the current contribution conditional on those histories. The primary object is the recomposed coefficient less the policy-component coefficient at twelve months. Established partial-regression algebra decomposes this gap into a controlled information weight and the component-response difference. The weight is a covariance ratio, not an announcement probability. Its sampling variation and covariance with the response difference enter population inference.
 
-The policy-component point contrast is $-2.29$ percentage log-change points per ten-basis-point contribution to the supplied factor, compared with $-1.03$ for the recomposed surprise. The $1.26$ gap moves the point response towards zero, but its prespecified conservative 95 per cent bounds $[-0.11,3.31]$ include zero. Every declared twelve-month sensitivity retains a positive point gap and an interval including zero; the earlier-period policy-contrast interval also includes zero. Its non-rejection is specific to the chosen conservative construction, rather than a claim that every valid zero-gap test would agree.
+The policy-component point contrast is $-2.29$ percentage log-change points per ten-basis-point contribution to the supplied factor, compared with $-1.03$ for recomposed news. The $1.26$ adjustment has prespecified conservative 95 per cent bounds $[-0.11,3.31]$. A supplementary zero-product test rejects for the selected median construction, but not for the alternative construction or earlier period. Joint comparisons distinguish failure to reject a difference from evidence of equivalence. More importantly, the complete financially admissible rotation family gives point adjustments between $0.02$ and $9.01$, despite keeping the outcome, historical control span and rate normalisation fixed. Its common conditional sampling envelope includes zero.
 
-My project-specific argument concerns the ranking of relative component responses and the mixture in which announcement news is measured. A positive adjustment does not require information news to produce relative expansion: a less negative information response can also shift the combined coefficient towards zero. The earlier-period point estimates illustrate this distinction. The matched comparison assesses this measurement effect without treating a change in a projection coefficient as evidence of a changed causal mechanism. Existing research establishes durability heterogeneity and information-adjusted monetary shocks; the contribution here is their focused economic reassessment on the same defined outcome and design. Section~\ref{sec:economic-context} develops the mechanism and literature comparison; Sections~\ref{sec:data_measurement}--\ref{sec:uncertainty} define measurement, estimands and inference; Sections~\ref{sec:evidence}--\ref{sec:interpretation} assess the evidence and its economic meaning.
+My project-specific argument concerns how the ranking of relative responses and the measurement of announcement news jointly determine the adjustment. A positive gap need not mean that information news expands relative durable production. For a latent policy intervention, I state the separation and exogeneity assumptions under which the measured gap equals its causal adjustment. Existing research establishes durability heterogeneity and information-adjusted shocks; neither combining these methods nor the algebra alone is a new theoretical contribution. Section~\ref{sec:economic-context} develops the economic mechanism; Sections~\ref{sec:data_measurement}--\ref{sec:uncertainty} define measurement and inference; Sections~\ref{sec:evidence}--\ref{sec:extension} assess the evidence and identification; Section~\ref{sec:interpretation} interprets the findings.
 
 \section{Economic rationale and related evidence}
 \label{sec:economic-context}
@@ -79,19 +83,19 @@ The stock-flow ratio $1/d$ amplifies the purchase adjustment needed to change se
 
 The mechanism motivates heterogeneity without predicting the sign of the information-component durable-minus-non-durable response. Favourable news can raise both sectors equally, or raise non-durable activity more. A positive adjustment gap requires an information response above the policy response when the weight is positive; it does not require a positive relative information response. \citet{DuranteEtAl2022} provide firm-level evidence of stronger investment and sales responses among durable producers, while the household benchmark explains one reason the purchase flow can be sensitive.
 
-That mechanism does not translate directly into a household-demand elasticity estimated from production indices. German production serves both domestic and foreign purchasers. Inventory accumulation or depletion can separate the timing of sales from the timing of production. Firms' financing requirements can also change their capacity to maintain output independently of a household's decision to postpone a purchase. \citet{DedolaLippi2005} relate industrial responses to financing requirements, borrowing capacity and firm size as well as durability. The relative production coefficient therefore combines potentially different demand, financing and adjustment responses. I use durability to motivate the comparison while keeping these alternative explanations within its interpretation.
+Production can respond through domestic purchases, foreign demand, inventories and firms' financing. Sales and output need not move together. \citet{DedolaLippi2005} relate industrial responses to financing requirements, borrowing capacity and firm size as well as durability. A production contrast therefore combines demand and supply adjustments rather than estimating a household-demand elasticity. The official grouping is also consequential: motor vehicles are capital goods, and non-durable production excludes services.\footnote{Regulation (EU) 2020/1197, Annex II.A, governs production allocation. The supply-use manual includes motor vehicles in household consumer durables \citep[pp.~151, 397]{Eurostat2008}. These are distinct measurements.}
 
-The classification makes this distinction material. I use Eurostat's official consumer-goods production groupings, which allocate industries at both division and group levels. Motor-vehicle manufacturing belongs to capital goods under the applicable classification, even though household purchases of cars can enter durable expenditure.\footnote{The production allocation is specified in Commission Implementing Regulation (EU) 2020/1197, Annex II.A. The supply-use manual includes motor vehicles in household consumer durables \citep[pp.~151, 397]{Eurostat2008}. These are different measurements.} The non-durable production grouping likewise excludes household services. I therefore cannot transfer a result for broad durable manufacturing, investment goods or household consumption to these two production categories without checking what the comparison actually measures.
 
-The closest published production studies already establish heterogeneous monetary transmission. \citet{PeersmanSmets2005} study eleven industries in seven euro-area countries, including Germany, over 1980--1998. Their durability classification includes capital and intermediate durables. \citet{DedolaLippi2005} examine twenty-one manufacturing sectors in five countries, including Germany, with domestic-policy identification. \citet{ChoiEtAl2024} subsequently use an annual international industry panel and interactions between monetary shocks and industry characteristics \citep[\S\S~III--IV]{ChoiEtAl2023}. Their differential approach also recognises that a common macroeconomic disturbance can have unequal sectoral effects. Subtracting the two production outcomes removes an identical common response, but does not remove a disturbance simply because it occurs in both sectors.
+
+The published production evidence already establishes heterogeneous transmission. \citet{PeersmanSmets2005} study eleven industries in seven euro-area countries over 1980--1998, including capital and intermediate durables. \citet{DedolaLippi2005} examine twenty-one sectors in five countries using domestic-policy identification. Both include Germany. \citet{ChoiEtAl2024} use annual international industry interactions \citep[\S\S~III--IV]{ChoiEtAl2023}; their approach recognises that common macroeconomic disturbances can load differently across sectors. Differencing removes an identical common response, not every common disturbance.
 
 \subsection{Information adjustment and the economic comparison}
 
 An interest-rate surprise around a policy announcement can convey more than an unexpected change in the policy stance. Under the interpretation developed by \citet{JarocinskiKaradi2020}, policy tightening raises the rate surprise while lowering equity prices, whereas favourable central-bank information can raise both. The latter component may affect expected activity differently from the policy component. A regression on their combined rate contribution can consequently describe a different production response from a regression that separates them. In this study, the same supplied factor provides the rate units for both comparisons; its contribution is not an equal-sized change in a particular ECB policy rate.
 
-The component labels remain identifying interpretations. \citet{BauerSwanson2023a} show that surprises can reflect an unexpectedly strong systematic response to public economic news while retaining conventional rate--equity signs. This complicates both private-information interpretations and exogeneity of the policy-labelled component. Their evidence concerns Federal Reserve announcements and does not measure the magnitude of this issue in the German application. It nevertheless limits what rate-equity co-movement establishes. Their published monthly analysis also demonstrates why the information content of high-frequency surprises matters for subsequent macroeconomic estimation \citep{BauerSwanson2023b}. I examine sensitivity to the adopted decomposition without identifying the information contribution as superior private knowledge or its response as a separately measured expectations mechanism.
+The labels remain identifying interpretations. \citet{BauerSwanson2023a} show that an unexpectedly strong systematic policy response to public news can retain conventional rate--equity signs. Their Fed evidence challenges identification rather than measuring ECB contamination. Their monthly LP-IV analysis also has a different intervention normalisation \citep{BauerSwanson2023b}. I therefore do not equate the information contribution with superior private knowledge or identify its production response as an expectations channel.
 
-Information-adjusted durability comparisons are also established. \citet{DuranteEtAl2022} combine firms from four large euro-area economies, including Germany, with the original poor-man ECB proxy. Their annual investment and sales responses concern broader manufacturing groups. \citet{CasalisKrustev2022} compare quarterly durable and non-durable expenditure, including services in the latter, using a monetary-conditions shock that encompasses the broader lending environment \citep[\S\S3.1, 4.2]{CasalisKrustev2020}. These comparisons motivate heterogeneity while differing in outcome, frequency, categories and intervention from the matched production comparison here.
+Information-adjusted durability comparisons are established. \citet{DuranteEtAl2022} combine firms in four euro-area economies with original poor-man ECB shocks; their annual investment and sales outcomes cover broader manufacturing groups. \citet{CasalisKrustev2022} compare quarterly expenditure, including non-durable services, using broader monetary and credit conditions \citep[\S\S3.1, 4.2]{CasalisKrustev2020}. These outcomes, categories and interventions differ from my matched monthly production comparison.
 
 A closely related working paper by \citet{FlaccadoroRopele2026} combines monthly euro-area consumer-goods production, information-adjusted ECB shocks and local projections. Its broad-durability comparison and coarse two-digit consumer-group mapping differ from my detailed official allocation. This unpublished June 2026 supplement rules out treating that combination of methods as a contribution by itself. I focus on the matched current-announcement gap conditional on shared histories, rather than claim historical priority for the exact contrast.
 
@@ -105,13 +109,13 @@ My price control uses Germany's unadjusted all-items HICP, \texttt{prc\_hicp\_mi
   \pi_t=100\log\!\left(P_t/P_{t-12}\right).
   \label{eq:annual_inflation}
 \end{equation}
-The series ends in December 2025, but this does not restrict the primary response window. At the last primary origin, August 2025, the latest lagged price observation is July 2025. Future production is available through August 2026; future prices do not enter the control matrix. I retain a coherent historical price series throughout.\footnote{Eurostat has archived the historical classification and publishes a full-series ECOICOP version~2 successor, \texttt{prc\_hicp\_minr}. I do not splice these classifications. Calendar-month indicators accommodate a fixed seasonal pattern in the regressions; they do not turn HICP into an officially seasonally adjusted series.} Constant changes in index reference years cancel from the logarithmic changes used here.
+HICP ends in December 2025; the last required lag is July 2025 at the final primary origin. Production extends to August 2026, and future prices are unnecessary. I retain one coherent historical HICP classification.\footnote{The successor \texttt{prc\_hicp\_minr} uses ECOICOP version 2; I do not splice it into this series. Month indicators do not make HICP officially seasonally adjusted.} Constant rebasing cancels in log changes.
 
 The announcement variables are an author-maintained update of the policy and information decomposition introduced by \citet{JarocinskiKaradi2020}, using the EA-MPD monetary-event window of \citet{AltavillaEtAl2019}. I fix the update to its 7 January 2026 revision \citep{JarocinskiUpdate2026}. Its near-term rate factor is the first principal component of one-, three- and six-month and one-year OIS surprises. The four inputs are standardised by their sample standard deviations, without subtracting their sample means before component extraction. The component is then scaled to the standard deviation of the one-year OIS surprise and expressed in annualised percentage points. The accompanying equity surprise is 100 times the logarithmic change in the Euro Stoxx~50.
 
 I use the supplied median admissible rotation of this rate--equity system. A common selected angle applies across announcements and permits policy and information contributions within the same event \citep{Jarocinski2022,JarocinskiUpdate2026}. Their sum reconstructs the rate factor. This is a later point-selected implementation, rather than the original article's monthly implementation. Event-column orthogonality is not preserved automatically by monthly aggregation, control residualisation or sample trimming.\footnote{The code's orthogonality concerns uncentred column products; it does not establish zero centred covariance or independence.} Consequently, it cannot justify suppressing joint policy--information dependence in the empirical comparison. I divide both contributions by 0.10, so a unit change represents ten basis points of the normalised factor contribution. This normalisation does not equate the estimates with the effect of an actual ten-basis-point ECB policy-rate increase.
 
-I use the supplied monthly CSV contributions unchanged. Independent aggregation of the retained event columns reproduces them to the recorded numerical precision. I preserve supplied zero months and leave observations outside source coverage missing. After twelve lagged histories and endpoint requirements, the primary twelve-month comparison contains 308 origins, January 2000 to August 2025. The response path uses 296 common origins, ending August 2024. The fixed 10 October 2026 retrieval incorporates revised historical observations, rather than reconstructing information available at each announcement. Appendix~\ref{app:source_reconciliation} records source coverage and reconciliation. These checks establish measurement consistency; announcement identification and the interpretation of the selected components remain substantive assumptions.
+The supplied monthly columns equal retained event sums to recorded numerical precision. I retain zero-event months and leave dates outside coverage missing. The primary sample has 308 origins; the common response-path sample has 296 through August 2024. The October retrieval contains revised historical data rather than real-time announcement information. Appendix~\ref{app:source_reconciliation} records reconciliation; numerical consistency does not establish identification.
 
 
 Table~\ref{tab:variation} puts the reporting scale in context. A ten-basis-point factor contribution is approximately three sample standard deviations of monthly policy news, rather than a typical announcement-size assumption. The primary calendar retains 45 months without source events. Durable and non-durable monthly growth have sample standard deviations of $3.85$ and $1.89$ percentage log-change points, respectively; these describe production variability, rather than policy responses.
@@ -165,11 +169,11 @@ The same rows and $Z_t$ enter both. They define linear-projection coefficients; 
 \end{equation}
 Appendix~\ref{app:causal-bridge} proves this relation. A known diagonal mapping recovers the separately scaled latent responses. An unknown dense mapping mixes them; measurement noise generally breaks this identity. Orthogonal observed columns do not establish a diagonal mapping, exogeneity or response invariance. Rate--equity restrictions select an admissible interpretation of announcement news, rather than prove these conditions. I therefore estimate supplied-component projections and state the stronger assumptions needed to call them causal responses \citep{JarocinskiKaradi2020,StockWatson2018}.
 
-The controls comprise an intercept, eleven calendar-month indicators and twelve lags of five histories: durable monthly log growth, non-durable monthly log growth, annual German HICP log inflation, and both scaled announcement components. I use preceding reference months, without contemporaneous production or inflation controls. Twelve lags allow a year of preceding dynamics, while the six-lag check assesses the parameter cost on unchanged dates. Month indicators allow residual calendar effects and announcement-opportunity patterns. These finite histories define the projection rather than demonstrate a sufficient information set or a maximum dependence length. Both models already condition on decomposed announcement histories: the primary gap isolates separation of the current contribution, conditional on those histories. It does not measure the total effect of abandoning information adjustment at every date.
+The controls are an intercept, eleven calendar-month indicators and twelve lags each of durable growth, non-durable growth, annual HICP log inflation and both scaled announcement components. Preceding reference months avoid contemporaneous production controls; month indicators allow residual seasonal and announcement-opportunity patterns. Twelve lags admit a year of history, while the matched six-lag check assesses parameter cost. These histories define conditioning, not a proven sufficient information set. Both models retain decomposed histories, so the primary gap concerns current separation rather than abandoning information adjustment at every date.
 
-The full primary regression has 74 columns and 234 residual degrees of freedom. Every origin requires its contemporaneous components, complete lagged controls, and positive production at $t-1$ and $t+h$. Future prices and shocks are not required. No missing observation is imputed and no primary pandemic origin is excluded. At $h=12$, the last available production endpoint implies August 2025 as the final origin, producing 308 monthly observations from January 2000. This is a historical projection over different monetary-policy regimes and pandemic states. A stable structural response across them needs stronger assumptions than the pooled specification.
+The full primary regression has 74 columns and 234 residual degrees of freedom. Origins require current components, complete lag histories, and positive production at $t-1$ and $t+h$, without imputation or primary pandemic exclusions. Future prices and shocks are unnecessary. The August 2026 production endpoint gives 308 twelve-month origins, January 2000--August 2025. Pooling different policy regimes and pandemic states does not establish a stable structural response. Appendix~\ref{app:record} records the specification chronology and declared checks.
 
-I fixed the primary horizon, sample, outcome, units, controls and interval procedure before fitting the response models. Appendix~\ref{app:record} records chronology and the prespecified checks. The direct use of supplied contributions has no IV first stage. Small residual variation or influential announcements concern precision and numerical regularity here; they are not weak-instrument statistics \citep{StockWatson2018}.
+The primary horizon, dates, outcome, units, controls and interval were fixed before response fitting. Direct regressions on supplied contributions have no IV first stage; small residual variation and influential announcements concern projection precision rather than weak-instrument statistics \citep{StockWatson2018}.
 
 The primary adjustment gap and the component-response difference are
 \begin{equation}
@@ -196,7 +200,7 @@ This application of the partial-regression result reviewed by \citet{Ding2021} i
 \section{Uncertainty in the adjustment gap}
 \label{sec:uncertainty}
 
-The finite-sample identity does not imply that its mixture weight should be treated as fixed for every inferential target. In the population projection, $w_{c,h}$ is a moment ratio of the rate and information residuals after projection on $Z$. Its estimated value varies with the regressor sample. Holding the supplied factor and selected rotation fixed is a different decision from holding realised regressor paths, or their mixture weight, fixed.
+For population inference, $w_c$ is a residualised moment ratio and varies with the regressor sample. Conditioning on a supplied factor and rotation does not fix this estimated weight.
 
 Under regular joint asymptotic linearity, the gap's influence satisfies
 \begin{equation}
@@ -216,7 +220,7 @@ At a fixed horizon and fixed regressor dimension, I maintain positive-definite l
 
 For the primary comparison I use a conservative product interval. I form individual 97.5 per cent normal intervals for $w_c$ and $\theta$, with critical value $z_{0.9875}$, and take the smallest and largest of their four endpoint products. The Bonferroni union bound gives asymptotic joint coordinate coverage of at least 95 per cent; mapping that rectangle covers their product. Appendix~\ref{app:covariance} proves the coverage statement. It avoids requiring an invertible joint covariance or a regular product gradient, while retaining the need for valid, nondegenerate marginal inference. I do not clip weights to $[0,1]$. The null $\delta_h=0$ is the union of $w_{c,h}=0$ and $\theta_h=0$. The declared rectangle is deliberately conservative; its non-rejection does not imply agreement among all valid zero-gap tests. Under a maintained nonzero weight, a restricted-null test of $\theta_h=0$ has a different justification. The preselected product interval remains primary. Section~\ref{sec:gap-followup} reports supplementary procedures introduced after inspection to assess the zero-product geometry.
 
-Individual response intervals and the normal stacked-gap interval remain pointwise; the latter is a regularity-dependent diagnostic. Neither supplies simultaneous coverage over a response path. Ordinary uncertainty conditions on the supplied factor, rotation, measurement vintage and specification. It does not incorporate their construction or identification-set uncertainty.
+Companion intervals are pointwise; the normal gap interval is a regularity-dependent diagnostic. The original intervals condition on the selected factor, rotation, vintage and design. Section~\ref{sec:extension} adds inference across the retained factor's full rotation set, without covering re-estimation of the factor or its sign-set boundaries.
 
 \section{Empirical evidence}
 \label{sec:evidence}
@@ -248,20 +252,20 @@ Origins: January 2000--August 2025, $n=308$. Responses are percentage log-change
 \end{table}
 % END PRIMARY_TABLE
 
-The undivided-surprise coefficient is $-1.03$ and its interval includes zero. Its point response is $1.26$ percentage log points closer to zero than the policy coefficient, in the same cumulative relative-production units. This is the difference between two projection slopes, rather than two identical policy-rate interventions. The primary conservative bounds $[-0.11,3.31]$ also include zero. The prespecified conservative procedure therefore does not reject the zero-gap hypothesis. The positive point estimate suggests a smaller relative contraction when the contributions are combined, yet the interval accommodates both a small negative difference and a substantial positive difference. Non-rejection is not evidence that the adjustment has no economically relevant effect.
+Recomposed news gives a point response $1.26$ closer to zero than the policy contribution. This is a projection comparison, not two identical policy interventions. The prespecified conservative interval $[-0.11,3.31]$ includes zero and accommodates a substantial positive adjustment; non-rejection is not evidence of economic irrelevance.
 
-The decomposition attributes the point gap to an information weight of $0.427$ and component-response difference of $2.951$. Their product is $1.261$. The 97.5 per cent coordinate bounds are $[0.312,0.542]$ for the weight and $[-0.198,6.100]$ for the response difference; the latter permits the negative endpoint of the primary product bounds. This identifies how the coefficient comparison is assembled, rather than measuring the fraction of announcements containing information or identifying a distinct expectations channel. The normal component-difference interval alone cannot establish a nonzero product, and differing separate significance labels do not test the gap.
+The information weight is $0.427$ and response difference $2.951$. Their 97.5 per cent coordinate bounds are $[0.312,0.542]$ and $[-0.198,6.100]$: uncertainty in the ranking permits the negative product endpoint. The weight is a controlled covariance ratio, not a fraction of information announcements. Separate coefficient significance does not test the gap.
 
 \subsection{Supplementary inference on the zero-gap restriction}
 \label{sec:gap-followup}
 
-After observing the primary estimates and preliminary test audit, I recorded a follow-up for all six declared twelve-month cases. I examine an intersection-union point-null test and product bounds from a covariance-aware joint region, using the retained coefficients and covariance without additional outcome regressions. Appendix~\ref{app:gap-tests} gives the proofs and all numerical cases. The primary interval remains unchanged; the follow-up was informed by the preliminary results and is not prospective registration.
+After primary inspection and preliminary arithmetic, I recorded supplementary zero-product inference for all six declared cases. The intersection-union test and joint-ellipse product bounds use unchanged estimates. Appendix~\ref{app:gap-tests} gives their justification and all results; this follow-up is not prospective registration.
 
 % BEGIN FOLLOWUP_SUMMARY
 The primary intersection-union test gives $p=0.036$, a nominal 5 per cent rejection of the zero-product restriction. Its joint-ellipse product bounds are $[-0.19,3.18]$. Every joint-region interval includes zero. The poor-man and pre-pandemic tests do not reject, with $p=0.174$ and $p=0.414$. Table~\ref{tab:gap-followup} reports all six cases without selection.
 % END FOLLOWUP_SUMMARY
 
-The point-null test and the joint region concern the same case-specific population gap, but calibrate uncertainty differently. Their disagreement clarifies the conservatism of the primary procedure rather than establishing an economically important minimum gap. Nominal rejection is supplementary evidence for the selected decomposition; construction sensitivity, earlier-period imprecision and the common marginal-inference assumptions limit a stronger transmission conclusion.
+The procedures calibrate the same restriction differently. Nominal point-null rejection for the selected decomposition does not establish a minimum economic adjustment, construction robustness or causality.
 
 \subsection{The dynamic comparison}
 
@@ -271,7 +275,7 @@ Figure~\ref{fig:path} presents horizons zero to twenty-four on 296 common origin
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=.96\textwidth,height=7.1cm,
+\begin{axis}[width=.96\textwidth,height=6.0cm,
  axis lines=left,xmin=0,xmax=24,xtick={0,6,12,18,24},
  xlabel={Months after the announcement month},ylabel={Percentage log points},
  tick label style={font=\small},label style={font=\small},
@@ -291,7 +295,7 @@ Figure~\ref{fig:path} presents horizons zero to twenty-four on 296 common origin
 \addplot[gray,densely dotted,forget plot] coordinates {(12,-7)(12,1.5)};
 \end{axis}
 \end{tikzpicture}
-\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample. Figure~\ref{fig:sensitivity} shows the directly assessed primary gap; overlap of these individual response bands is not a test of that gap.}
+\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample. Appendix Table~\ref{tab:sensitivities} reports the directly assessed primary gap; overlap of these individual response bands is not a test of that gap.}
 \label{fig:path}
 \end{figure}
 % END PATH_FIGURE
@@ -300,66 +304,132 @@ The policy point estimate is negative and the gap point estimate positive throug
 
 \subsection{Declared sensitivity and influence}
 
-Figure~\ref{fig:sensitivity} reports every declared twelve-month gap comparison; Appendix Table~\ref{tab:sensitivities} retains the numerical companion results. Six lags and the alternative poor-man decomposition use the same 308 origins. They give gaps of $1.17$ and $1.23$, respectively, both with conservative intervals including zero. The poor-man comparison is less precise and replaces both current and lagged components. Six lags instead changes the conditioning set. Matched dates therefore remove sample changes while leaving these distinct design changes. The poor-man construction check is not a full confidence analysis over all admissible rotations.
+Appendix Table~\ref{tab:sensitivities} reports every declared twelve-month sensitivity. Six lags give a gap of $1.17$ with conservative bounds $[-0.16,3.13]$. Poor-man components give $1.23$ with bounds $[-1.02,4.19]$. Their close full-sample point gaps mask different component precision: the information standard error rises from $0.88$ to $2.11$, and the response-difference standard error from $1.40$ to $2.69$. Residual information variation after controls and the other component falls by about 28 per cent. Different significance labels are consequently not a direct test of construction stability.
 
-% BEGIN SENSITIVITY_FIGURE
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[width=.85\textwidth,height=6.7cm,
- axis lines=left,y dir=reverse,ymin=-.4,ymax=5.4,ytick={0,1,2,3,4,5},
- yticklabels={Primary comparison,Six lags,Poor-man components,Pre-pandemic endpoints,Short bandwidth,Long bandwidth},
- xlabel={Adjustment gap: percentage log points},
- tick label style={font=\small},label style={font=\small},clip=true]
-\addplot[policyblue,very thick,forget plot] coordinates {(-0.1073855076,0)(3.308578366,0)};
-\addplot[policyblue,only marks,mark=*,mark size=2.8pt,forget plot] coordinates {(1.261325705,0)};
-\addplot[policyblue,thick,forget plot] coordinates {(-0.1609363859,1)(3.131135009,1)};
-\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {(1.169531982,1)};
-\addplot[policyblue,thick,forget plot] coordinates {(-1.024384756,2)(4.188517343,2)};
-\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {(1.225951236,2)};
-\addplot[policyblue,thick,forget plot] coordinates {(-1.436716025,3)(3.08559204,3)};
-\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {(0.6624342089,3)};
-\addplot[policyblue,thick,forget plot] coordinates {(-0.07919753682,4)(3.26551727,4)};
-\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {(1.261325705,4)};
-\addplot[policyblue,thick,forget plot] coordinates {(-0.1405857866,5)(3.361170602,5)};
-\addplot[policyblue,only marks,mark=*,mark size=2pt,forget plot] coordinates {(1.261325705,5)};
-\addplot[gray,thin,forget plot] coordinates {(0,-.4)(0,5.4)};
-\end{axis}
-\end{tikzpicture}
-\caption{Declared twelve-month adjustment-gap checks. Points show the recomposed-rate coefficient less the policy-component coefficient per ten-basis-point factor contribution. Lines are the conservative 95 per cent product intervals. The larger point and thicker line identify the primary comparison. All samples have 308 origins except the pre-pandemic check, with 228. Every interval includes zero.}
-\label{fig:sensitivity}
-\end{figure}
-% END SENSITIVITY_FIGURE
 
-The pre-pandemic comparison requires every production endpoint to occur by December 2019, yielding 228 origins through December 2018. Its gap is smaller, $0.66$, and its information coefficient changes sign to $-0.62$. Its policy contrast remains negative, but the interval $[-4.28,0.11]$ includes zero. The undivided coefficient's interval instead excludes zero. These separate patterns remain insufficient to establish a difference. Its positive gap despite the negative information contrast illustrates that the response ranking, rather than relative information-induced expansion, drives the point comparison. The period change also alters policy composition and the historical projection target; I cannot attribute the change solely to pandemic disturbances.
+Requiring endpoints by December 2019 gives 228 origins through December 2018. The gap falls to $0.66$ and the information contrast to $-0.62$; the policy interval $[-4.28,0.11]$ includes zero. This positive gap with a negative information contrast illustrates response ranking. The historical target and policy composition change together, so the comparison cannot isolate a pandemic effect. Bandwidths 15 and 24 leave primary coefficients unchanged and conservative gap bounds including zero.
 
-Shorter and longer Bartlett bandwidths, 15 and 24, leave the primary coefficients unchanged. Their conservative gap bounds still include zero. Thus the declared checks retain a positive point gap without resolving its primary imprecision.
 
-Single-origin deletions leave the primary gap positive, but omitting December 2015 changes it by $0.38$, approximately thirty per cent of its original value. March, April and May 2020 also appear among the most influential origins. Maximum primary leverage is $0.565$. The column-scaled condition number is about $49.1$, and the primary control, full and reduced ranks are 72, 74 and 73. These diagnostics show no numerical rank collapse, while highlighting the parameter count and influence burden. With 74 columns in 308 origins and concentrated leverage, nominal coverage remains an assumption-dependent approximation. The common covariance multiplier $308/234$ does not correct leverage-dependent residual shrinkage or establish finite-sample size.\footnote{A single-origin deletion removes one projection row. It does not remove that announcement from every subsequent control history or remove its outcome months from other overlapping rows. I retain it as an influence diagnostic without automatic exclusions.}
+
+Single-origin deletions keep the primary gap positive, but omitting December 2015 changes it by $0.38$, approximately thirty per cent. Pandemic origins are also influential. Maximum leverage is $0.565$ and the column-scaled condition number about $49.1$, with control/full/reduced ranks 72/74/73. Full rank and the multiplier $308/234$ do not correct leverage-dependent residual shrinkage or establish finite-sample coverage.\footnote{Deleting one origin does not remove its announcement from later histories or its production months from other overlapping outcomes. This is an influence diagnostic, without automatic exclusions.}
 
 \subsection{An illustration of omitted variance terms}
 
 Multiplying the component-difference standard error by the realised weight gives a standard error of $0.6005$ and an illustrative normal interval $[0.08,2.44]$. Retaining weight variation and cross-model covariance gives a stacked standard error of $0.6749$ and a regularity-dependent normal diagnostic interval $[-0.06,2.58]$. The primary conservative interval remains $[-0.11,3.31]$.
 
-The three estimated sampling-variance contributions are approximately $0.3606$ from component-response uncertainty, $0.0229$ from weight variation and $0.0719$ from their cross covariance, summing to $0.4554$. Direct weight variation contributes about 5.0 per cent and its cross term about 15.8 per cent of the total; together they are the 20.8 per cent omitted by the illustrative arithmetic. Their sign and importance are sample-specific, rather than a universal upward correction. A valid fixed-design analysis requires its own stochastic model. Dropping terms from the marginal random-design variance does not validate such a conditional interval. It cannot substitute for the locked population comparison. This arithmetic illustration applies the established identity to the retained evidence; it neither changes the primary model nor supplies a new theoretical inference result.
+The variance terms are $0.3606$ for component-response uncertainty, $0.0229$ for weight variation and $0.0719$ for cross covariance, totalling $0.4554$. The latter two are 20.8 per cent of the total, but their signs are sample-specific. Dropping them from random-design variance does not establish fixed-design coverage. The six-lag standard error is 9.8 per cent smaller, but changes the conditioning set and still leaves the conservative gap interval including zero. Smoothing response paths can exchange variance for bias \citep{BarnichonBrownlees2019}; its efficiency advantage does not validate inference for this nonlinear gap or supply exogeneity. I retain the declared estimator rather than count a smaller standard error under added restrictions as resolution.
+
+\section{Construction, period and causal identification}
+\label{sec:extension}
+
+\subsection{Joint stability and the meaning of equivalence}
+
+I recorded this extension after the original results were known, but before calculating its new contrasts. I retain the primary evidence. For each comparison, I jointly estimate $(w_1,\theta_1,w_2,\theta_2)$, embed each equation's coefficient contributions on the same monthly calendar, and retain cross-equation covariance. Nested period samples therefore share uncertainty. A common Bartlett bandwidth 18 and each design's own $\sqrt{n/(n-k_F)}$ scaling give a positive-semidefinite joint covariance; bandwidth 17 is a declared check. I map the four-coordinate 95 per cent Wald ellipsoid through $w_2\theta_2-w_1\theta_1$, avoiding reliance on a nonzero product gradient. Appendix~\ref{app:extension} derives the optimisation and regularity requirements.
+
+% BEGIN STABILITY_TABLE
+\begin{table}[htbp]
+\centering\small
+\caption{Joint contrasts of the twelve-month adjustment gap}
+\label{tab:joint-stability}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Comparison & Difference & Joint-set 95\% bounds & Margin infimum \\
+\midrule
+Poor-man less median & $-0.04$ & $[-3.19,2.28]$ & $3.19$ \\
+Earlier period less full & $-0.60$ & $[-2.35,0.97]$ & $2.35$ \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\footnotesize
+Units are percentage log-change points per ten-basis-point factor contribution. Each interval projects its own four-coordinate ellipsoid, with cross-model covariance and common calendar bandwidth 18; no coverage claim across both comparisons is made. The margin infimum is the smallest symmetric tolerance that could contain the interval, not a chosen equivalence margin.
+\end{minipage}
+\end{table}
+% END STABILITY_TABLE
+
+The construction difference is $-0.04$, with bounds $[-3.19,2.28]$; the earlier-period difference is $-0.60$, with bounds $[-2.35,0.97]$. Both include zero, but neither establishes tight equivalence. The symmetric margin infima are approximately $3.19$ and $2.35$, respectively; a larger margin is needed for strict containment. I report this margin frontier rather than choose a convenient tolerance after seeing results. The regular equality diagnostics give $p=0.967$ and $0.243$; they do not establish sameness. Bandwidth 17 gives corresponding frontier values $3.20$ and $2.38$.
+
+An unrestricted later-period regression is costly: only 80 origins remain after December 2018, against 74 primary columns. I instead add a period intercept and interactions of both current components to the pooled equation, maintaining common seasonal and lag dynamics. This 77-column model gives a two-slope stability-test $p=0.457$, or $0.463$ at bandwidth 17. Common dynamics are a substantive restriction; the test neither estimates a causal regime effect nor proves response invariance. Its maximum leverage, $0.650$, reinforces the finite-sample caution.
+
+\subsection{The entire admissible rotation family}
+
+Let the retained event matrix of rate and equity surprises be $X_e=QR$ with positive diagonal $R$, and define $v_e=R_{11}Q_{e2}$. The source's strict financial signs imply $0<\varphi<1.41022$ radians, or $80.80$ degrees. For each angle, the rate contributions are
+\begin{equation}
+ m_e(\varphi)=\cos^2\!\varphi\,r_e-\sin\varphi\cos\varphi\,v_e,
+ \quad c_e(\varphi)=\sin^2\!\varphi\,r_e+\sin\varphi\cos\varphi\,v_e.
+ \label{eq:rotation-contributions}
+\end{equation}
+I aggregate these contributions before scaling by 0.10 percentage points. For every interior angle, the two component histories span the same controls as histories of $r$ and $v$. One invariant full regression $Y=b_r r+b_v v+Z^\top\eta+e$ and reduced coefficient $\gamma$ therefore give
+\begin{equation}
+ \beta_m(\varphi)=b_r-b_v\tan\varphi,
+ \qquad\delta(\varphi)=\gamma-b_r+b_v\tan\varphi.
+ \label{eq:rotation-response}
+\end{equation}
+This exact transformation assesses every angle rather than selecting a grid extremum. Five interior direct fits verify it. The rounded median reproduces all retained events; using continuous unrounded rotations changes the median gap by less than $2\times10^{-7}$.
+
+% BEGIN ROTATION_FIGURE
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.25cm},
+ width=.46\textwidth,height=5.8cm,axis lines=left,xmin=0,xmax=80.8,
+ xtick={0,20,40,60,80},xlabel={Rotation angle, degrees},
+ tick label style={font=\small},label style={font=\small},title style={font=\small},clip=true]
+\nextgroupplot[title={Policy contrast},ylabel={Percentage log points}]
+\addplot[name path=lo,draw=none,forget plot] coordinates {(0,-2.7858367) (1.3466608,-2.8328569) (2.6933216,-2.8810189) (4.0399824,-2.930356) (5.3866433,-2.980905) (6.7333041,-3.032707) (8.0799649,-3.0858073) (9.4266257,-3.1402556) (10.773287,-3.1961068) (12.119947,-3.2534205) (13.466608,-3.3122622) (14.813269,-3.3727032) (16.15993,-3.4348211) (17.506591,-3.4987007) (18.853251,-3.5644341) (20.199912,-3.6321215) (21.546573,-3.7018722) (22.893234,-3.7738048) (24.239895,-3.848049) (25.586555,-3.9247458) (26.933216,-4.0040493) (28.279877,-4.0861274) (29.626538,-4.1711642) (30.973199,-4.2593609) (32.31986,-4.3509383) (33.66652,-4.4461388) (35.013181,-4.5452292) (36.359842,-4.6485036) (37.706503,-4.7562868) (39.053164,-4.8689386) (40.399824,-4.9868583) (41.746485,-5.1104902) (43.093146,-5.2403298) (44.439807,-5.3769321) (45.786468,-5.5209195) (47.133129,-5.6729935) (48.479789,-5.8339467) (49.82645,-6.0046784) (51.173111,-6.1862129) (52.519772,-6.3797223) (53.866433,-6.5865535) (55.213093,-6.8082625) (56.559754,-7.0466562) (57.906415,-7.3038451) (59.253076,-7.5823099) (60.599737,-7.8849861) (61.946398,-8.2153734) (63.293058,-8.5776775) (64.639719,-8.9769983) (65.98638,-9.4195796) (67.333041,-9.9131502) (68.679702,-10.467392) (70.026362,-11.094597) (71.373023,-11.810616) (72.719684,-12.636239) (74.066345,-13.599286) (75.413006,-14.737851) (76.759666,-16.105528) (78.106327,-17.780185) (79.452988,-19.87946) (80.799649,-22.58987)};
+\addplot[name path=hi,draw=none,forget plot] coordinates {(0,0.67855499) (1.3466608,0.65709709) (2.6933216,0.63670528) (4.0399824,0.61733667) (5.3866433,0.5989515) (6.7333041,0.58151304) (8.0799649,0.56498744) (9.4266257,0.54934366) (10.773287,0.53455337) (12.119947,0.52059087) (13.466608,0.50743305) (14.813269,0.4950593) (16.15993,0.48345152) (17.506591,0.47259406) (18.853251,0.46247374) (20.199912,0.45307983) (21.546573,0.44440411) (22.893234,0.43644088) (24.239895,0.42918701) (25.586555,0.42264207) (26.933216,0.41680841) (28.279877,0.41169125) (29.626538,0.40729892) (30.973199,0.403643) (32.31986,0.40073856) (33.66652,0.39860443) (35.013181,0.39726355) (36.359842,0.39674336) (37.706503,0.39707619) (39.053164,0.39829989) (40.399824,0.40045837) (41.746485,0.4036024) (43.093146,0.4077905) (44.439807,0.41308992) (45.786468,0.41957795) (47.133129,0.42734337) (48.479789,0.43648823) (49.82645,0.44713003) (51.173111,0.45940426) (52.519772,0.47346762) (53.866433,0.48950186) (55.213093,0.50771862) (56.559754,0.52836529) (57.906415,0.55173258) (59.253076,0.57816382) (60.599737,0.60806709) (61.946398,0.6419306) (63.293058,0.68034293) (64.639719,0.72401961) (65.98638,0.77383867) (67.333041,0.83088889) (68.679702,0.89653637) (70.026362,0.97251794) (71.373023,1.0610752) (72.719684,1.1651511) (74.066345,1.2886866) (75.413006,1.437081) (76.759666,1.6179336) (78.106327,1.8422898) (79.452988,2.1268402) (80.799649,2.498053)};
+\addplot[policyblue!15,draw=none,forget plot] fill between[of=lo and hi];
+\addplot[policyblue,very thick] coordinates {(0,-1.0536408) (1.3466608,-1.0878799) (2.6933216,-1.1221568) (4.0399824,-1.1565097) (5.3866433,-1.1909767) (6.7333041,-1.225597) (8.0799649,-1.2604099) (9.4266257,-1.295456) (10.773287,-1.3307767) (12.119947,-1.3664148) (13.466608,-1.4024146) (14.813269,-1.4388219) (16.15993,-1.4756848) (17.506591,-1.5130533) (18.853251,-1.5509802) (20.199912,-1.5895208) (21.546573,-1.628734) (22.893234,-1.668682) (24.239895,-1.709431) (25.586555,-1.7510519) (26.933216,-1.7936204) (28.279877,-1.8372181) (29.626538,-1.8819327) (30.973199,-1.927859) (32.31986,-1.9750999) (33.66652,-2.0237672) (35.013181,-2.0739828) (36.359842,-2.1258801) (37.706503,-2.1796053) (39.053164,-2.2353194) (40.399824,-2.2932) (41.746485,-2.3534439) (43.093146,-2.4162697) (44.439807,-2.4819211) (45.786468,-2.5506708) (47.133129,-2.6228251) (48.479789,-2.6987293) (49.82645,-2.7787742) (51.173111,-2.8634043) (52.519772,-2.9531273) (53.866433,-3.0485258) (55.213093,-3.1502719) (56.559754,-3.2591454) (57.906415,-3.3760562) (59.253076,-3.502073) (60.599737,-3.6384595) (61.946398,-3.7867214) (63.293058,-3.9486673) (64.639719,-4.1264893) (65.98638,-4.3228705) (67.333041,-4.5411306) (68.679702,-4.7854276) (70.026362,-5.0610396) (71.373023,-5.3747705) (72.719684,-5.735544) (74.066345,-6.1552996) (75.413006,-6.650385) (76.759666,-7.2437972) (78.106327,-7.9689475) (79.452988,-8.87631) (80.799649,-10.045909)};
+\addplot[gray,thin,forget plot] coordinates {(0,0)(80.8,0)};
+\addplot[newsorange,only marks,mark=*,mark size=2pt,forget plot] coordinates {(40.399824,-2.2932)};
+\nextgroupplot[title={Adjustment gap},ylabel={Percentage log points}]
+\addplot[name path=lo,draw=none,forget plot] coordinates {(0,-0.41364985) (1.3466608,-0.40177637) (2.6933216,-0.39316665) (4.0399824,-0.3873327) (5.3866433,-0.38384812) (6.7333041,-0.38235114) (8.0799649,-0.38254087) (9.4266257,-0.38417032) (10.773287,-0.38703849) (12.119947,-0.39098275) (13.466608,-0.39587214) (14.813269,-0.40160163) (16.15993,-0.40808749) (17.506591,-0.41526342) (18.853251,-0.42307759) (20.199912,-0.43149017) (21.546573,-0.44047147) (22.893234,-0.45000041) (24.239895,-0.46006341) (25.586555,-0.47065345) (26.933216,-0.48176941) (28.279877,-0.49341559) (29.626538,-0.50560137) (30.973199,-0.51834098) (32.31986,-0.53165341) (33.66652,-0.54556246) (35.013181,-0.56009682) (36.359842,-0.57529028) (37.706503,-0.59118206) (39.053164,-0.60781726) (40.399824,-0.62524733) (41.746485,-0.64353082) (43.093146,-0.66273415) (44.439807,-0.68293262) (45.786468,-0.70421164) (47.133129,-0.72666815) (48.479789,-0.75041243) (49.82645,-0.77557015) (51.173111,-0.80228504) (52.519772,-0.830722) (53.866433,-0.861071) (55.213093,-0.89355182) (56.559754,-0.92842007) (57.906415,-0.96597459) (59.253076,-1.0065669) (60.599737,-1.0506132) (61.946398,-1.0986098) (63.293058,-1.1511536) (64.639719,-1.2089682) (65.98638,-1.2729399) (67.333041,-1.3441657) (68.679702,-1.4240199) (70.026362,-1.5142478) (71.373023,-1.6170993) (72.719684,-1.735526) (74.066345,-1.8734771) (75.413006,-2.0363608) (76.759666,-2.2317851) (78.106327,-2.470804) (79.452988,-2.7701175) (80.799649,-3.1562025)};
+\addplot[name path=hi,draw=none,forget plot] coordinates {(0,0.45718334) (1.3466608,0.51378799) (2.6933216,0.57373213) (4.0399824,0.63660384) (5.3866433,0.70205344) (6.7333041,0.76979692) (8.0799649,0.83961252) (9.4266257,0.91133412) (10.773287,0.98484372) (12.119947,1.0600642) (13.466608,1.1369531) (14.813269,1.2154973) (16.15993,1.2957089) (17.506591,1.3776219) (18.853251,1.4612898) (20.199912,1.5467837) (21.546573,1.6341913) (22.893234,1.7236162) (24.239895,1.8151772) (25.586555,1.909009) (26.933216,2.0052621) (28.279877,2.1041036) (29.626538,2.2057185) (30.973199,2.3103107) (32.31986,2.418105) (33.66652,2.5293487) (35.013181,2.6443143) (36.359842,2.7633023) (37.706503,2.8866445) (39.053164,3.0147078) (40.399824,3.1478991) (41.746485,3.2866704) (43.093146,3.4315253) (44.439807,3.5830266) (45.786468,3.741805) (47.133129,3.9085701) (48.479789,4.0841227) (49.82645,4.2693703) (51.173111,4.4653455) (52.519772,4.6732285) (53.866433,4.8943745) (55.213093,5.1303475) (56.559754,5.3829628) (57.906415,5.6543389) (59.253076,5.9469648) (60.599737,6.263784) (61.946398,6.6083044) (63.293058,6.98474) (64.639719,7.3981987) (65.98638,7.8549327) (67.333041,8.3626788) (68.679702,8.9311269) (70.026362,9.5725789) (71.373023,10.302892) (72.719684,11.142866) (74.066345,12.120328) (75.413006,13.273383) (76.759666,14.655631) (78.106327,16.344951) (79.452988,18.458989) (80.799649,21.184272)};
+\addplot[policyblue!15,draw=none,forget plot] fill between[of=lo and hi];
+\addplot[policyblue,very thick] coordinates {(0,0.021766745) (1.3466608,0.056005812) (2.6933216,0.090282743) (4.0399824,0.12463557) (5.3866433,0.15910266) (6.7333041,0.19372289) (8.0799649,0.22853582) (9.4266257,0.2635819) (10.773287,0.29890261) (12.119947,0.33454073) (13.466608,0.37054049) (14.813269,0.40694785) (16.15993,0.44381072) (17.506591,0.48117925) (18.853251,0.5191061) (20.199912,0.55764676) (21.546573,0.59685993) (22.893234,0.63680789) (24.239895,0.67755692) (25.586555,0.7191778) (26.933216,0.76174634) (28.279877,0.80534401) (29.626538,0.85005856) (30.973199,0.89598488) (32.31986,0.9432258) (33.66652,0.99189311) (35.013181,1.0421087) (36.359842,1.094006) (37.706503,1.1477312) (39.053164,1.2034453) (40.399824,1.2613259) (41.746485,1.3215698) (43.093146,1.3843956) (44.439807,1.450047) (45.786468,1.5187967) (47.133129,1.590951) (48.479789,1.6668552) (49.82645,1.7469001) (51.173111,1.8315303) (52.519772,1.9212533) (53.866433,2.0166517) (55.213093,2.1183978) (56.559754,2.2272713) (57.906415,2.3441822) (59.253076,2.4701989) (60.599737,2.6065854) (61.946398,2.7548473) (63.293058,2.9167932) (64.639719,3.0946152) (65.98638,3.2909964) (67.333041,3.5092566) (68.679702,3.7535535) (70.026362,4.0291655) (71.373023,4.3428964) (72.719684,4.7036699) (74.066345,5.1234255) (75.413006,5.6185109) (76.759666,6.2119231) (78.106327,6.9370734) (79.452988,7.8444359) (80.799649,9.0140345)};
+\addplot[gray,thin,forget plot] coordinates {(0,0)(80.8,0)};
+\addplot[newsorange,only marks,mark=*,mark size=2pt,forget plot] coordinates {(40.399824,1.2613259)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{Complete admissible rotation assessment. Curves are twelve-month point projections per ten-basis-point rate-factor contribution; orange points identify the author median. Shading projects one joint 95 per cent ellipsoid and simultaneously covers the retained-factor family under its regularity assumptions. The curves include continuous closure limits, not a fitted singular zero-angle model. Factor and sign-boundary estimation uncertainty is not covered.}
+\label{fig:rotation}
+\end{figure}
+% END ROTATION_FIGURE
+
+The closure point bounds are $[-10.05,-1.05]$ for the policy contrast and $[0.02,9.01]$ for the gap; both strict-sign endpoints are excluded. Their directions persist in this family, but their magnitudes are highly dependent on the rotation. A single joint 95 per cent ellipsoid for $(b_r,b_v,\gamma)$ gives simultaneous conditional envelopes $[-22.59,2.50]$ and $[-3.16,21.18]$, respectively. These cover every retained-factor angle under the joint score assumptions; a collection of unrelated pointwise intervals would not provide this guarantee. They condition on the supplied factor, event QR and sign-set endpoints, leaving their estimation uncertainty uncovered. The lower endpoint has a zero information-rate normalisation and is not fitted: I report continuous limits of the defined policy and gap contrasts. The information coefficient diverges there. At the upper boundary its equity loading is zero, also excluded by the strict signs. A primitive-coordinate Bonferroni companion also covers the continuum under marginal regularity, without requiring an invertible joint covariance: its gap envelope is $[-1.31,20.06]$.
+
+Financial signs do not verify exogeneity. The supplementary zero-product test fails to reject close to the lower boundary.
+
+\subsection{A causal direction and falsification checks}
+
+For a latent policy innovation contributing ten basis points to the same factor, let its measured direction be $(1-a,a)^\top$. Under the constant noiseless mapping, invariant response and orthogonality assumptions in Appendix~\ref{app:causal-bridge}, its relative response and adjustment are
+\begin{equation}
+ \tau(a)=(1-a)\beta_m+a\beta_c,
+ \qquad \gamma-\tau(a)=(w-a)\theta.
+ \label{eq:causal-direction}
+\end{equation}
+At $a=0$ the projection gap equals the causal adjustment; when $\theta\ne0$, this equality requires $a=0$. This coordinate is not an estimated contamination probability; without restrictions it may lie outside $[0,1]$. The illustrative range $a\in[0,1]$ imposes non-negative measured loadings; it is a sensitivity assumption, distinct from the financial rotation restrictions. At the median projection, the response point is $-2.29$ at $a=0$, $-1.56$ at $a=0.25$ and $-0.82$ at $a=0.50$. Its sign changes at $a=0.777$, while the adjustment changes sign already at $a=w=0.427$. A common 95 per cent coefficient ellipse gives an upper response bound $0.07$ even at $a=0$, so the individual policy interval's exclusion of zero is not simultaneous separation evidence. An imposed absolute outcome-bias bound $B$ widens each response envelope by $B$ on either side; neither $a$ nor $B$ is identified here.
+
+I also regress three predetermined production changes, measured from $t-26$ to $t-13$, on the primary components and controls. They precede the controlled twelve-month growth history and cannot be caused by the current announcement. Joint two-component tests give $p=0.674$, $0.714$ and $0.827$ for durables, non-durables and their difference; Bonferroni adjustment across the family yields no rejection. The contrast's policy coefficient is $0.63$ with standard error $1.10$. These imprecise retrospective checks do not reconstruct real-time public information or verify exclusion. Serially predictable news, omitted public-news responses and measurement error remain possible.
+
+LP-IV can identify a policy response with a relevant, excluded proxy and an explicit normalisation \citep[\S\S1.3--1.5, 2]{StockWatson2018}. Reusing a supplied component as its own instrument verifies none of those conditions. The retained data contain no independently justified excluded proxy or public-news forecast-surprise measure. I therefore report the conditional response and its sensitivity rather than claim an unconditional causal effect.
 
 \section{Economic interpretation and limitations}
 \label{sec:interpretation}
 
-Both consumer-goods groups have negative primary policy-component point responses, with durable production more negative. This is compatible with the conditional user-cost mechanism, but the production indices and nominal announcement units do not identify its household elasticity. The more direct finding concerns response ranking. The information contrast of $0.66$ exceeds the policy contrast of $-2.29$; their difference of $2.95$, multiplied by the residualised weight $0.427$, gives the $1.26$ adjustment point. Recomposition therefore weakens the estimated relative contraction without establishing that information news expands either sector. Within the declared 97.5 per cent coordinate bounds, the weight is above zero but the response difference remains unresolved, generating the primary gap interval's inclusion of zero. This locates the imprecision in the component ranking under that conservative construction, while weight variation and cross covariance still enter the population variance.
+Both groups have negative primary policy point responses, with durables more negative. This is compatible with user-cost amplification, but production and nominal factor units do not identify a household elasticity. The response ranking and residualised mixture explain the positive point adjustment without requiring relative information-induced expansion. The extension locates an additional limitation: the retained estimates preserve this point direction within the sign-admissible family while permitting large magnitude variation. A directionally stable set of point estimates is weaker evidence than a sampling envelope excluding zero.
 
-In the German application, conditional orthogonality excludes omitted energy, foreign-demand or supply news that arrives with an announcement, covaries with the supplied components and affects the two groups differently. Differencing removes only disturbances with identical sectoral loadings. A policy response to omitted public news must not create covariation with the remaining relative-production disturbance; conventional rate--equity signs do not rule out such covariation \citep{BauerSwanson2023a}. Controlling the information component does not establish the remaining component's exogeneity. Neither the announcement window nor financial sign restrictions verify these exclusions. I therefore distinguish changes in projection slopes from identified household or firm transmission channels.
+In Germany, orthogonality excludes announcement-correlated energy, foreign-demand or supply news with unequal sector effects. Differencing removes only identical loadings. Public-news policy responses can also covary with the remaining production disturbance despite conventional financial signs \citep{BauerSwanson2023a}. Controlling the information-labelled contribution does not prove the policy-labelled contribution exogenous. The retained window, restrictions and predetermined-outcome checks cannot verify these exclusions.
 
-The production allocation also constrains what the estimate can explain. A relative movement in these indices is not a household-expenditure elasticity, a motor-vehicle response or a change in the physical share of durable goods. Inventory, export demand, financing and demand postponement are possible mechanisms. The regressions do not separate them. The point estimates should be read in the source's normalised factor units, not translated into the effect of an actual policy-rate step without an additional normalisation and identification argument.
+Inventory, export demand, financing and postponed purchases are possible mechanisms, not separately identified channels. The contrast is neither household expenditure, a motor-vehicle response nor a physical production share. Converting its factor normalisation into an actual policy-rate intervention requires an additional identification and scaling argument.
 
-Finally, the finite sample averages over unconventional-policy periods, later tightening and pandemic states. A pooled linear coefficient need not describe an invariant structural response. Revised historical controls are not the real-time information set; the selected source factor and rotation also use their own construction sample. Independent numerical agreement validates implementation, not these economic assumptions. The combination of imprecise gaps, influential origins and unpropagated identification uncertainty limits a stronger causal claim.
+The sample spans unconventional policy, tightening and pandemic states. Joint period tests are imprecise and common-dynamics restrictions do not establish structural invariance. Revised controls are not the real-time information set. Independent numerical agreement validates implementation; it does not validate exogeneity, response stability or the factor's construction. Confidence statements remain asymptotic and conditional on the retained source.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-I find a more negative durable-minus-non-durable production point response when the current policy contribution is separated from the recomposed ECB announcement surprise. The positive twelve-month adjustment point reflects the ranking of the component responses and their controlled announcement weight. Its primary conservative interval and every declared sensitivity interval include zero, so the declared procedure does not resolve the population adjustment. The pre-pandemic comparison also leaves the companion policy contrast imprecise. The supplementary intersection-union test gives nominal evidence against a zero gap for the selected construction, but the joint-region product bounds include zero and the alternative construction and earlier-period tests do not reject.
+Separating current policy news makes the median durable-minus-non-durable production point response more negative, giving a $1.26$ adjustment. Its locked conservative interval includes zero. Joint construction and period contrasts also do not establish tight equivalence. The entire admissible rotation family preserves a positive point adjustment but permits a range of $0.02$--$9.01$, with a common conditional sampling envelope including zero. The supplementary rejection for the median construction consequently cannot establish a precise, construction-invariant result.
 
-Economically, combining announcement contributions can weaken an estimated durability contrast without requiring a positive relative information response. The stock-flow benchmark illustrates user-cost and demand mechanisms, but relative prices, inventories, exports and financing prevent reading the production estimates as an identified household mechanism. The measured responses also depend on the mapping from supplied contributions to latent innovations. The study therefore supports a bounded conclusion: announcement measurement changes these point projections, while the declared uncertainty and maintained causal assumptions limit a stronger transmission claim.
+The stock-flow benchmark explains why purchases can be sensitive to financing and demand news, while production aggregates several channels. The latent-direction calculation shows exactly when the projection adjustment can be interpreted causally and how that conclusion changes with imperfect separation. Predetermined-outcome non-rejection does not close the identifying assumptions. The contribution is a checked assessment of measurement, uncertainty and economic interpretation in a defined German contrast; an unconditional causal policy effect remains unidentified by the retained evidence.
+
 \setcounter{mainsections}{\value{section}}
 \appendix
 \setcounter{equation}{0}
@@ -368,7 +438,7 @@ Economically, combining announcement contributions can weaken an estimated durab
 \section{Projection identities and uncertainty}
 \label{app:projection}
 
-The following derivations apply established partial-regression and moment-equation algebra to my matched comparison. \citet[Sections 2--3 and Appendix A]{Ding2021} provides the relevant published partial-regression and covariance results. I hold the supplied shock construction fixed while allowing sampling variation in the regressors and their projection weights.
+I apply the established partial-regression and covariance results of \citet[Sections 2--3 and Appendix A]{Ding2021}. The supplied factor is fixed; regressors and their population projection weights remain random.
 
 \subsection{The exact sample comparison}
 \label{app:sample}
@@ -382,22 +452,15 @@ Fix a horizon and suppress its subscript. Let $Y,m,c\in\mathbb R^n$ refer to ide
 \end{align}
 Thus $M_Z^\top=M_Z$, $M_Z^2=M_Z$ and $M_ZZ=0$. The residualised matrix $A=[a,b]$ has rank two, so $A^\top A$ is positive definite and $s^\top s>0$.
 
-The identity stated in Proposition~\ref{prop:mixture} is derived as follows.
 \begin{proof}[Proof of Proposition~\ref{prop:mixture}]
-For fixed $\beta=(\beta_m,\beta_c)^\top$, minimising the full criterion over its nuisance coefficient gives
-\begin{align}
- \widehat\eta(\beta)&=(Z^\top Z)^{-1}Z^\top(Y-m\beta_m-c\beta_c),\\
- \min_\eta\|Y-m\beta_m-c\beta_c-Z\eta\|^2
-   &=\|y-A\beta\|^2.\label{eq:app-profile}
-\end{align}
-Consequently $\widehat\beta=(A^\top A)^{-1}A^\top y$. The residual $\widehat e=y-A\widehat\beta$ satisfies $a^\top\widehat e=b^\top\widehat e=0$. Applying the same minimisation to the reduced regression gives
-\begin{align}
- \widehat\gamma
- &=\frac{s^\top y}{s^\top s}
-  =\frac{s^\top a}{s^\top s}\widehat\beta_m
-   +\frac{s^\top b}{s^\top s}\widehat\beta_c,\qquad
- \frac{s^\top a+s^\top b}{s^\top s}=1.\label{eq:app-normal-equations}
-\end{align}
+Profiling the nuisance coefficient gives $\widehat\eta(\beta)=(Z^\top Z)^{-1}Z^\top(Y-m\beta_m-c\beta_c)$ and criterion $\|y-A\beta\|^2$. Hence $\widehat\beta=(A^\top A)^{-1}A^\top y$, and $\widehat e=y-A\widehat\beta$ is orthogonal to both $a$ and $b$. The reduced normal equation gives
+\begin{equation}
+ \widehat\gamma=\frac{s^\top y}{s^\top s}
+ =\frac{s^\top a}{s^\top s}\widehat\beta_m
+  +\frac{s^\top b}{s^\top s}\widehat\beta_c,
+ \quad s^\top a+s^\top b=s^\top s.
+ \label{eq:app-normal-equations}
+\end{equation}
 Subtracting $\widehat\beta_m$ proves \eqref{eq:sample-gap}.
 \end{proof}
 
@@ -408,7 +471,7 @@ This is an identity for every $Y$, without probabilistic assumptions. It does no
 \end{align}
 Negative weights or weights above one are possible. If $\widehat w_c=0$, the sample gap is zero for every outcome although $\widehat\theta$ need not vanish. Event-level orthogonality also does not imply controlled monthly orthogonality: for an aggregation matrix $H$, the relevant inner product is $m_e^\top H^\top M_ZHc_e$, rather than $m_e^\top c_e$.
 
-Since $m=r-c$, the full regression can instead be written $Y=\beta_m r+\theta c+Z\eta+e$. Its first two coefficients are the nonsingular transformation $T\beta$, where $T=\left(\begin{smallmatrix}1&0\\-1&1\end{smallmatrix}\right)$. Fitted values and residuals are unchanged, and a consistently computed covariance transforms as $\widehat V_{\beta_m,\theta}=T\widehat V_{\beta_m,\beta_c}T^\top$.
+
 
 \subsection{Population weights and their influence}
 \label{app:population}
@@ -453,7 +516,7 @@ Hence the long-run variance contains
  &=w_c^2\mathcal V_\theta+\theta^2\mathcal V_w
    +2w_c\theta\mathcal C_{\theta,w},\label{eq:app-gap-variance}
 \end{align}
-where $\mathcal C_{\theta,w}$ is the long-run covariance. A fixed-weight propagation retains only the first term. Under a genuinely fixed design $\mathcal X$, the sample identity implies $\Var(\widehat\delta\mid\mathcal X)=\widehat w_c^2\Var(\widehat\theta\mid\mathcal X)$. A marginal random-design HAC variance need not estimate that conditional variance. Conditioning only on an estimated weight is also different from fixing the complete design. If $w_c=0$ and $\theta\ne0$, weight variation is instead the leading term. If $\theta=0$ and $w_c\ne0$, the weight term vanishes under the null; this does not invalidate a response-difference test under a maintained nonzero weight. If both vanish, the first-order product gradient is zero and ordinary gap-Wald inference is not generally regular.
+Here $\mathcal C_{\theta,w}$ is the long-run covariance. Under a genuinely fixed design $\mathcal X$, the sample identity gives $\Var(\widehat\delta\mid\mathcal X)=\widehat w_c^2\Var(\widehat\theta\mid\mathcal X)$; marginal HAC need not estimate this conditional variance. If $w_c=0\ne\theta$, weight variation leads; if $\theta=0\ne w_c$, response-difference variation leads. At the double zero the product gradient vanishes. These distinct null geometries motivate coordinate-set inference.
 
 \subsection{Joint covariance and conservative product bounds}
 \label{app:covariance}
@@ -477,7 +540,7 @@ For origin-month ordinals $\tau_i$, the calendar Bartlett covariance is
  K_L(d)&=\max\{1-d/(L+1),0\},
  &L_h&=h+\left\lceil4(n/100)^{2/9}\right\rceil.\label{eq:app-kernel}
 \end{align}
-Equivalently, \eqref{eq:app-hac} uses $\widehat\psi_i\widehat\psi_j^\top/n^2$. Calendar gaps are retained, not compressed. I apply the same correction to every joint component, without prewhitening. This finite-sample convention does not establish exact coverage. The inference requires a joint score central limit theorem, adequate moments and consistent long-run covariance estimation; lagged growth controls alone do not supply these conditions.
+Equivalently, the summands are $\widehat\psi_i\widehat\psi_j^\top/n^2$. Calendar gaps, cross-model blocks and the common correction are retained. Consistency still requires the score limit and moment conditions in Section~\ref{sec:uncertainty}; the finite-sample multiplier does not give exact coverage.
 
 A fixed linear transformation of $\widehat V$ yields the covariance of $(\widehat\beta_m,\widehat\delta,\widehat w_c,\widehat\theta)$, retaining its cross-model blocks. Likewise, shared sector regressions obey $\widehat\beta_m=\widehat\beta_{D,m}-\widehat\beta_{N,m}$ and
 \begin{align}
@@ -498,16 +561,10 @@ Suppose $I_w=[w_-,w_+]$ and $I_\theta=[\theta_-,\theta_+]$ each cover their popu
 has asymptotic coverage at least $1-\alpha$ for $\delta=w_c\theta$.
 \end{proposition}
 \begin{proof}
-The product's extrema over the coordinate rectangle occur at its corners, since it is linear in either coordinate when the other is fixed. Therefore
-\begin{align}
- \Pr\{\delta\in I_\delta\}
- &\ge\Pr\{w_c\in I_w,\theta\in I_\theta\}\notag\\
- &\ge1-\Pr\{w_c\notin I_w\}-\Pr\{\theta\notin I_\theta\}.
-\end{align}
-Taking the lower limit gives the claimed coverage without independence or an invertible joint covariance.
+Separate linearity places the product extrema at rectangle corners. The union bound gives $\Pr\{\delta\in I_\delta\}\ge1-\Pr\{w_c\notin I_w\}-\Pr\{\theta\notin I_\theta\}$. Taking the lower limit proves the result without independence or an invertible covariance.
 \end{proof}
 
-I use normal marginal intervals with critical value $z_{1-\alpha/4}$, so at $\alpha=0.05$ each coordinate interval is 97.5 per cent. Weights are not restricted to $[0,1]$. The argument applies even at $w_c=\theta=0$ provided the coordinates themselves admit valid marginal inference with nondegenerate scalar long-run variances. It does not cure marginal degeneracy. The bounds remain asymptotic and pointwise in the horizon. Neither they nor numerical replication establish announcement exogeneity or incorporate uncertainty in the supplied factor loadings, rotation or vintage.
+At $\alpha=0.05$, the normal critical value $z_{1-\alpha/4}$ gives 97.5 per cent coordinate intervals. I do not clip weights. Even at the double zero, coverage follows if both coordinates have valid nondegenerate marginal inference; it does not cure marginal degeneracy or cover the supplied factor's construction.
 
 \setcounter{table}{0}
 \renewcommand{\thetable}{B.\arabic{table}}
@@ -538,7 +595,7 @@ The EA-MPD workbook contains 315 dated rows. The update explicitly excludes 13 S
 \subsection{Specification record and numerical replay}
 \label{app:record}
 
-I recorded the primary specification at 21:30 UTC on 10 October 2026 and committed revision \texttt{66ed69c} before the first response execution at 23:07 UTC. The outcome, horizon, samples, components, controls and interval convention remained unchanged. The omitted-term calculation, household benchmark, measurement bridge and descriptive table were added after estimation. The subsequent assessment in Section~\ref{sec:gap-followup} was recorded after primary inspection and preliminary diagnostic arithmetic. These additions supplement the primary procedure without an additional fitted outcome model or primary specification departure.
+I recorded the primary specification at 21:30 UTC on 10 October 2026 and committed revision \texttt{66ed69c} before the first response execution at 23:07 UTC. Its outcome, horizon, sample, components, controls and interval remain unchanged. The economic benchmark, measurement bridge and supplementary zero-product assessment were later additions. The joint stability, full-rotation and causal-sensitivity extension was recorded at 15:09 UTC on 11 October, after all original results and source-only rotation algebra were known but before its new outcome contrasts and diagnostics. It adds the declared fits in Section~\ref{sec:extension}; it is an informed extension, not blind registration or a revised primary hypothesis.
 
 The six-lag and poor-man comparisons retain the primary origins. The earlier-period check requires $t+h\le\text{December 2019}$, so its twelve-month origins end in December 2018. The short and long bandwidths are $h+\lceil B/2\rceil$ and $h+2B$, respectively, for $B=\lceil4(n/100)^{2/9}\rceil$. These were declared sensitivities, rather than departures selected from the results. Table~\ref{tab:sensitivities} records the numerical comparisons.
 
@@ -610,13 +667,13 @@ At a stationary-stock base, $\bar X=d\bar S>0$. Holding inherited stock fixed gi
    &=-\frac{1-d}{d(1+\rho_t)(\rho_t+d)}.\label{eq:rate-flow-derivative}
 \end{align}
 \end{samepage}
-Subtracting $\mathrm d\log C_t$ proves \eqref{eq:relative-flow}. The rate derivative is negative for $d<1$ and zero at $d=1$. It is a local impact comparison with positive purchases, not a comparison of steady states holding consumption fixed as rates vary. Zero depreciation, a binding no-resale constraint, a finite movement outside the positive-purchase neighbourhood or adjustment costs can invalidate this derivative. Endogenous consumption and prices instead alter the total equilibrium response. The positive-purchase restriction is material: with current $C_t$ fixed,
+Subtracting $\mathrm d\log C_t$ proves \eqref{eq:relative-flow}. The rate derivative is negative at $d<1$ and zero at $d=1$, locally holding inherited stock and current consumption fixed. It is not a steady-state comparison. Zero depreciation, no-resale corners, adjustment costs and endogenous consumption or prices can invalidate the interpretation. The positive-purchase neighbourhood, with current $C_t$ fixed, is
 \begin{equation}
- X_t(q_t)=\bar S\left\{\frac{\bar q}{q_t}-(1-d)\right\}>0
- \quad\Longleftrightarrow\quad q_t<\frac{\bar q}{1-d},\qquad 0<d<1.
+ X_t(q_t)=\bar S\{\bar q/q_t-(1-d)\}>0
+ \quad\Longleftrightarrow\quad q_t<\bar q/(1-d),\quad 0<d<1.
  \label{eq:purchase-neighbourhood}
 \end{equation}
-As $d$ approaches zero, the amplification grows but this admissible contraction neighbourhood shrinks; a large finite elasticity does not follow from the local derivative. Exports, inventories, firm financing and index aggregation also separate household purchases from measured production.
+As $d\to0$, amplification grows but this contraction neighbourhood shrinks; the local derivative does not imply a large finite elasticity.
 
 \subsection{A conditional bridge from components to causal responses}
 \label{app:causal-bridge}
@@ -633,7 +690,7 @@ The constant $A$ is invertible and $Q_s=\E[\widetilde s_t\widetilde s_t^\top]$ i
         =Q_s^{-1}Q_sA^{-\top}b_h=A^{-\top}b_h.
  \label{eq:bridge-proof}
 \end{equation}
-If $A=\operatorname{diag}(a_m,a_c)$ is known with ordered nonzero scales, then $b_{m,h}=a_m\beta_{m,h}$ and $b_{c,h}=a_c\beta_{c,h}$. A known dense mapping also permits joint recovery $b_h=A^\top\beta_h$; a diagonal mapping is needed to read each supplied coefficient as one separately scaled latent response. An unidentified dense $A$ mixes responses. Orthogonality of observed columns constrains their second moments, not the mapping's diagonality or causal exogeneity. Noise in $s_t$ generally breaks \eqref{eq:bridge-proof}. A causal interpretation requires the structural relation, invariance and orthogonality in addition to matched regression rows and financial sign restrictions. The supplied point rotation and HAC intervals do not establish these assumptions or cover its entire identification set. Here $b_h$ is a difference of latent sector responses, not an intervention on a physical production ratio.
+A known ordered diagonal mapping gives $b_{m,h}=a_m\beta_{m,h}$ and $b_{c,h}=a_c\beta_{c,h}$. A known dense mapping instead recovers responses jointly through $b_h=A^\top\beta_h$; each latent column must be checked to interpret a supplied coefficient separately. Unknown mixing, measurement noise or non-orthogonal production disturbances can invalidate the causal reading. Observed-column orthogonality does not establish these restrictions. Here $b_h$ is a difference of sector responses, not an intervention on a physical production ratio.
 
 
 \setcounter{equation}{0}
@@ -654,7 +711,7 @@ At any parameter point $a\in H_0$, at least one coordinate null $H_j$ is true, s
  \limsup_n\Pr_a(p_{\mathrm{IUT}}\le\alpha)
  \le\limsup_n\Pr_a(p_j\le\alpha)\le\alpha.\label{eq:iut-size}
 \end{equation}
-No independence is required. This establishes pointwise asymptotic level under valid coordinate inference, not finite-sample or uniform validity. With the declared normal marginals, primary rectangle exclusion of zero requires both $p$-values below $0.025$. Its rejection is therefore nested within the supplementary 5 per cent test. Selection between those nested gates alone does not increase rejection beyond the latter gate; broader post-estimation selection is not justified by this argument.
+No independence is required; the level is pointwise asymptotic, not finite-sample or uniform. Primary rectangle rejection requires both marginal $p$-values below $0.025$ and is nested within the supplementary 5 per cent gate. This nesting does not justify broader post-estimation selection.
 
 For $a=(w,\theta)^\top$, maintain a nondegenerate joint limit and consistent coefficient covariance:
 \begin{equation}
@@ -675,20 +732,7 @@ Joint coordinate coverage implies product coverage. Let $\widehat V_a=LL^\top$ b
  \theta(\phi)=\widehat\theta+\ell_2\cos\phi+\ell_3\sin\phi.
  \label{eq:ellipse-boundary}
 \end{equation}
-Put $K=\widehat w\ell_2+\widehat\theta\ell_1$ and $H=\widehat w\ell_3$. Differentiating the boundary product gives
-\begin{equation}
- -K\sin\phi+H\cos\phi-\ell_1\ell_2\sin(2\phi)
-       +\ell_1\ell_3\cos(2\phi)=0.
- \label{eq:ellipse-stationary}
-\end{equation}
-The half-angle substitution $u=\tan(\phi/2)$ yields
-\begin{align}
- 0={}&H+\ell_1\ell_3-(2K+4\ell_1\ell_2)u
-       -6\ell_1\ell_3u^2\notag\\
-    &+(-2K+4\ell_1\ell_2)u^3+(-H+\ell_1\ell_3)u^4.
- \label{eq:ellipse-quartic}
-\end{align}
-I evaluate the product at all real roots and at the omitted point $\phi=\pi$, including when the quartic reduces in degree. The only interior stationary point is the origin, a saddle, so extrema occur on the boundary. Independent optimisation checks the bounds.
+The boundary product is quadratic in the sine and cosine coordinates. Its extrema are a two-dimensional instance of the confidence-set optimisation in Appendix~\ref{app:extension}, with $H_{12}=H_{21}=1/2$. The primary implementation independently solves the stationary half-angle polynomial, retaining all real roots, reduced-degree cases and the omitted angle $\phi=\pi$. The only interior stationary point of $w\theta$ is the origin, a saddle. Independent optimisation checks the global extrema. This projects coordinate uncertainty rather than imposing a regular product gradient.
 
 The zero-product set is the union of the coordinate axes. Profiling the quadratic distance over each axis gives
 \begin{equation}
@@ -722,14 +766,51 @@ The same six designs and ten-basis-point factor units are retained. Nominal leve
 \end{table}
 % END FOLLOWUP_TABLE
 
-The retained production endpoint, August 2026, limits the twelve-month origins to August 2025. The fixed shocks extend through October 2025, but the next two complete origins require subsequent production endpoints. Updating announcements or changing countries and production categories cannot supply an independent replication of this defined German contrast. The follow-up therefore uses existing evidence; it makes no significance-driven sample extension or stopping decision.
+The August 2026 production endpoint limits twelve-month origins to August 2025. Existing shocks reach October 2025; the next two origins require later production endpoints. Revisions or additional announcement dates do not create independent realised outcomes for the defined German contrast.
 
-\clearpage
+\setcounter{equation}{0}
+\renewcommand{\theequation}{E.\arabic{equation}}
+\renewcommand{\theHequation}{E.\arabic{equation}}
+\section{Joint stability, rotation and causal sensitivity}
+\label{app:extension}
+
+For two fitted designs, let $a_{j,t}$ collect the weight and response-difference coefficient contributions, with zeros outside its origin sample. Put $g_t=(\sqrt{\kappa_1}a_{1,t}^\top,\sqrt{\kappa_2}a_{2,t}^\top)^\top$, $\kappa_j=n_j/(n_j-k_j)$. A common calendar kernel gives
+\begin{equation}
+ \widehat V_q=\sum_{t,s}K_L(|t-s|)g_tg_s^\top,
+ \qquad q=(w_1,\theta_1,w_2,\theta_2)^\top.
+ \label{eq:joint-stability-covariance}
+\end{equation}
+This retains overlapping-sample and cross-model covariance. For asymptotic inference I require sample fractions with positive limits, fixed dimensions, a joint Gaussian coordinate limit and consistent common-kernel covariance under the appropriate period-specific moments, $\sqrt n(\widehat q-q)\Rightarrow N(0,\Omega_q)$ and $n\widehat V_q\to_p\Omega_q\succ0$, with $n$ the full origin count. Padding absent contributions does not establish these conditions; arbitrary breaks can invalidate the approximation.
+
+Define symmetric $H$ with $H_{12}=H_{21}=-1/2$, $H_{34}=H_{43}=1/2$ and other entries zero. The difference is $q^\top Hq$. If $CC^\top=\chi^2_{4,.95}\widehat V_q$, its image is the extrema over $\|u\|\le1$ of
+\begin{equation}
+ \widehat q^\top H\widehat q+2u^\top C^\top H\widehat q+u^\top C^\top HCu.
+ \label{eq:quadratic-stability-image}
+\end{equation}
+For minimisation write this as $d+b^\top u+u^\top Gu$. The global solution satisfies $(G+\lambda I)u=-b/2$, $G+\lambda I\succeq0$, $\lambda\ge0$, $\|u\|\le1$ and $\lambda(\|u\|^2-1)=0$. Diagonalising $G$ reduces the boundary case to a scalar secular equation; if the shifted Hessian is singular, the linear term compatible and the minimum-norm particular solution feasible, I fill the remaining radius in its nullspace only when $\lambda>0$. Negating the objective gives the maximum. For any feasible $z$, the certificate gives
+\begin{equation}
+ f(z)-f(u)=(z-u)^\top(G+\lambda I)(z-u)+\lambda(\|u\|^2-\|z\|^2)\ge0.
+ \label{eq:trust-region-certificate}
+\end{equation}
+I check stationarity, radius, complementarity and the shifted Hessian. Coordinate-set coverage implies coverage of this nonlinear image even when a product gradient vanishes. A four-coordinate Bonferroni rectangle is a separately retained conservative check. For bounds $[l,u]$, strict equivalence at margin $M$ requires $[l,u]\subset(-M,M)$; $\max(|l|,|u|)$ is the margin infimum, not a chosen economic tolerance.
+
+For the event QR, rotating columns by $\left(\begin{smallmatrix}\cos\varphi&\sin\varphi\\-\sin\varphi&\cos\varphi\end{smallmatrix}\right)$ gives equity loadings $R_{12}\cos\varphi-R_{22}\sin\varphi<0$ and $R_{12}\sin\varphi+R_{22}\cos\varphi>0$, alongside positive rate loadings. Here $R_{12}<0$, so $0<\varphi<\arctan\{R_{22}/(-R_{12})\}$. Normalising each component to its rate contribution proves \eqref{eq:rotation-contributions}. The interior transformation is invertible at every lag and current date, establishing the invariant span and \eqref{eq:rotation-response}. At zero angle the information contribution vanishes; the limiting policy and gap coefficients are defined through the invariant regression rather than a singular endpoint fit.
+
+Let $d=(b_r,b_v,\gamma)^\top$ and $V_d$ its joint coefficient covariance. For $x=\tan\varphi$, the policy and gap contrast vectors are $v_m=(1,-x,0)^\top$ and $v_\delta=(-1,x,1)^\top$. Projecting one joint ellipsoid gives
+\begin{equation}
+ v_j^\top\widehat d\ \pm\sqrt{\chi^2_{3,.95}\,v_j^\top\widehat V_dv_j}.
+ \label{eq:uniform-rotation-band}
+\end{equation}
+A joint Gaussian limit and consistent positive-definite covariance for $d$ give joint ellipsoid coverage and hence simultaneous coverage of every contrast in this retained-factor family. The upper bound is convex and lower bound concave in $x$; their outer extrema on the bounded closed interval occur at its endpoints. A complementary 95 per cent Bonferroni rectangle uses regular primitive coordinates $(b_r,b_v,\kappa)$, where $\kappa$ projects $v$ on $[r,Z]$ and $\gamma=b_r+\kappa b_v$. Mapping $\beta_m=b_r-xb_v$ and $\delta=(x+\kappa)b_v$ at coordinate corners and the two $x$ endpoints gives simultaneous bounds, even with singular joint covariance or a vanishing product gradient, provided each coordinate has valid nondegenerate marginal inference. Neither procedure covers estimated factor loadings or sign boundaries.
+
+The normalised latent policy column $(1-a,a)^\top$ in \eqref{eq:structural-measurement} gives \eqref{eq:causal-direction} by $b=A^\top\beta$. A nondegenerate joint Gaussian limit and consistent covariance for $\beta$ give the two-coefficient ellipse and simultaneous response band over imposed $a$ ranges; the primary joint coordinate rectangle gives a simultaneous image of $(w-a)\theta$. If the resulting causal response differs from this mapping by a signed error bounded by $B$, each interval widens by $B$ at both ends. A bound on that total response error is an external assumption, not a measured moment violation. Classical measurement noise need not obey this simple map. The predetermined-outcome tests retain their cross-sector covariance and adjust their three joint tests by Bonferroni; passing them cannot establish causal identification.
+
 \setcounter{section}{\value{mainsections}}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\theHsection}{references.\arabic{section}}
 \renewcommand{\bibsection}{\section{References}}
 \begin{thebibliography}{99}
+\small
 \setlength{\itemsep}{3pt}
 \raggedright
 \interlinepenalty=10000
@@ -738,6 +819,13 @@ The retained production endpoint, August 2026, limits the twelve-month origins t
 Altavilla, C., Brugnolini, L., G\"urkaynak, R. S., Motto, R. and Ragusa, G. (2019).
 Measuring euro area monetary policy. \emph{Journal of Monetary Economics}, 108, 162--179.
 \href{https://doi.org/10.1016/j.jmoneco.2019.08.016}{doi:10.1016/j.jmoneco.2019.08.016}.
+
+
+\bibitem[Barnichon and Brownlees(2019)]{BarnichonBrownlees2019}
+Barnichon, R. and Brownlees, C. (2019).
+Impulse Response Estimation by Smooth Local Projections.
+\emph{The Review of Economics and Statistics}, 101(3), 522--530.
+\href{https://doi.org/10.1162/rest_a_00778}{doi:10.1162/rest\_a\_00778}.
 
 \bibitem[Barsky et al.(2007)]{BarskyEtAl2007}
 Barsky, R. B., House, C. L. and Kimball, M. S. (2007).

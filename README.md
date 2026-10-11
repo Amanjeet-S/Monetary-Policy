@@ -6,7 +6,7 @@ I investigate whether separating monetary-policy and information components chan
 
 ## 2. Evidence and status
 
-The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [final paper](paper/monetary_policy.pdf), with its [editable source](paper/monetary_policy.tex), develops the durable-stock mechanism, causal measurement assumptions, matched evidence and appendix proofs.
+The [data audit](docs/data_audit.md) resolves the three event exclusions, verifies monthly aggregation and independently reconstructs the supplied shocks. A new [10 October snapshot](data/raw/2026-10-10/manifest.json) adds August 2026 production and preserves the [September vintage](data/raw/2026-09-15/manifest.json) unchanged. The [primary specification](docs/primary_specification.json) is recorded before fitting responses. The [results note](docs/results.md) reports the primary estimates and all declared sensitivities, independently checked in R. The [final paper](paper/monetary_policy.pdf), with its [editable source](paper/monetary_policy.tex), develops the durable-stock mechanism, matched evidence, joint stability tests, complete retained-factor rotation assessment and causal sensitivity, with appendix proofs.
 
 ## 3. Reproduction
 

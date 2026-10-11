@@ -74,7 +74,7 @@ def path_figure(path):
     return r'''\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=.96\textwidth,height=7.1cm,
+\begin{axis}[width=.96\textwidth,height=6.0cm,
  axis lines=left,xmin=0,xmax=24,xtick={0,6,12,18,24},
  xlabel={Months after the announcement month},ylabel={Percentage log points},
  tick label style={font=\small},label style={font=\small},
@@ -85,34 +85,8 @@ def path_figure(path):
 \addplot[gray,densely dotted,forget plot] coordinates {(12,-7)(12,1.5)};
 \end{axis}
 \end{tikzpicture}
-\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample. Figure~\ref{fig:sensitivity} shows the directly assessed primary gap; overlap of these individual response bands is not a test of that gap.}
+\caption{Matched response paths. Coefficients are percentage log-change points per ten-basis-point factor contribution. Shading gives 95 per cent pointwise normal HAC intervals, not simultaneous bands. All horizons use 296 common origins, January 2000--August 2024; the primary twelve-month estimate uses the longer 308-origin sample. Appendix Table~\ref{tab:sensitivities} reports the directly assessed primary gap; overlap of these individual response bands is not a test of that gap.}
 \label{fig:path}
-\end{figure}'''
-
-
-def sensitivity_figure(checks):
-    labels=['Primary comparison','Six lags','Poor-man components','Pre-pandemic endpoints','Short bandwidth','Long bandwidth']
-    plots=[]
-    for i,row in enumerate(checks):
-        lo,hi,point=(float(row[k]) for k in ['delta_product_low','delta_product_high','delta'])
-        weight='very thick' if i==0 else 'thick'
-        size=2.8 if i==0 else 2
-        plots += [f'\\addplot[policyblue,{weight},forget plot] coordinates {{({lo:.10g},{i})({hi:.10g},{i})}};',
-                  f'\\addplot[policyblue,only marks,mark=*,mark size={size:g}pt,forget plot] coordinates {{({point:.10g},{i})}};']
-    return r'''\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[width=.85\textwidth,height=6.7cm,
- axis lines=left,y dir=reverse,ymin=-.4,ymax=5.4,ytick={0,1,2,3,4,5},
- yticklabels={'''+','.join(labels)+r'''},
- xlabel={Adjustment gap: percentage log points},
- tick label style={font=\small},label style={font=\small},clip=true]
-'''+ '\n'.join(plots)+r'''
-\addplot[gray,thin,forget plot] coordinates {(0,-.4)(0,5.4)};
-\end{axis}
-\end{tikzpicture}
-\caption{Declared twelve-month adjustment-gap checks. Points show the recomposed-rate coefficient less the policy-component coefficient per ten-basis-point factor contribution. Lines are the conservative 95 per cent product intervals. The larger point and thicker line identify the primary comparison. All samples have 308 origins except the pre-pandemic check, with 228. Every interval includes zero.}
-\label{fig:sensitivity}
 \end{figure}'''
 
 
@@ -168,6 +142,70 @@ The same six designs and ten-basis-point factor units are retained. Nominal leve
 \end{table}"""
 
 
+
+def stability_table(stability):
+    rows=[row for row in stability['comparisons'] if row['common_hac_bandwidth']==18]
+    labels=['Poor-man less median','Earlier period less full']
+    lines=[]
+    for label,row in zip(labels,rows):
+        image=row['joint_ellipse95_image']
+        lines.append(f"{label} & ${row['difference_right_minus_left']:.2f}$ & $[{image['low']:.2f},{image['high']:.2f}]$ & ${image['minimum_equivalence_margin_infimum']:.2f}$" + " " + chr(92)*2)
+    return r"""\begin{table}[htbp]
+\centering\small
+\caption{Joint contrasts of the twelve-month adjustment gap}
+\label{tab:joint-stability}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Comparison & Difference & Joint-set 95\% bounds & Margin infimum \\
+\midrule
+"""+'\n'.join(lines)+r"""
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\footnotesize
+Units are percentage log-change points per ten-basis-point factor contribution. Each interval projects its own four-coordinate ellipsoid, with cross-model covariance and common calendar bandwidth 18; no coverage claim across both comparisons is made. The margin infimum is the smallest symmetric tolerance that could contain the interval, not a chosen equivalence margin.
+\end{minipage}
+\end{table}"""
+
+
+def rotation_figure(rotation):
+    import math
+    import numpy as np
+    endpoints=rotation['endpoint_limits']
+    angles=np.linspace(endpoints[0]['angle_radians'],endpoints[1]['angle_radians'],61)
+    d=np.array([rotation['basis'][k] for k in ['b_rate','b_orthogonal','gamma']])
+    covariance=np.array(rotation['basis']['joint_coefficient_covariance'])
+    critical=rotation['basis']['joint_critical']
+    lines=[]
+    for key,title in [('beta_m','Policy contrast'),('delta','Adjustment gap')]:
+        values=[]
+        for angle in angles:
+            t=math.tan(angle)
+            v=np.array([1.,-t,0.]) if key=='beta_m' else np.array([-1.,t,1.])
+            point=float(v@d); width=critical*math.sqrt(float(v@covariance@v))
+            values.append((math.degrees(angle),point,point-width,point+width))
+        coords=lambda column:' '.join(f'({row[0]:.8g},{row[column]:.8g})' for row in values)
+        lines += [r'\nextgroupplot[title={'+title+r'},ylabel={Percentage log points}]',
+            r'\addplot[name path=lo,draw=none,forget plot] coordinates {'+coords(2)+'};',
+            r'\addplot[name path=hi,draw=none,forget plot] coordinates {'+coords(3)+'};',
+            r'\addplot[policyblue!15,draw=none,forget plot] fill between[of=lo and hi];',
+            r'\addplot[policyblue,very thick] coordinates {'+coords(1)+'};',
+            r'\addplot[gray,thin,forget plot] coordinates {(0,0)(80.8,0)};',
+            r'\addplot[newsorange,only marks,mark=*,mark size=2pt,forget plot] coordinates {('+f"{rotation['source']['median_radians']*180/math.pi:.8g},{rotation['median'][key]:.8g}"+')};']
+    return r"""\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.25cm},
+ width=.46\textwidth,height=5.8cm,axis lines=left,xmin=0,xmax=80.8,
+ xtick={0,20,40,60,80},xlabel={Rotation angle, degrees},
+ tick label style={font=\small},label style={font=\small},title style={font=\small},clip=true]
+"""+'\n'.join(lines)+r"""
+\end{groupplot}
+\end{tikzpicture}
+\caption{Complete admissible rotation assessment. Curves are twelve-month point projections per ten-basis-point rate-factor contribution; orange points identify the author median. Shading projects one joint 95 per cent ellipsoid and simultaneously covers the retained-factor family under its regularity assumptions. The curves include continuous closure limits, not a fitted singular zero-angle model. Factor and sign-boundary estimation uncertainty is not covered.}
+\label{fig:rotation}
+\end{figure}"""
+
+
 def refresh():
     summary=json.loads((ROOT/'results/summary.json').read_text())
     source=ROOT/'results/estimates.csv'
@@ -183,10 +221,12 @@ def refresh():
     followup=json.loads((ROOT/'results/gap_followup.json').read_text())
     if followup['estimates_sha256']!=summary['estimates_sha256']:
         raise ValueError('Follow-up does not match retained estimates')
-    blocks={'FOLLOWUP_SUMMARY':followup_summary(followup),'FOLLOWUP_TABLE':followup_table(followup),
+    stability=json.loads((ROOT/'results/joint_stability.json').read_text())
+    rotation=json.loads((ROOT/'results/rotation_sensitivity.json').read_text())
+    blocks={'STABILITY_TABLE':stability_table(stability),'ROTATION_FIGURE':rotation_figure(rotation),'FOLLOWUP_SUMMARY':followup_summary(followup),'FOLLOWUP_TABLE':followup_table(followup),
             'VARIATION_TABLE':table_variation(description),
             'PRIMARY_TABLE':table_primary(checks[0]),'PATH_FIGURE':path_figure(path),
-            'SENSITIVITY_FIGURE':sensitivity_figure(checks),'SENSITIVITY_TABLE':sensitivity_table(checks)}
+            'SENSITIVITY_TABLE':sensitivity_table(checks)}
     text=TEX.read_text()
     for key,value in blocks.items():
         pattern=rf'% BEGIN {key}\n.*?% END {key}'

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "status": "declared_post_estimation_extension",
+  "recorded_utc": "2026-10-11T15:09:09.434046+00:00",
+  "author": "Amanjeet Singh",
+  "prior_information": "All locked primary and six sensitivity estimates, supplementary zero-product tests, precision arithmetic and source-only QR/sign-interval algebra are known. New joint contrasts, pooled interaction results, rotation outcome ranges and predetermined-outcome tests have not been inspected. This is not blind prospective registration.",
+  "primary_specification_sha256": "e08af0188332ae0dd04f334f321a73af21d87d7bfaa9e2cd7f9b3b2facbcec84",
+  "estimates_sha256": "2fdd836f59da36ba29f852ec489836b097d473fe5e547fdac883bdb9afb81c73",
+  "snapshot": "data/raw/2026-10-10",
+  "joint_stability": {
+    "contrasts": [
+      "poor-man minus median, full sample",
+      "median earlier-period minus median full sample"
+    ],
+    "horizon": 12,
+    "covariance": "Joint contribution arrays embedded on common calendar, with own sqrt(n/(n-k_full)) corrections and common Bartlett L=18; L=17 sensitivity. Cross-equation and overlapping-sample dependence retained.",
+    "inference": "Product-difference image of a four-coordinate 95 per cent Wald ellipsoid and a conservative Bonferroni rectangle; regular direct-difference normal interval is separately diagnostic.",
+    "equivalence": "Report infimum symmetric margin containing the full confidence set, without choosing a margin or claiming equivalence from a failure to reject equality.",
+    "pooled_period": "Origins through 2018-12 versus 2019-01 onwards; full 308 origins. Common lag dynamics and calendar controls, period intercept and interactions of both current components. Test two response-slope interactions jointly. Do not apply the single-gap identity to period-interacted coefficients."
+  },
+  "rotation_set": {
+    "source": "Pinned event-factor construction, author exclusions and rate normalisation unchanged.",
+    "angles": "Entire strict financially admissible interval, including one-sided closure limits; no arbitrary endpoint trimming.",
+    "estimation": "Use invariant raw-factor/QR-coordinate regressions and exact invertible transformations, verify against median and several interior direct fits. Show identified coefficient/gap ranges, singular limits and common-source conditional simultaneous inference where supported.",
+    "uncertainty": "Separate conditional sampling uncertainty from identification-set width; no claim to cover re-estimation of factor loadings, event covariance or sign-set endpoints."
+  },
+  "causal_assessment": {
+    "target": "Relative production response to a latent policy innovation contributing ten basis points to the supplied rate factor.",
+    "diagnostics": "Three predetermined production changes accumulated over 13 months from t-26 to t-13: durable, non-durable and difference. Primary current components, 72 controls, 308 origins, L18 calendar-HAC and n/(n-74). Two-coefficient Wald test for each outcome, Bonferroni adjustment over three. Outcome contrasts and covariance retained; non-rejection is not proof of exclusion.",
+    "sensitivity": "Under explicit constant noiseless mixing and orthogonality, evaluate beta_m+a*(beta_c-beta_m), where a is a stated information-component loading of a ten-basis-point latent policy intervention. Show breakdown in a and an explicit outcome-confounding bias allowance, not an estimated contamination amount.",
+    "instrument_rule": "No component is relabelled a valid external instrument without substantive relevance and exclusion evidence. Causal responses remain conditional or partially identified if source assumptions are unverified."
+  },
+  "precision": "Assess uncertainty relative to existing estimates and the jointly assessed differences. Do not select controls, periods, angles, bandwidths or estimators for significance. Smoothness restrictions require a separately justified bias/inference procedure and do not create identification.",
+  "verification": "Independent coefficient/covariance/algebra and optimisation checks; retain adverse and null findings. Reproduce selected scientific quantities in base R through the existing research checks.",
+  "reporting": "Keep locked primary files unchanged; include extension design, numerical findings, identification limits and deviations in the existing paper, maximum 20 pages including appendices and bibliography."
+}

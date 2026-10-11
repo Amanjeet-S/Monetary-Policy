@@ -1,0 +1,346 @@
+{
+  "status": "post_estimation_extension",
+  "declaration_and_primary_hashes": {
+    "docs/primary_specification.json": "e08af0188332ae0dd04f334f321a73af21d87d7bfaa9e2cd7f9b3b2facbcec84",
+    "results/estimates.csv": "2fdd836f59da36ba29f852ec489836b097d473fe5e547fdac883bdb9afb81c73",
+    "docs/extension_specification.json": "4f0daf3691cde3a4f5ad9e19a3c88c72bd656233f7f0264640fe7a90c317289e"
+  },
+  "source": {
+    "event_sha256": "2327230c45a97c8733ccefba45de354d6e37965c553983ea5ac98badfce413e8",
+    "event_rows": 312,
+    "qr_positive_diagonal": [
+      [
+        0.772268199672773,
+        -1.9320460685675918
+      ],
+      [
+        0.0,
+        11.928349561867089
+      ]
+    ],
+    "angle_lower_radians": 0.0,
+    "angle_upper_radians": 1.4102199079947746,
+    "angle_lower_degrees": 0.0,
+    "angle_upper_degrees": 80.79964891342784,
+    "median_radians": 0.7051099539973873,
+    "rounded_median_max_abs_error": 0.0,
+    "unrounded_median_max_abs_error": 4.984833722881943e-09,
+    "normalisation": "Both shocks have unit impact on the retained one-year-scaled policy factor; regressors divided by 0.10 percentage points",
+    "strict_sign_set": "Positive rate loadings for both components; policy equity loading strictly negative, information equity loading strictly positive",
+    "endpoint_conventions": "Strict interior only. Report continuous one-sided limits for defined coefficient contrasts. A zero normalisation endpoint is rank-degenerate and is not fitted.",
+    "upstream_commit": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1",
+    "upstream_exclusions": [
+      "2001-09-13",
+      "2001-09-17",
+      "2008-10-08"
+    ]
+  },
+  "sample": {
+    "first": "2000-01",
+    "last": "2025-08",
+    "n": 308,
+    "lags": 12,
+    "full_columns": 74,
+    "residual_df": 234,
+    "bandwidth": 18,
+    "maximum_leverage": 0.5651031311159292
+  },
+  "basis": {
+    "b_rate": -1.053640833770228,
+    "b_orthogonal": 1.456486117478059,
+    "gamma": -1.0318740885874027,
+    "kappa": 0.014944698010932513,
+    "joint_coefficient_covariance": [
+      [
+        0.3839548117076579,
+        -0.11530723169695177,
+        0.3683331022291551
+      ],
+      [
+        -0.11530723169695177,
+        0.4808124681570922,
+        -0.06658749331816081
+      ],
+      [
+        0.3683331022291551,
+        -0.06658749331816081,
+        0.37697168841944456
+      ]
+    ],
+    "covariance_with_kappa": [
+      [
+        0.3839548117076579,
+        -0.11530723169695177,
+        0.3683331022291551,
+        -0.00954247181317495
+      ],
+      [
+        -0.11530723169695177,
+        0.4808124681570922,
+        -0.06658749331816081,
+        0.028516674991869346
+      ],
+      [
+        0.3683331022291551,
+        -0.06658749331816081,
+        0.37697168841944456,
+        0.006614354955827987
+      ],
+      [
+        -0.00954247181317495,
+        0.028516674991869346,
+        0.006614354955827987,
+        0.010800414424966504
+      ]
+    ],
+    "joint_critical": 2.795483482915107,
+    "joint_coefficient_covariance_eigenvalues": [
+      0.00956210720818538,
+      0.43131006228256186,
+      0.8008667987934475
+    ]
+  },
+  "median": {
+    "angle_radians": 0.7051099539973873,
+    "angle_degrees": 40.39982445671392,
+    "label": "unrounded_author_median",
+    "beta_m": -2.2931999857155683,
+    "delta": 1.2613258971281656,
+    "gamma": -1.0318740885874027,
+    "beta_m_se": 0.9635751269453644,
+    "delta_se": 0.6748647384534956,
+    "beta_m_point_low": -4.181772530927093,
+    "beta_m_point_high": -0.40462744050404353,
+    "delta_point_low": -0.061384684676729195,
+    "delta_point_high": 2.5840364789330605,
+    "beta_m_joint_low": -4.986858337639162,
+    "beta_m_joint_high": 0.4004583662080252,
+    "delta_joint_low": -0.6252473324204051,
+    "delta_joint_high": 3.1478991266767364,
+    "theta": 2.9509351738778973,
+    "theta_se": 1.4048863084633423,
+    "weight": 0.4274326011271287,
+    "weight_se": 0.05129403816241191,
+    "theta_p": 0.03568666437853057,
+    "weight_p": 7.882719799369333e-17,
+    "iut_p": 0.03568666437853057,
+    "delta_product_low": -0.1073854353077251,
+    "delta_product_high": 3.3085787871401293,
+    "identity_error": 0.0
+  },
+  "endpoint_limits": [
+    {
+      "angle_radians": 0.0,
+      "angle_degrees": 0.0,
+      "label": "lower_one_sided_limit",
+      "beta_m": -1.053640833770228,
+      "delta": 0.021766745182825398,
+      "gamma": -1.0318740885874027,
+      "beta_m_se": 0.6196408731738553,
+      "delta_se": 0.15575716891620825,
+      "beta_m_point_low": -2.268114628539936,
+      "beta_m_point_high": 0.16083296099947963,
+      "delta_point_low": -0.2835116962268644,
+      "delta_point_high": 0.3270451865925152,
+      "beta_m_joint_low": -2.785836660066835,
+      "beta_m_joint_high": 0.678554992526379,
+      "delta_joint_low": -0.4136498478680531,
+      "delta_joint_high": 0.4571833382337039
+    },
+    {
+      "angle_radians": 1.4102199079947746,
+      "angle_degrees": 80.79964891342784,
+      "label": "upper_one_sided_limit",
+      "beta_m": -10.045908577243605,
+      "delta": 9.014034488656202,
+      "gamma": -1.0318740885874027,
+      "beta_m_se": 4.487224364484161,
+      "delta_se": 4.353535655551134,
+      "beta_m_point_low": -18.840706722183192,
+      "beta_m_point_high": -1.2511104323040154,
+      "delta_point_low": 0.4812613983650049,
+      "delta_point_high": 17.5468075789474,
+      "beta_m_joint_low": -22.589870172293317,
+      "beta_m_joint_high": 2.4980530178061056,
+      "delta_joint_low": -3.1562025287189854,
+      "delta_joint_high": 21.18427150603139,
+      "theta": 9.228176178466985,
+      "theta_se": 4.393366035275799,
+      "weight": 0.9767947982711404,
+      "weight_se": 0.016402524019523197,
+      "theta_p": 0.03568666437853057,
+      "weight_p": 0.0,
+      "iut_p": 0.03568666437853057,
+      "delta_product_low": -0.6275214567315053,
+      "delta_product_high": 19.33413199161998,
+      "identity_error": 1.7763568394002505e-15
+    }
+  ],
+  "envelopes": {
+    "beta_m": {
+      "point_set_infimum": -10.045908577243605,
+      "point_set_supremum": -1.053640833770228,
+      "conditional_joint_envelope_low": -22.589870172293317,
+      "conditional_joint_envelope_high": 2.4980530178061056,
+      "grid_min": -10.045900542625848,
+      "grid_max": -1.0536410391667999
+    },
+    "delta": {
+      "point_set_infimum": 0.021766745182825398,
+      "point_set_supremum": 9.014034488656202,
+      "conditional_joint_envelope_low": -3.1562025287189854,
+      "conditional_joint_envelope_high": 21.18427150603139,
+      "grid_min": 0.02176695057939715,
+      "grid_max": 9.014026454038445
+    }
+  },
+  "conservative_primitive_rectangle": {
+    "coordinates": [
+      "b_rate",
+      "b_orthogonal",
+      "kappa"
+    ],
+    "critical": 2.3939797998185104,
+    "bounds": [
+      [
+        -2.5370485672903413,
+        0.4297668997498849
+      ],
+      [
+        -0.20351485345575115,
+        3.116487088411869
+      ],
+      [
+        -0.23384975404165437,
+        0.2637391500635194
+      ]
+    ],
+    "beta_m_envelope_low": -21.778073923990647,
+    "beta_m_envelope_high": 1.6862567695034365,
+    "delta_envelope_low": -1.310164704229273,
+    "delta_envelope_high": 20.062965012581984,
+    "coverage_basis": "A single Bonferroni 95 per cent rectangle for three regular nondegenerate marginal coordinates; its image simultaneously covers both complete coefficient families conditional on the retained factor, QR and sign set. Joint covariance may be singular and no product delta method is used.",
+    "extrema_basis": "Both mappings are affine separately in each primitive coordinate and tan(angle), so extrema over the rectangle and angle closure occur at corners."
+  },
+  "theta_p_all_interior_rotations": 0.03568666437853057,
+  "iut_p_range_on_dense_grid": [
+    0.03568666437853054,
+    0.8856552271111723
+  ],
+  "iut_p_supremum_on_strict_interval": 0.8856562986704916,
+  "iut_rejection_angle_lower_radians_at_5pc": 0.18655004961059102,
+  "zero_information_weight_angle": null,
+  "direct_refit_validation": [
+    {
+      "angle_fraction": 0.01,
+      "max_difference": 4.263256414560601e-14,
+      "differences": {
+        "beta_m": 8.881784197001252e-16,
+        "gamma": 1.7763568394002505e-15,
+        "delta": 2.6645352591003757e-15,
+        "weight": 1.1926223897340549e-18,
+        "theta": 4.263256414560601e-14,
+        "beta_m_se": 1.1102230246251565e-16,
+        "delta_se": 1.3600232051658168e-15,
+        "weight_se": 2.168404344971009e-19,
+        "theta_se": 1.4210854715202004e-14,
+        "delta_product_low": 2.220446049250313e-16,
+        "delta_product_high": 3.3306690738754696e-16
+      },
+      "mixture_identity_error": 2.581268532253489e-15
+    },
+    {
+      "angle_fraction": 0.25,
+      "max_difference": 3.552713678800501e-15,
+      "differences": {
+        "beta_m": 1.9984014443252818e-15,
+        "gamma": 4.440892098500626e-16,
+        "delta": 1.5543122344752192e-15,
+        "weight": 1.3877787807814457e-16,
+        "theta": 3.552713678800501e-15,
+        "beta_m_se": 1.1102230246251565e-16,
+        "delta_se": 2.0539125955565396e-15,
+        "weight_se": 6.938893903907228e-18,
+        "theta_se": 8.881784197001252e-16,
+        "delta_product_low": 1.0130785099704553e-15,
+        "delta_product_high": 2.220446049250313e-15
+      },
+      "mixture_identity_error": 5.551115123125783e-16
+    },
+    {
+      "angle_fraction": 0.5,
+      "max_difference": 9.325873406851315e-15,
+      "differences": {
+        "beta_m": 5.329070518200751e-15,
+        "gamma": 2.220446049250313e-16,
+        "delta": 5.551115123125783e-15,
+        "weight": 5.551115123125783e-17,
+        "theta": 9.325873406851315e-15,
+        "beta_m_se": 6.661338147750939e-16,
+        "delta_se": 9.992007221626409e-16,
+        "weight_se": 0.0,
+        "theta_se": 1.5543122344752192e-15,
+        "delta_product_low": 3.1086244689504383e-15,
+        "delta_product_high": 7.105427357601002e-15
+      },
+      "mixture_identity_error": 1.5543122344752192e-15
+    },
+    {
+      "angle_fraction": 0.75,
+      "max_difference": 6.5780714209040525e-15,
+      "differences": {
+        "beta_m": 5.329070518200751e-15,
+        "gamma": 0.0,
+        "delta": 5.329070518200751e-15,
+        "weight": 4.440892098500626e-16,
+        "theta": 5.329070518200751e-15,
+        "beta_m_se": 1.9984014443252818e-15,
+        "delta_se": 2.220446049250313e-15,
+        "weight_se": 8.326672684688674e-17,
+        "theta_se": 1.1102230246251565e-15,
+        "delta_product_low": 6.5780714209040525e-15,
+        "delta_product_high": 8.881784197001252e-16
+      },
+      "mixture_identity_error": 2.6645352591003757e-15
+    },
+    {
+      "angle_fraction": 0.99,
+      "max_difference": 2.4868995751603507e-14,
+      "differences": {
+        "beta_m": 1.2434497875801753e-14,
+        "gamma": 1.3322676295501878e-15,
+        "delta": 1.0658141036401503e-14,
+        "weight": 3.3306690738754696e-16,
+        "theta": 1.7763568394002505e-14,
+        "beta_m_se": 2.6645352591003757e-15,
+        "delta_se": 2.6645352591003757e-15,
+        "weight_se": 5.898059818321144e-17,
+        "theta_se": 0.0,
+        "delta_product_low": 1.787459069646502e-14,
+        "delta_product_high": 2.4868995751603507e-14
+      },
+      "mixture_identity_error": 7.105427357601002e-15
+    }
+  ],
+  "retained_median_rounding_difference": {
+    "beta_m": -1.9569254661178093e-07,
+    "gamma": -3.4134086668302643e-09,
+    "delta": 1.9227913794495066e-07,
+    "weight": 4.492896776842059e-09,
+    "theta": 4.188283662109882e-07,
+    "beta_m_se": 5.361732546838027e-08,
+    "delta_se": 7.742172647429157e-08
+  },
+  "grid_count": 1001,
+  "limits": [
+    "Sign restrictions are maintained assumptions, not evidence of event-shock exogeneity.",
+    "The interval endpoints are continuous limits for policy/gap contrasts; no singular lower-endpoint two-component regression is fitted.",
+    "The conditional joint envelope projects a three-coordinate regular Wald ellipsoid over every retained-factor rotation, rather than taking a nominal union of unrelated pointwise intervals.",
+    "The joint envelope requires a nondegenerate joint score limit and consistent covariance; it conditions on the supplied policy factor, empirical event QR and estimated admissible angle range.",
+    "The primitive rectangle companion needs regular nondegenerate marginal normal limits for b_rate, b_orthogonal and kappa, but accommodates singular joint covariance and the zero-product problem.",
+    "It does not supply unconditional identification-set confidence coverage accounting for generated factors, QR moments or the estimated sign-set boundary.",
+    "Both full and reduced controls contain both rotated histories, so their column span is invariant for nondegenerate rotations.",
+    "The dense grid is a numerical check; the policy/gap set endpoints and conditional joint envelope extrema follow analytically from affine/norm dependence on tan(angle).",
+    "The continuum keeps unrounded rotated components; separately reproducing the retained median gives the exact provider rounding bridge."
+  ]
+}

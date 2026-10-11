@@ -118,7 +118,9 @@ def draw_figures(rows: list[dict], directory: Path) -> None:
              ha='center',fontsize=8)
     for extension in ['png','svg']:
         destination=directory/f'response_paths.{extension}'
-        fig.savefig(destination,bbox_inches='tight')
+        fig.savefig(destination,bbox_inches='tight',
+                    metadata={'Creator':'Amanjeet Singh',
+                              'Title':'German consumer-goods production responses'})
         if extension=='svg':
             destination.write_text('\n'.join(line.rstrip() for line in destination.read_text().splitlines())+'\n')
     plt.close(fig)
@@ -139,7 +141,9 @@ def draw_figures(rows: list[dict], directory: Path) -> None:
              ha='center',fontsize=8)
     for extension in ['png','svg']:
         destination=directory/f'primary_sensitivity.{extension}'
-        fig.savefig(destination,bbox_inches='tight')
+        fig.savefig(destination,bbox_inches='tight',
+                    metadata={'Creator':'Amanjeet Singh',
+                              'Title':'Information-adjustment gap at twelve months'})
         if extension=='svg':
             destination.write_text('\n'.join(line.rstrip() for line in destination.read_text().splitlines())+'\n')
     plt.close(fig)

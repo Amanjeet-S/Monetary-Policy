@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Work in progress. Cite the repository revision and the original data and methodological sources. Primary conditional projections and declared sensitivities have been estimated and independently checked; the paper remains in preparation."
+message: "Cite the paper for the research analysis and the repository revision for its reproducible code and retained data. Attribute the original data and methodological sources."
 title: "ECB policy and information surprises in German consumer-goods production"
 type: software
 authors:
@@ -13,3 +13,11 @@ keywords:
   - Germany
   - econometrics
   - local projections
+preferred-citation:
+  type: report
+  title: "Policy and information news in German consumer-goods production"
+  authors:
+    - family-names: Singh
+      given-names: Amanjeet
+  date-released: "2026-10-11"
+  url: "https://github.com/Amanjeet-S/Monetary-Policy/blob/main/paper/monetary_policy.pdf"

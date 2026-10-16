@@ -3,14 +3,14 @@
   "date": "2026-10-11",
   "source": "monetary_policy.tex",
   "pdf": "monetary_policy.pdf",
-  "source_sha256": "9eb66a6842bac07a95c1bbd2f91f0da51a2dcbe01d708388da366df59fb9f2e8",
-  "pdf_sha256": "d265c7bd811ada2f8327b417780163e55cd13f686b42c2c9dc33375d61d9ffa4",
-  "pages_including_appendices_and_references": 10,
+  "source_sha256": "2f0cf1d47099e0adf59c89f8d6ea9475ed29d1e6f4507635d01b2b862fae50d7",
+  "pdf_sha256": "73be76ac52679c4e0a7a82fd6c467125b613e842b96c828d08bcfcef40f143e8",
+  "pages_including_appendices_and_references": 11,
   "author": "Amanjeet Singh",
   "title": "Monetary tightening and cumulative household purchases",
   "language": "en-GB",
   "format": "A4, 11-point body text, 10-point references, 25 mm margins",
-  "layout_review": "All ten rendered pages inspected; no clipping, overflow, broken references or orphaned continuation. Two appendices precede the references.",
+  "layout_review": "All eleven rendered pages inspected; no clipping, overflow or broken references. Two appendices precede the references.",
   "compiler": "XeTeX 3.141592653-2.6-0.999994 (TeX Live 2022)",
   "editor_compilation": "Existing standalone source compiled successfully with the desktop document editor",
   "numerical_scope": "Prospective US household-purchase specification, every declared sensitivity, shared window covariance, observed-rate inverse sets and separately recorded exploratory sample comparison",
@@ -19,5 +19,6 @@
   "verification": "https://github.com/Amanjeet-S/Monetary-Policy/actions/workflows/research.yml",
   "scientific_scope": "Conditional policy-intentions responses under the narrative information and dynamic restrictions; the primary durable precision sensitivity remains reported. No causal operating-regime or separately measured household-channel claim.",
   "preserved_earlier_studies": "german-studies-2026-10-11",
-  "last_revised": "2026-10-16"
+  "last_revised": "2026-10-16",
+  "typeface": "Computer Modern text and mathematics; regular-weight title"
 }

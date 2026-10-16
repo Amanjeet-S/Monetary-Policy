@@ -23,13 +23,13 @@
 \interfootnotelinepenalty=10000
 \AtBeginDocument{\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}}
 \AtEndDocument{\clearpage\typeout{Manuscript pages: \number\numexpr\value{page}-1\relax}\ifnum\value{page}>21\relax\PackageError{manuscript}{Twenty-page limit exceeded}{Shorten the manuscript, including appendices and references.}\fi}
-\title{Monetary tightening and\\cumulative household purchases}
+\title{\normalfont\mdseries Monetary tightening and\\cumulative household purchases}
 \author{Amanjeet Singh}
 \date{11 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-I assess whether the first-year reduction in US consumer durable purchases following monetary tightening is offset during the next two years. I combine the original meeting-level narrative policy record with the central bank's pre-decision forecasts and direct monthly purchase volumes. The declared primary estimate is a three-year durable shortfall of 0.142 months of pre-decision purchases per 25-basis-point intended-policy innovation, with approximate 95 per cent bounds of 0.007--0.277 months. Its precision weakens under longer policy histories and leverage adjustment. A prespecified exclusion of reserves-targeting decisions increases the estimated shortfall to 0.340 months; an exploratory joint comparison gives a material sample coefficient difference whose interval excludes zero. Services also exhibit a cumulative contraction across the declared checks. These findings distinguish purchase-rate recovery from recovery of cumulative expenditure. They identify conditional responses to policy intentions under the narrative information assumptions, rather than a permanent rate-path intervention or a separately measured household timing channel.
+I assess whether the first-year reduction in US consumer durable purchases following monetary tightening is offset during the next two years. I combine the original meeting-level narrative policy record with the central bank's pre-decision forecasts and direct monthly purchase volumes. The declared primary estimate is a three-year durable shortfall of 0.142 months of pre-decision purchases per 25-basis-point intended-policy innovation, with approximate 95 per cent bounds of 0.007--0.277 months. Its precision weakens under longer policy histories and leverage adjustment. A prespecified exclusion of reserves-targeting decisions increases the estimated shortfall to 0.340 months; an exploratory joint comparison gives a material sample coefficient difference whose interval excludes zero. Services also exhibit a cumulative contraction across the declared checks. At the point estimates, purchases during the following two years add to the first-year deficit instead of offsetting it. Under the narrative information and dynamic restrictions, I interpret these estimates as responses to policy intentions, rather than a permanent rate-path intervention or a separately measured household timing channel.
 \end{abstract}
 \noindent\textit{Keywords:} monetary policy; durable goods; household expenditure; cumulative responses
 \par\smallskip\noindent\textit{JEL classification:} C22, E21, E52.
@@ -40,11 +40,11 @@ Monetary tightening can postpone a car purchase or the replacement of household 
 
 The answer matters for the interpretation of monetary transmission. Durables supply services after acquisition, allowing households to postpone replacement while continuing to use their existing stock. This adjustment can concentrate an expenditure response in a relatively small part of household spending. Yet monetary policy also changes income, wealth, expected prices and debt service. A durable response is therefore not automatically an isolated intertemporal substitution effect. Comparing durables with nondurables and services helps establish the scope and timing of the response without treating those categories as an additive decomposition of real expenditure.
 
-The declared primary estimate is a three-year durable-purchase response of $-0.142$ months of the pre-decision purchase flow per 25-basis-point upward innovation in intended funds-rate policy. The approximate pointwise 95 per cent interval is $[-0.277,-0.007]$. The estimate is negative in every declared comparison and every single-decision deletion, but its interval includes zero with a longer policy history or leverage-adjusted covariance. The prespecified exclusion of decision origins during the reserves-targeting episode gives $-0.340$ months, with bounds $[-0.548,-0.131]$. An exploratory covariance-aware follow-up gives a difference in the coefficient itself, rather than merely its significance label. Services have a smaller cumulative response that remains negative under the declared multiplicity adjustment and robustness checks.
+The declared primary estimate is a three-year durable-purchase response of $-0.142$ months of the pre-decision purchase flow per 25-basis-point upward innovation in intended funds-rate policy. The approximate pointwise 95 per cent interval is $[-0.277,-0.007]$. The estimate is negative in every declared comparison and every single-decision deletion, but its interval includes zero with a longer policy history or leverage-adjusted covariance. The prespecified exclusion of decision origins during the reserves-targeting episode gives $-0.340$ months, with bounds $[-0.548,-0.131]$. An exploratory joint comparison estimates a subset-minus-primary difference of $-0.197$ months. Services have a smaller cumulative response that remains negative under the declared multiplicity adjustment and robustness checks.
 
 I use the original published narrative record of \citet{RomerRomer2004}, retaining the central bank's forecasts available before each decision. This choice gives the policy measure a documented economic meaning: an innovation in intended funds-rate policy after conditioning on the staff's inflation, growth and unemployment information. It does not equate an observed rate rise with an exogenous tightening. Monthly BEA quantities measure household purchases directly. I estimate their normalised real-flow sums, so the cumulative object does not depend on approximating volume losses by a sum of log impulse responses.
 
-The closest economic comparison is \citet{McKayWieland2021}. Their model and empirical evidence already establish the importance of lumpy adjustment and subsequent durable-demand reversal. Their empirical aggregate includes residential investment, uses an extended quarterly policy series and examines much longer horizons. My contribution is a narrower monthly assessment using the original decision and forecast record, consumer-durables PCE, a fixed three-year window and jointly estimated early, later and category responses. A shortfall at month 36 cannot refute their later reversal mechanism. Neither the cumulative measure nor the partial-regression algebra used here is a theoretical novelty.
+The closest economic comparison is \citet{McKayWieland2021}. Their model and empirical evidence already establish the importance of lumpy adjustment and subsequent durable-demand reversal. Their empirical aggregate includes residential investment, uses an extended quarterly policy series and examines much longer horizons. My contribution is a narrower monthly assessment using the original decision and forecast record, consumer-durables PCE, a fixed three-year window and jointly estimated early, later and category responses. A shortfall at month 36 cannot refute their later reversal mechanism.
 
 The empirical conclusions are conditional on the narrative identification assumptions and the maintained linear response model. I do not infer a household postponement duration, welfare loss or causal effect of changing the monetary operating regime from these aggregate comparisons. Section 2 explains the economic mechanism. Section 3 defines the observations and identification. Sections 4 and 5 assess the findings and robustness; Section 6 concludes. Two short appendices provide the accounting and inference details.
 
@@ -56,7 +56,7 @@ A durable supplies services through its installed stock. For an illustrative hom
 \begin{equation}
  D_t=(1-\delta)D_{t-1}+X_t.\label{eq:stock}
 \end{equation}
-The household can reduce $X_t$ quickly while its service flow adjusts more gradually. This distinction explains why a purchase response may be large relative to the change in contemporaneous services. It does not require treating the observed BEA purchase series as a physical stock.
+The household can reduce $X_t$ quickly while its service flow adjusts more gradually. This distinction explains why a purchase response may be large relative to the change in the service flow from the durable stock. It does not require treating the observed BEA purchase series as a physical stock.
 
 For a frictionless benchmark, a first-order user cost per unit of installed stock is
 \begin{equation}
@@ -108,13 +108,13 @@ Let $z_e$ be the source innovation at decision $e$, divided by 0.25 percentage p
 \end{equation}
 The coefficient is the response per 25 basis points of intended-policy innovation. Local projections provide direct horizon-specific response estimates \citep{Jorda2005}. The common conditioning vector contains all nineteen source-purge columns, preceding-month monthly and annual growth of the three purchase categories and real disposable income, annual PCE inflation, the effective funds-rate level and twelve lags of monthly raw policy intentions. The source forecasts provide the policy-information controls; the additional histories describe expenditure dynamics and past policy.
 
-Including every current source-purge column has a useful consequence. Residualising the generated innovation on $W_e$ gives exactly the same regressor as residualising the raw intended change. The estimated current purge coefficients therefore do not affect the matched projection coefficient or its joint score covariance. Appendix B proves this application of established partial-regression algebra \citep{Ding2021}. It removes a particular generated-coefficient nuisance without adding identification or correcting forecast and narrative measurement errors.
+Including every current source-purge column has a useful consequence. Residualising the generated innovation on $W_e$ gives exactly the same regressor as residualising the raw intended change divided by 0.25 percentage points. The estimated current purge coefficients therefore do not affect the matched projection coefficient or its joint score covariance. Appendix B proves this application of established partial-regression algebra \citep{Ding2021}. It removes a particular generated-coefficient nuisance without adding identification or correcting forecast and narrative measurement errors.
 
 I estimate early, later and total responses jointly through their common regression scores. Same-month decision scores are summed before applying a Bartlett calendar covariance estimator \citep{NeweyWest1987}; actual month distances are retained across gaps in the decision calendar. The declared bandwidth is 41 months: thirty-five months of overlapping purchase flows plus a six-month dependence buffer. The finite correction is $n/(n-k)$. This gives approximate normal inference, not exact finite-sample coverage. Longer histories, alternative bandwidths and leverage adjustment assess its practical sensitivity.
 
 Smooth local projections link horizons through penalised spline coefficients, trading variance against bias and complicating confidence-interval construction \citep{BarnichonBrownlees2019}. I retain the declared separate horizon regressions and their shared covariance for the cumulative purchase measure.
 
-The single primary endpoint, durable $H=36$, receives a two-sided 95 per cent interval. A separate nine-outcome Bonferroni family covers the three windows in each of the three categories. Each category's full profile has its own thirty-six-endpoint family; no common 108-endpoint coverage claim is made. The primary specification, including these rules and the sample, was committed before any US spending fit. The later sample-contrast diagnostics were recorded separately after observing the initial results.
+The single primary endpoint, durable $H=36$, receives a two-sided 95 per cent interval. A separate nine-outcome Bonferroni family covers the three windows in each of the three categories. Each category's cumulative profile has its own thirty-six-endpoint family; no common 108-endpoint coverage claim is made. The primary specification, including these rules and the sample, was committed before any US spending fit. The later sample-contrast diagnostics were recorded separately after observing the initial results.
 
 \section{Cumulative household purchase responses}
 
@@ -159,7 +159,7 @@ Figure~\ref{fig:durables} makes the distinction visible. The full-sample purchas
 \addplot[gray,thin,forget plot] coordinates {(1,0)(36,0)};
 \end{groupplot}
 \end{tikzpicture}
-\caption{Durable purchase flows and their cumulative response. Both panels use a 25-basis-point intended-policy innovation. Shading gives approximate pointwise 95 per cent intervals. The right panel integrates real flows, not log changes; returning to zero in the left panel does not eliminate a cumulative shortfall. Profile-wide bounds are retained separately.}
+\caption{Durable purchase flows and their cumulative response. Both panels use a 25-basis-point intended-policy innovation. Shading gives approximate pointwise 95 per cent intervals. The right panel integrates real flows, not log changes; returning to zero in the left panel does not eliminate a cumulative shortfall. Multiplicity-adjusted bounds for the cumulative profiles are retained separately.}
 \label{fig:durables}
 \end{figure}
 % END US_FIGURE
@@ -223,7 +223,7 @@ Joint Anderson--Rubin-style inversion gives the full-sample durable ratio $-0.20
 
 \subsection{Sensitivity to dynamics and covariance}
 
-Table~\ref{tab:robustness} reports every declared primary check. The durable point response remains negative with six or twenty-four policy lags, different dependence bandwidths, leverage adjustment and inclusion of the partial decision month. Its pointwise interval excludes zero with six lags and both bandwidth changes, but includes zero with twenty-four lags and leverage-adjusted covariance. The larger uncertainty is material: it limits the precision of the pooled three-year durable response and cannot be dismissed as a cosmetic change in standard errors.
+Table~\ref{tab:robustness} reports every declared primary check. The durable point response remains negative with six or twenty-four policy lags, different dependence bandwidths, leverage adjustment and inclusion of the partial decision month. Its pointwise interval excludes zero with six lags and both bandwidth changes, but includes zero with twenty-four lags and leverage-adjusted covariance. The larger uncertainty materially limits the precision of the pooled three-year durable response.
 
 % BEGIN US_ROBUSTNESS
 \begin{table}[htbp]
@@ -258,7 +258,7 @@ The exclusion of October 1979--October 1982 decision origins was specified befor
 
 \citet{Coibion2012} shows that reserves-targeting observations and dynamic lag choices can materially affect narrative monetary estimates. My boundary is a declared diagnostic, not a replication of his later resumption date. Removing decision origins does not isolate conventional-regime transmission.\footnote{Earlier decisions can have thirty-six-month purchase follow-up inside the excluded episode; later decisions can have policy histories reaching back into it. The comparison conditions on the retained decision origins and does not delete all observations associated with that monetary regime.}
 
-After observing the larger secondary estimate, I recorded a bounded follow-up: cross the origin exclusion with leverage adjustment and with twenty-four policy lags, and test its coefficient difference from the retained primary. Both crossed pointwise intervals remain negative. The leverage-adjusted response is $-0.340$, with bounds $[-0.604,-0.076]$; the longer-history response is $-0.311$, with bounds $[-0.576,-0.046]$. Across the three informed diagnostics, the Bonferroni family interval remains negative for leverage adjustment but includes zero for the longer-history check. This follow-up strengthens the secondary evidence without replacing the primary or concealing the weaker family result.
+After observing the larger secondary estimate, I recorded a bounded follow-up: cross the origin exclusion with leverage adjustment and with twenty-four policy lags, and test its coefficient difference from the retained primary. Both crossed pointwise intervals remain negative. The leverage-adjusted response is $-0.340$, with bounds $[-0.604,-0.076]$; the longer-history response is $-0.311$, with bounds $[-0.576,-0.046]$. Across the three informed diagnostics, the Bonferroni family interval remains negative for leverage adjustment but includes zero for the longer-history check.
 
 The subset-minus-primary difference is $-0.197$ months. Its common-calendar covariance includes the overlap between the two estimated samples. The approximate 95 per cent interval is $[-0.340,-0.055]$ and its three-diagnostic family interval is $[-0.372,-0.023]$. The joint interval excludes zero in this informed comparison. The three-statistic adjustment does not correct the earlier data-dependent choice to investigate the difference, so this finding remains exploratory. It does not identify a causal effect of switching monetary regimes: changing the sample also changes policy variance, macroeconomic states, information quality and the weights in the linear projection.
 
@@ -279,7 +279,7 @@ Subtracting the no-shock stock path from equation~\eqref{eq:stock} gives $\Delta
 \begin{equation}
  \sum_{j=1}^{H}\Delta X_j=\Delta D_H-\Delta D_0+\delta\sum_{j=1}^{H}\Delta D_{j-1}.\label{eq:accounting}
 \end{equation}
-For an initially unaffected stock, the cumulative purchase deviation equals its endpoint deviation plus depreciation on the intervening stock deviations. An endpoint purchase response of zero imposes no restriction on this sum. An endpoint stock deviation of zero also need not make it zero. This is a standard accounting result for the illustrative stock law, not a claim of theoretical novelty or a literal reconstruction of the BEA stock.
+For an initially unaffected stock, the cumulative purchase deviation equals its endpoint deviation plus depreciation on the intervening stock deviations. An endpoint purchase response of zero imposes no restriction on this sum. An endpoint stock deviation of zero also need not make it zero. This standard accounting identity describes the illustrative homogeneous durable stock; the BEA series instead measures aggregate purchase flows.
 
 Let $A_i$ be category $i$'s reference-year annual nominal expenditure. Its monthly real flow is $F^i_s=(A_i/12)Q^i_s/100$. Therefore $F^i_s/F^i_{t-1}=Q^i_s/Q^i_{t-1}$ exactly. The dollar anchor and annual-rate factor cancel. Summing within a category gives a real-flow ratio over time; summing unrelated chained category levels would not create a valid total quantity. Equation~\eqref{eq:outcome} estimates the former.
 
@@ -293,7 +293,7 @@ Let $T$ contain raw intended changes, $F$ the complete source-purge design and $
  M_Wz=M_WT/0.25,\qquad
  \widehat\beta_H=\frac{z'M_WY_H}{z'M_Wz}.\label{eq:fwl}
 \end{equation}
-Changing $\widehat\eta$ cannot change the residualised regressor. The two augmented designs have the same column span, fitted values, residuals, leverage and coefficient loadings for the policy response. Their joint score covariance is consequently identical when rows, finite corrections and kernels are held fixed. This established projection result \citep{Ding2021} does not remove errors in $T$ or $F$, omitted information or instability in the response model.
+Changing $\widehat\eta$ cannot change the residualised regressor. The augmented designs $[z,W]$ and $[T/0.25,W]$ have the same column span, fitted values, residuals, leverage and coefficient loadings for the policy response. Their joint score covariance is consequently identical when rows, finite corrections and kernels are held fixed. This established projection result \citep{Ding2021} does not remove errors in $T$ or $F$, omitted information or instability in the response model.
 
 For $X=[z,W]$, let $\ell_e$ be event $e$'s loading for the first coefficient in $(X'X)^{-1}X'$ and $\widehat u_e$ the vector of outcome residuals. The event score is $s_e=\ell_e\widehat u_e$. Sum these within calendar month $m$, giving $g_m=\sum_{e:t(e)=m}s_e$, and embed zero scores in genuine months without selected decisions. Then
 \begin{equation}
@@ -322,6 +322,9 @@ I solve the quadratic without imposing boundedness. The inverse set can be bound
 \bibitem[Barnichon and Brownlees(2019)]{BarnichonBrownlees2019}
 Barnichon, R. and Brownlees, C. (2019). Impulse response estimation by smooth local projections. \emph{The Review of Economics and Statistics}, 101(3), 522--530. \href{https://doi.org/10.1162/rest_a_00778}{doi:10.1162/rest\_a\_00778}.
 
+\bibitem[Federal Reserve Board(1973)]{FRB1973}
+Board of Governors of the Federal Reserve System (1973). Money market rates, footnote 3. \emph{Federal Reserve Bulletin}, September, p. A33. \href{https://fraser.stlouisfed.org/title/federal-reserve-bulletin-62/september-1973-21466/fulltext}{Historical release}.
+
 \bibitem[BEA(2024)]{BEA2024}
 Bureau of Economic Analysis (2024). Personal consumption expenditures. \emph{NIPA Handbook}, chapter 5, December, pp. 5-2--5-6. \href{https://www.bea.gov/resources/methodologies/nipa-handbook/pdf/chapter-05.pdf}{BEA methodology}.
 
@@ -333,9 +336,6 @@ Coibion, O. (2012). Are the effects of monetary policy shocks big or small? \emp
 
 \bibitem[Ding(2021)]{Ding2021}
 Ding, P. (2021). The Frisch--Waugh--Lovell theorem for standard errors. \emph{Statistics \& Probability Letters}, 168, 108945. \href{https://doi.org/10.1016/j.spl.2020.108945}{doi:10.1016/j.spl.2020.108945}.
-
-\bibitem[Federal Reserve Board(1973)]{FRB1973}
-Board of Governors of the Federal Reserve System (1973). Money market rates, footnote 3. \emph{Federal Reserve Bulletin}, September, p. A33. \href{https://fraser.stlouisfed.org/title/federal-reserve-bulletin-62/september-1973-21466/fulltext}{Historical release}.
 
 \bibitem[Jord\`a(2005)]{Jorda2005}
 Jord\`a, \`O. (2005). Estimation and inference of impulse responses by local projections. \emph{American Economic Review}, 95(1), 161--182. \href{https://doi.org/10.1257/0002828053828518}{doi:10.1257/0002828053828518}.
